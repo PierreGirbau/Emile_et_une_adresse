@@ -1,0 +1,15 @@
+.btn-emile {
+  color: white;
+  // border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 30px;
+  // font-weight: lighter;
+  opacity: 1;
+  background-color: $pink;
+}
+.btn-emile:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: white;
+  background-color: $pink;
+}
