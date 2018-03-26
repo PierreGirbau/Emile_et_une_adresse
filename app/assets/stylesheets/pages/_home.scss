@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+.wrapper {
+  background: linear-gradient(to right, #363E8D, #0575E6);
+  min-height: 90vh;
+}
+
+.form-post {
+  margin-top: 50px;
+  padding: 60px;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+#banner-typed-text {
+  text-align: center;
+  color: white;
+}
