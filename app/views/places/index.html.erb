@@ -1,8 +1,9 @@
-<br>
-<% @places.each do|place| %>
-  <ul>
-    <li><%= place.name %></li>
-    <li><%= place.address %></li>
-    <li><%= place.type_of_place %></li>
-  </ul>
-<% end %>
+<div class="wrapper">
+  <% @places.each do|place| %>
+    <ul>
+      <li><%= place.name %></li>
+      <li><%= place.address %></li>
+      <li><%= place.type_of_place %></li>
+    </ul>
+  <% end %>
+</div>
