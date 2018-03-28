@@ -1,0 +1,9 @@
+<h1>Les Endroits:</h1>
+
+<% @places.each do|place| %>
+  <ul>
+    <li><%= place.name %></li>
+    <li><%= place.address %></li>
+    <li><%= place.type_of_place %></li>
+  </ul>
+<% end %>
