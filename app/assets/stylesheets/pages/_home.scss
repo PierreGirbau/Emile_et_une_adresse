@@ -61,3 +61,25 @@ h3 {
   margin-top: 45px;
   margin-bottom: 0px;
 }
+
+
+// modal
+
+.modal-content {
+  margin-top: 160px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 40px;
+  text-align: center;
+  color: $blue;
+  border-radius: 30px;
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 18px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+}
