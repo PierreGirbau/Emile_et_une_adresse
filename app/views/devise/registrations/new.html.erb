@@ -1,17 +1,31 @@
-<h2>Sign up</h2>
+<div class="wrapper">
+  <div class="container">
+  <h1>ÉMILE ET UNE ADRESSE</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <h2>Croquez Paris !</h2>
+        <div class="form-post">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs ">
+              <%= f.input :first_name, label: false, required: true, autofocus: true, placeholder: 'Prénom' %>
+              <%= f.input :birth_date, label: false, required: true, autofocus: true, placeholder: 'Date de naissance' %>
+              <%= f.input :email, label: false, required: true, autofocus: true, placeholder: 'Adresse email' %>
+              <%= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
+              <%= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
+            </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+            <div class="form-actions">
+              <%= f.button :submit, "S'inscrire", class: "btn btn-emile" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h2>Paris</h2>
+      <h3>Saison 1 : Les beaux jours à Paname</h3>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
