@@ -3,10 +3,27 @@
   background: linear-gradient(to right, #363E8D, #0575E6);
   min-height: 90vh;
 }
-
+.container h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+}
+h2,h3 {
+  color: white;
+  font-weight: lighter;
+  text-align: center;
+}
+h2 {
+  font-size: 14px;
+  margin-top: -10px;
+}
+h3 {
+  font-size: 16px;
+  margin-top: 5px;
+}
 .form-post {
-  margin-top: 50px;
-  padding: 60px;
+  padding: 30px 60px 10px 60px;
   border-radius: 5px;
   h1 {
     text-align: center;
@@ -22,8 +39,25 @@
     font-weight: bold;
   }
 }
-
-#banner-typed-text {
+.form-inputs input {
+  border-radius: 30px;
+  text-align: center;
+}
+.links {
+  text-align: center;
+  a {
+    color: white;
+    font-size: 12px;
+    font-weight: lighter;
+  }
+}
+.type-text {
+  margin-top: 5px;
   text-align: center;
   color: white;
+}
+.footer h2 {
+  font-size: 25px;
+  margin-top: 45px;
+  margin-bottom: 0px;
 }
