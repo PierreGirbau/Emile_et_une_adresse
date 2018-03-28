@@ -1,0 +1,41 @@
+<div class="navbar-emile">
+  <!-- Logo -->
+  <!-- Right Navigation -->
+  <div class="big-title hidden-xs hidden-sm">
+    <h1>Les bonnes adresses de Paris</h1>
+  </div>
+  <div class="navbar-emile-right hidden-xs hidden-sm">
+
+    <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "Explorer", "#", class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Partager", "#", class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Mes adresses", "#", class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-emile-item navbar-emile-link" %>
+    <% end %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-emile-item hidden-md hidden-lg">
+    <div class="elements">
+      <div>
+        <h1>Les bonnes adresses de Paris</h1>
+      </div>
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-emile-dropdown-menu">
+          <li><a href="#">Explorer</a></li>
+          <li><a href="#">Partager</a></li>
+          <li><a href="#">Mes adresses</a></li>
+          <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
