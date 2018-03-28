@@ -1,3 +1,13 @@
 <div class="wrapper">
-</div>
+  <button type="button" class="btn btn-emile" data-toggle="modal" data-target=".bs-example-modal-lg">S'inscrire</button>
 
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <h1>Bienvenue dans le monde d'Emile!</h1>
+        <p>Partagez votre bonne adresse à Paris, Émile vous la rendra puissance 1000 !</p>
+        <%= link_to "J'en suis Emile", root_path, class: "btn btn-emile"  %>
+      </div>
+    </div>
+  </div>
+</div>
