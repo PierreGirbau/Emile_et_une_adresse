@@ -13,7 +13,7 @@
       <%= link_to "Explorer", "#", class: "navbar-emile-item navbar-emile-link" %>
       <%= link_to "Partager", "#", class: "navbar-emile-item navbar-emile-link" %>
       <%= link_to "Mes adresses", "#", class: "navbar-emile-item navbar-emile-link" %>
-
+      <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %>
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-emile-item navbar-emile-link" %>
@@ -28,8 +28,10 @@
         <li><a href="#">Explorer</a></li>
         <li><a href="#">Partager</a></li>
         <li><a href="#">Mes adresses</a></li>
+        <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %></li>
       </ul>
     </div>
   </div>
+
 </div>
 

@@ -10,6 +10,11 @@
   justify-content: space-between;
 }
 
+.big-title {
+  color: white;
+  padding-left: 30vw;
+}
+
 .fa {
   color: white;
 }
@@ -21,15 +26,27 @@
 .navbar-emile-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* Basic navbar item */
 .navbar-emile-item {
   cursor: pointer;
   padding: 0 20px;
+  h1 {
+    font-size: 18px;
+    color: white;
+    margin-right: 20px;
+    width: 250px;
+    padding-bottom: 15px;
+  }
 }
 
+.elements {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 /* Navbar link */
 .navbar-emile-link {
   color: white;
