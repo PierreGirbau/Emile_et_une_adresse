@@ -13,3 +13,6 @@ loadDynamicBannerText();
 import '../plugins/flatpickr';
 
 require("node_modules/flatpickr/src/style/themes/dark.styl");
+
+import { colorCheckbox } from '../components/checkbox';
+colorCheckbox();

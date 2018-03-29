@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:create, :new]
+
   def index
     @places = Place.all
   end
@@ -13,6 +14,7 @@ class PlacesController < ApplicationController
     @place = Place.new(strong_params)
     @place.save
     redirect_to places_path
+    @categories = Category.all
   end
 
   def new
