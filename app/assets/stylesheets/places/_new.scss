@@ -1,3 +1,33 @@
-.label {
+.control-label {
   color: white;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+abbr[title], abbr[data-original-title] {
+  display: none;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  width: 0px;
+}
+
+.radio label {
+  padding: 6px 12px;
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  color: white;
+}
+
+// Javascript on click
+
+.checkbox-clicked {
+  background-color: white;
+  color: $blue !important;
 }
