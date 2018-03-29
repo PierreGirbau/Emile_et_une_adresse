@@ -6,7 +6,13 @@
           <%= simple_form_for @place do |f| %>
             <div class="form-inputs ">
               <%= f.input :name, label: false, placeholder: 'Nom ou adresse de l\'établissement' %>
-              <%= f.input :type_of_place, label: "Je recommande cet établissement pour", placeholder: 'No special characters.' %>
+              <%= f.input :type_of_place, as: :radio_buttons,
+                  collection: Category.all, label: "Je recommande cet établissement pour :",
+                    wrapper: :vertical_radio_and_checkboxes, class: "form-control" %>
+              <%= f.association :details, as: :radio_buttons,
+                  collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
+                    wrapper: :vertical_radio_and_checkboxes, class: "form-control" %>
+              <%= f.association :details,  placeholder: 'J\'en ai en moyenne pour :' %>
               <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
             </div>
 

@@ -11,6 +11,7 @@ puts 'Cleaning database...'
 Place.destroy_all
 Detail.destroy_all
 User.destroy_all
+Category.destroy_all
 
 
 puts 'Creating users...'
@@ -57,5 +58,20 @@ detail_2 = Detail.create!(
   place: mama_roma
   )
 
-sleep(3)
+
+puts 'Creating categories'
+
+category_1 = Category.create!(
+  name: "Un bon verre",
+)
+
+category_2 = Category.create!(
+  name: "Une bonne table",
+)
+
+category_3 = Category.create!(
+  name: "Du bon son",
+)
+
+sleep(2)
 puts 'Done'

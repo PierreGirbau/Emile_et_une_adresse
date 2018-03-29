@@ -9,3 +9,6 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+import { colorCheckbox } from '../components/checkbox';
+colorCheckbox();
