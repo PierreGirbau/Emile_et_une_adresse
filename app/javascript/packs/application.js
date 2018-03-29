@@ -9,3 +9,7 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+import '../plugins/flatpickr';
+
+require("node_modules/flatpickr/src/style/themes/dark.styl");
