@@ -19,3 +19,9 @@
     vertical-align: middle;
   }
 }
+.input[readonly] {
+  color: #f4f4f4;
+}
+.flatpickr-calendar {
+  right: 35px !important;
+}
