@@ -7,19 +7,14 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= stylesheet_pack_tag 'application' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%#= stylesheet_pack_tag 'application' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <% if controller_name == 'pages'%>
-      <%= render 'shared/navbar_home' %>
-    <% elsif @places.nil? %>
-      <%= render 'shared/navbar_with_return' %>
-    <% else %>
-      <%= render 'shared/navbar_without_return' %>
-    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBmgKsGa8yoZsL1oXGT1DtiZW_yqHMzaRs&libraries=places" %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application'   %>
+    <%= javascript_pack_tag 'map' %>
   </body>
 </html>

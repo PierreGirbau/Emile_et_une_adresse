@@ -1,3 +1,4 @@
+<%= render 'shared/navbar_with_return' %>
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -13,7 +14,7 @@
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
                     wrapper: :vertical_radio_and_checkboxes, class: "form-control" %>
               <%= f.association :details,  placeholder: 'J\'en ai en moyenne pour :' %>
-              <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
+              <%= f.button :submit, "Je partage", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
             </div>
 
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">

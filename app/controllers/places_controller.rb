@@ -14,7 +14,6 @@ class PlacesController < ApplicationController
     @place = Place.new(strong_params)
     @place.save
     redirect_to places_path
-    @categories = Category.all
   end
 
   def new
