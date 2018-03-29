@@ -3,7 +3,9 @@
   <h1>ÉMILE ET UNE ADRESSE</h1>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h2>Croquez Paris !</h2>
+        <div class="baseline">
+          <h2>Croquez Paris !</h2>
+        </div>
         <div class="form-post">
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
@@ -36,7 +38,7 @@
       <h2>Paris</h2>
       <h3>Saison 1 : Les beaux jours à Paname</h3>
     </div>
-    <%= link_to "Crée ton adresse", new_place_path, class: "btn btn-emile"  %>
+    <%#= link_to "Crée ton adresse", new_place_path, class: "btn btn-emile"  %>
   </div>
 </div>
 
