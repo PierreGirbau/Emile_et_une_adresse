@@ -8,9 +8,20 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
-
-import '../plugins/flatpickr';
-
+import { flatpickrr } from '../plugins/flatpickr';
 import { colorCheckbox } from '../components/checkbox';
-colorCheckbox();
+import { modalShow } from '../components/modal';
+import 'bootstrap';
+
+if ( document.getElementById('banner-typed-text') ) {
+  loadDynamicBannerText();
+};
+
+if ( document.querySelector('.datepicker') ) {
+ flatpickrr();
+};
+
+if ( document.getElementById('modal-id') ) {
+ modalShow();
+};
+

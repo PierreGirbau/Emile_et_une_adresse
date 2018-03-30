@@ -1,4 +1,9 @@
 import { autocomplete } from '../components/autocomplete';
 
 // [...]
-autocomplete();
+
+if ( document.getElementById('place_name') ) {
+  autocomplete();
+};
+
+

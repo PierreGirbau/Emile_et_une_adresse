@@ -1,7 +1,6 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var placeAddress = document.getElementById('place_name');
-    console.log(placeAddress)
     var options = {
       types: ['geocode'],
         componentRestrictions: {country: ['fr']}
