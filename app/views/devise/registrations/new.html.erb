@@ -1,6 +1,6 @@
 <%= render 'shared/navbar_home' %>
 <div class="wrapper">
-  <div class="container">
+  <div class="container home">
   <h1>ÉMILE ET UNE ADRESSE</h1>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -19,17 +19,7 @@
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "S'inscrire", class: "btn btn-emile", data: {target: ".bs-example-modal-lg", toggle: "modal"} %>
-            </div>
-
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <h1>Bienvenue dans le monde d'Emile!</h1>
-                  <p>Partagez votre bonne adresse à Paris, Émile vous la rendra puissance 1000 !</p>
-                  <%= link_to "J'en suis Emile", root_path, class: "btn btn-emile"  %>
-                </div>
-              </div>
+              <%= f.button :submit, "S'inscrire", class: "btn btn-emile" %>
             </div>
           <% end %>
         </div>
