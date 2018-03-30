@@ -21,6 +21,11 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
