@@ -7,12 +7,10 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-// import { loadDynamicBannerText } from '../components/banner';
-// loadDynamicBannerText();
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();
 
 import '../plugins/flatpickr';
-
-require("node_modules/flatpickr/src/style/themes/dark.styl");
 
 import { colorCheckbox } from '../components/checkbox';
 colorCheckbox();
