@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def static
+    # Static view does not have any code)
+  end
 end
