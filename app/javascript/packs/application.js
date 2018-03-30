@@ -25,3 +25,6 @@ if ( document.getElementById('modal-id') ) {
  modalShow();
 };
 
+
+ colorCheckbox();
+

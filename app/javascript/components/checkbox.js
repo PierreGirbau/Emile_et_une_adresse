@@ -1,12 +1,12 @@
 function colorCheckbox () {
-  const checkbox_1 = document.querySelector('label[for="place_type_of_place_1"');
-  const checkbox_2 = document.querySelector('label[for="place_type_of_place_2"');
-    checkbox_1.addEventListener('click', (event) => {
-      event.currentTarget.classList.add("checkbox-clicked");
+  const checkboxes = document.querySelectorAll('.radio > label');
+  for (var i = 0; i < checkboxes.length - 1; i++) {
+    checkboxes[i].addEventListener("click", function() {
+      var current = document.querySelector(".active");
+      console.log(current)
+      current.className = current.className.replace(" active", "");
     });
-    checkbox_2.addEventListener('click', (event) => {
-      event.currentTarget.classList.add("checkbox-clicked");
-    });
+  }
 }
 
 export { colorCheckbox };
