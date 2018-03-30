@@ -23,11 +23,15 @@ abbr[title], abbr[data-original-title] {
   font-size: 16px;
   border: 1px solid #ccc;
   color: white;
+  &:hover {
+    background-color: white;
+    color: $blue !important;
+  }
 }
 
 // Javascript on click
 
-.checkbox-clicked {
+.active {
   background-color: white;
   color: $blue !important;
 }
