@@ -21,19 +21,19 @@ abbr[title], abbr[data-original-title] {
   border-radius: 30px;
   text-align: center;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid $pink;
   color: white;
   &:hover {
-    background-color: white;
-    color: $blue !important;
+    background-color: $pink;
+    color: white !important;
   }
 }
 
 // Javascript on click
 
 .active {
-  background-color: white;
-  color: $blue !important;
+  background-color: $pink;
+  color: white !important;
 }
 
 .home {
