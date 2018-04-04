@@ -7,9 +7,11 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
   resources :places do
-    resources :details, only: [:new]
+    resources :details, only: [:new, :create]
     resources :users, only: [:show]
   end
+
+  resources :details, only: [:index]
 
 
   get '/static' => 'pages#static'
