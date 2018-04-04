@@ -9,7 +9,8 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
-import { colorCheckbox } from '../components/checkbox';
+import { colorCheckbox1 } from '../components/checkbox';
+import { colorCheckbox2 } from '../components/checkbox';
 import { modalShow } from '../components/modal';
 import 'bootstrap';
 
@@ -26,5 +27,6 @@ if ( document.getElementById('modal-id') ) {
 };
 
 
- colorCheckbox();
+ colorCheckbox1();
+ colorCheckbox2();
 

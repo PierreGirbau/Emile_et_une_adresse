@@ -1,9 +1,13 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var placeAddress = document.getElementById('place_name');
+    console.log(placeAddress)
+    var parisPosition = new google.maps.LatLngBounds(
+      new google.maps.LatLng(48.8566667, 2.3509871));
     var options = {
-      types: ['geocode'],
-        componentRestrictions: {country: ['fr']}
+      bounds: parisPosition,
+      types: ['establishment'],
+      componentRestrictions: {country: ['fr']}
       };
     if (placeAddress) {
       var autocomplete = new google.maps.places.Autocomplete(placeAddress, options);
