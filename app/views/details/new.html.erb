@@ -6,7 +6,7 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
         <div class="form-post">
-          <%= simple_form_for [@place, @detail] do |f| %>
+          <%= simple_form_for @detail do |f| %>
             <div class="form-inputs ">
               <%= f.input :price, label: false, placeholder: 'Quel est votre panier moyen?' %>
               <%= f.input :comment, label: false, placeholder: 'Merci de laisser une petite recommandation' %>

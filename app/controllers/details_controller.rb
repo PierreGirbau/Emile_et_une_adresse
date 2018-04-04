@@ -6,6 +6,7 @@ class DetailsController < ApplicationController
     @detail.place = @place
     @detail.user = current_user
     @detail.save
+    raise
     redirect_to static_path
   end
 

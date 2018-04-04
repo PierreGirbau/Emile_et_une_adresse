@@ -23,7 +23,6 @@ class PlacesController < ApplicationController
   def destroy
     @place.destroy
     redirect_to places_path
-
   end
 
   def method_name
@@ -33,7 +32,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:address, :type_of_place)
+    params.require(:place).permit(:place_id, :address, :type_of_place)
   end
 
   def set_place
