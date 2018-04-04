@@ -11,9 +11,9 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.new(strong_params)
+    @place = Place.new(place_params)
     @place.save
-    redirect_to places_path
+    redirect_to new_place_detail_path(@place)
   end
 
   def new
@@ -21,6 +21,8 @@ class PlacesController < ApplicationController
   end
 
   def destroy
+    @place.destroy
+    redirect_to places_path
 
   end
 
@@ -30,11 +32,11 @@ class PlacesController < ApplicationController
 
   private
 
-  def strong_params
-    params.require(:place).permit(:name, :address, :type_of_place)
+  def place_params
+    params.require(:place).permit(:address, :type_of_place)
   end
 
   def set_place
-    @place = Place.find(strong_params)
+    @place = Place.find(place_params)
   end
 end
