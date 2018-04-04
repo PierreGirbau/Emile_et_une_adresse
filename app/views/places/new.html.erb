@@ -18,7 +18,7 @@
         <div class="form-post">
           <%= simple_form_for @place do |f| %>
             <div class="form-inputs ">
-              <%= f.input :name, label: false, placeholder: 'Nom ou adresse de l\'établissement' %>
+              <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement', id: "place_name" %>
               <%= f.input :type_of_place, as: :radio_buttons,
                   collection: Category.all, label: "Je recommande cet établissement pour :",
                     wrapper: :vertical_radio_and_checkboxes %>
