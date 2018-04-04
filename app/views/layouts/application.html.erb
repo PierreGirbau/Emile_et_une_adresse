@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+
+    <!-- FiveIcon -->
+    <%= favicon_link_tag '' %>
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Emile et une adresse" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emileetuneadresse.herokuapp.com/" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Croquez Paris" />
+    <meta property="og:site_name" content="Emile et une adresse : trouvez un bar cool près de chez vous" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@emile_et_une_adresse">
+    <meta name="twitter:title" content="Emile et une adresse">
+    <meta name="twitter:description" content="Croquez Paris">
+    <meta name="twitter:creator" content="@emile_et_une_adresse">
+    <meta name="twitter:image:src" content="">
+
+    <title>Emile et une adresse</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,7 +32,7 @@
   <body>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBmgKsGa8yoZsL1oXGT1DtiZW_yqHMzaRs&libraries=places" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_include_tag "https://code.jquery.com/jquery-3.3.1.min.js" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
