@@ -12,9 +12,14 @@
 
 .big-title {
   color: white;
-  padding-left: 10vw;
+  margin: auto;
 }
-
+@media (max-width: 500px) {
+  .big-title h1 {
+    font-size: 18px;
+    margin: auto;
+  }
+}
 .fa {
   color: white;
 }
