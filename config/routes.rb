@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
   end
-  resources :places
+  resources :places do
+    resources :details, only: [:new]
+    resources :users, only: [:show]
+  end
+
 
   get '/static' => 'pages#static'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

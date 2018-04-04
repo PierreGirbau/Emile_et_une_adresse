@@ -25,8 +25,7 @@
               <%= f.association :details, as: :radio_buttons,
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
                     wrapper: :vertical_radio_and_checkboxes %>
-              <%= f.association :details,  placeholder: 'J\'en ai en moyenne pour :' %>
-              <%= f.button :submit, "Je partage", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
+              <%= f.button :submit, "Continuer", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
             </div>
 
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">

@@ -1,6 +1,8 @@
+
 function colorCheckbox () {
   const checkboxes = document.querySelectorAll('.radio > label');
-  for (var i = 0; i < checkboxes.length - 1; i++) {
+  for (var i = 0; i < checkboxes.length - 2; i++) {
+    console.log(checkboxes[i])
     checkboxes[i].addEventListener("click", function() {
       var current = document.querySelector(".active");
       console.log(current)
