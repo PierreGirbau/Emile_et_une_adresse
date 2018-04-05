@@ -8,6 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .fa {
+    color: white;
+  }
 }
 
 .big-title {
@@ -19,9 +22,6 @@
     font-size: 18px;
     margin: auto;
   }
-}
-.fa {
-  color: white;
 }
 
 .return {
