@@ -14,6 +14,12 @@ abbr[title], abbr[data-original-title] {
   width: 0px;
 }
 
+.form-control.text.optional {
+  font-size: 16px;
+  border-radius: 5px;
+  height: 110px;
+}
+
 .radio label {
   padding: 6px 12px;
   width: 100%;
