@@ -12,8 +12,11 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.save
-    redirect_to new_place_detail_path(@place)
+    if @place.save
+      redirect_to new_place_detail_path(@place)
+    else
+      render :new
+    end
   end
 
   def new

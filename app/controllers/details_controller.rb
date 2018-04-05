@@ -1,26 +1,24 @@
 class DetailsController < ApplicationController
-  before_action :set_place
 
   def create
     @detail = Detail.new(detail_params)
-    @detail.place = @place
+    @detail.place = Place.find(params[:place_id])
     @detail.user = current_user
-    @detail.save
-    raise
-    redirect_to static_path
+    if @detail.save
+      redirect_to static_path
+    else
+      render :new
+    end
   end
 
   def new
+    @place = Place.find(params[:place_id])
     @detail = Detail.new
   end
 
   private
 
-  def set_place
-    @place = Place.find(params[:place_id])
-  end
-
   def detail_params
-    params.require(:detail).permit(:content, :price)
+    params.require(:detail).permit(:season, :comment, :price)
   end
 end
