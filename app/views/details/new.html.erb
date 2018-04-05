@@ -10,7 +10,7 @@
             <div class="form-inputs ">
               <%= f.input :season, as: :radio_buttons,
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
-                    wrapper: :vertical_radio_and_checkboxes %>
+                    wrapper: :vertical_radio_and_checkboxes, class: "season" %>
               <%= f.input :price, label: false, placeholder: 'Quel est votre panier moyen?' %>
               <%= f.input :comment, label: false, placeholder: 'Merci de laisser une petite recommandation' %>
               <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
