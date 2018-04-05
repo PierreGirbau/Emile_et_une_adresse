@@ -11,7 +11,7 @@
               placeholder: "Quel arrondissement? 75002? 75003?..."
             %>
         </div>
-        <div class="search-button">
+        <div>
           <%= submit_tag "Go Emile!", class: "btn btn-emile" %>
         </div>
           <% end %>
@@ -44,10 +44,12 @@
             </div>
           <% end %>
         </div>
-      <% end %>
+        <% end %>
       <% if @places.count == 0 %>
         <div class="few-results">
-          <p>Désolé, nous n'avons trouvé aucun résultat, réessayez...</p>
+          <p>Vous ne trouvez pas votre bonheur ?!...</p>
+          <br>
+          <p>Tranquille Emile, de nouvelles adresses arrivent bientôt à Paris...</p>
         </div>
       <% elsif @places.count < 3 %>
         <div class="few-results">

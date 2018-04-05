@@ -1,8 +1,31 @@
 <%= render 'shared/navbar_show' %>
-<div class="wrapper">
+<div class="show">
   <div class="photo">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
   </div>
-  <%= @place.name %>
-</div>
+
+  <div class="big-infos">
+    <%= @place.name %>
+    <i class="fa fas fa-heart"></i>
+  </div>
+  <div class="show-content">
+    <p>Bar à cocktail</p>
+    <p>Fermé</p>
+    <p>Temps d'attente</p>
+  </div>
+  <div class="big-infos">
+    <%= @place.name %>
+    <button class="btn">Site Web</button>
+  </div>
+  <p style="padding-left: 20px;">Les recos qui vont bien :</p>
+  <% @place.details.each do |detail| %>
+    <div class="comment-box">
+      <%= detail.comment %> -
+      <%= detail.user.first_name %>
+    </div>
+  <% end %>
+  <div class="other-infos">
+    <%= link_to "Y aller", places_path, class: "btn btn-emile"  %>
+    <%= link_to "Enregistrer", places_path, class: "btn btn-emile"  %>
+  </div>
 

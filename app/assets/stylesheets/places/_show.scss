@@ -3,3 +3,35 @@
   background-position: center;
   height: 350px;
 }
+
+.show {
+  color: $blue;
+}
+
+.big-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  .fa {
+    color: $pink !important;
+  }
+}
+
+.other-infos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.show-content {
+  padding: 20px;
+}
+
+.comment-box {
+  border: 1px solid $blue;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+}
