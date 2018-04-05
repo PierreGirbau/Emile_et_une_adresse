@@ -1,3 +1,7 @@
+.date .control-label {
+  margin-top: 0px;
+}
+
 #user_birth_date_1i, #user_birth_date_2i {
   width: 80px;
 }
@@ -15,15 +19,16 @@
 @media (min-width: 50px) {
   .form-inline .form-control {
     display: inline-block;
-    width: 75px;
     vertical-align: middle;
+  }
+}
+@media (min-width: 500px) {
+  #user_birth_date_3i {
+    margin-left: 50px;
   }
 }
 .input[readonly] {
   color: #f4f4f4;
-}
-.flatpickr-calendar {
-  right: 35px !important;
 }
 .baseline h2 {
   font-size: 20px;

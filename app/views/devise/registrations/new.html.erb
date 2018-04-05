@@ -12,7 +12,8 @@
             <%= f.error_notification %>
             <div class="form-inputs ">
               <%= f.input :first_name, label: false, required: true, autofocus: true, placeholder: 'Prénom' %>
-              <%= f.input :birth_date, placeholder: "Date de naissance", as: :string, label: false, required: true, input_html: {class: "datepicker"} %>
+              <%= f.input :birth_date, as: :date, start_year: Date.today.year - 118, end_year:Date.today.year - 1,
+                           order: [:day, :month, :year], label: "Date de naissance", required: true, class: "date"%>
               <%= f.input :email, label: false, required: true, autofocus: true, placeholder: 'Adresse email' %>
               <%= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
               <%= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
