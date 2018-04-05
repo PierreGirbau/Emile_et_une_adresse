@@ -20,10 +20,8 @@ gem 'jquery-rails'
 gem 'pg_search'
 
 group :development do
+  gem 'rails_real_favicon'
   gem 'web-console', '>= 3.3.0'
-end
-
-group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end

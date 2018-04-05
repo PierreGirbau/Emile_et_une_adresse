@@ -19,19 +19,19 @@ function autocomplete() {
       autocomplete.addListener('place_changed', function() {
         var place = autocomplete.getPlace();
         console.log(place)
+        console.log(place["photos"])
         var google_place_id;
         var place_name;
         var place_address;
 
-
-        var google_place_id = place["google_place_id"];
+        var google_place_id = place["place_id"];
         var place_name = place["name"];
         var place_address = place["address_components"][6]["long_name"]
 
         // pour le post, permet de remplir les clés place_id, name et addresse de la place
         document.getElementById('place_google_place_id').value = google_place_id;
         document.getElementById('place_address').value = place_address;
-        document.getElementById('place_name').value = place_name
+        document.getElementById('place_name').value = place_name;
       });
     }
   });
