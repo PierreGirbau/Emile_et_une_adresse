@@ -1,12 +1,13 @@
-<div class="wrapper static">
-  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<%= render 'shared/navbar_home' %>
+<div class="wrapper">
+  <div class="modal fade" id= "modal-id" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <h1>Merci Émile !</h1>
-        <p>La communauté s’agrandit, à 1000 adresses, Émile envoie la sauce 🚀</p>
+      <div class="modal-content" id="modal-content">
+        <h1>Bienvenue dans le monde d'Emile!</h1>
+        <p>Encore un peu de patience, l'application sera bientôt ouverte à tous... Nous vous tiendrons informé par email!</p>
       </div>
     </div>
   </div>
 </div>
 
-<%= link_to "Profil user", place_user, class: "btn btn-emile"  %>
+<%#= link_to "Profil user", place_user_path(@place), class: "btn btn-emile"  %>
