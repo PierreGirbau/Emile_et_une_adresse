@@ -2,6 +2,20 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
+      <div class="search-field">
+        <div class="search-bar">
+          <%= form_tag places_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Quel arrondissement? 75002? 75003?..."
+            %>
+        </div>
+        <div class="search-button">
+          <%= submit_tag "Go Emile!", class: "btn btn-emile" %>
+        </div>
+          <% end %>
+      </div>
       <% @places.each do |place| %>
         <div class="col-sm-offset-1 col-sm-10">
           <%= link_to(place) do %>
@@ -29,6 +43,15 @@
               </div>
             </div>
           <% end %>
+        </div>
+      <% end %>
+      <% if @places.count == 0 %>
+        <div class="few-results">
+          <p>Désolé, nous n'avons trouvé aucun résultat, réessayez...</p>
+        </div>
+      <% elsif @places.count < 3 %>
+        <div class="few-results">
+          <p>Désolé, nous n'avons pas plus de résultats à vous proposer</p>
         </div>
       <% end %>
     </div>

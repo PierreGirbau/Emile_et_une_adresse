@@ -4,6 +4,11 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    if params[:query].present?
+      @places = Place.where(address: params[:query])
+    else
+      @places = Place.all
+    end
   end
 
   def show

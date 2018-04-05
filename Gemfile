@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'jquery-rails'
+gem 'pg_search'
 
 group :development do
   gem 'rails_real_favicon'
