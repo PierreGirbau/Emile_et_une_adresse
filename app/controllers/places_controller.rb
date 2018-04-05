@@ -7,7 +7,6 @@ class PlacesController < ApplicationController
   end
 
   def show
-
   end
 
   def create
@@ -28,17 +27,16 @@ class PlacesController < ApplicationController
     redirect_to places_path
   end
 
-  def method_name
-
+  def get_infos_of_a_place
   end
 
   private
 
   def place_params
-    params.require(:place).permit(:place_id, :address, :type_of_place)
+    params.require(:place).permit(:google_place_id, :name, :address, :type_of_place)
   end
 
   def set_place
-    @place = Place.find(place_params)
+    @place = Place.find(params[:id])
   end
 end
