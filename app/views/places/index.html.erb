@@ -10,6 +10,11 @@
               class: "form-control",
               placeholder: "Quel arrondissement? 75002? 75003?..."
             %>
+            <%= text_field_tag :query_2,
+              params[:query_2],
+              class: "form-control",
+              placeholder: "Quel type d'endroit?"
+            %>
         </div>
         <div class="search-button">
           <%= submit_tag "Go Emile!", class: "btn btn-emile" %>

@@ -4,8 +4,8 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    if params[:query].present?
-      @places = Place.where(address: params[:query])
+    if (params[:query].present? && params[:query_2].present?)
+      @places = Place.where(address: params[:query], type_of_place: params[:query_2])
     else
       @places = Place.all
     end
