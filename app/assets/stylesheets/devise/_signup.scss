@@ -1,12 +1,14 @@
 .date .control-label {
   margin-top: 0px;
 }
-
 #user_birth_date_1i, #user_birth_date_2i {
   width: 80px;
 }
 #user_birth_date_3i {
   width: 50px;
+}
+.date .control-label {
+  font-size: 16px;
 }
 .help-block {
   color: white;
