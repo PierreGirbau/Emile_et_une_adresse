@@ -26,6 +26,8 @@
   <% end %>
   <div class="other-infos">
     <%= link_to "Y aller", places_path, class: "btn btn-emile"  %>
-    <%= link_to "Enregistrer", places_path, class: "btn btn-emile"  %>
+    <%= link_to "Enregistrer", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save"  %>
   </div>
+</div>
 
+<!-- continuer pour l'url qui est mauvais, arriver à choper l'id de la place puis enregistrer un shared_place en le passant en true et si on reclique sur le bouton, on le repasse en false -->

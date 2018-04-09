@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
-    @user = User.find(params[:current_user])
-    @places = @user.places
+    @saved_places = current_user.saved_places
+
+    # pour avoir les shared places, faire un : @shared_places = SharedPlace.where(visible method = true)
+  end
+
+  def portfolio
+
   end
 end

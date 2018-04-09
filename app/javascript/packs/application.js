@@ -12,6 +12,7 @@ import { flatpickrr } from '../plugins/flatpickr';
 import { colorCheckbox1 } from '../components/checkbox';
 import { colorCheckbox2 } from '../components/checkbox';
 import { modalShow } from '../components/modal';
+import { buttonOnClick } from '../components/button_on_click';
 import 'bootstrap';
 
 if ( document.getElementById('banner-typed-text') ) {
@@ -29,4 +30,5 @@ if ( document.getElementById('modal-id') ) {
 
  colorCheckbox1();
  colorCheckbox2();
+ buttonOnClick();
 

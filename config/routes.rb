@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
+
+  resources :users, only: [:show]
+
   devise_scope :user do
     root to: "devise/sessions#new"
   end
@@ -10,10 +13,10 @@ Rails.application.routes.draw do
   resources :places do
     resources :details, only: [:new, :create]
     resources :users, only: [:show]
+    post 'saved_places'
   end
 
   resources :details, only: [:index]
-
 
   get '/static' => 'pages#static'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
