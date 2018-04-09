@@ -18,12 +18,8 @@ class PlacesController < ApplicationController
     @saved_place = SavedPlace.new
     @saved_place.user = @user
     @saved_place.place = @place
-    @saved_place.save
     @saved_place.visible = "true"
-  end
-
-  def delete_saved_place
-    @saved_place.destroy if (@saved_place.visible == "false")
+    @saved_place.save
   end
 
   def show

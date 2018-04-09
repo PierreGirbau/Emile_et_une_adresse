@@ -1,7 +1,11 @@
 .show {
   h2 {
-    padding-top: 20px;
+    padding-top: 50px;
     font-size: 20px;
     text-decoration: underline dotted $pink;
   }
+}
+
+.delete {
+  background-color: white;
 }
