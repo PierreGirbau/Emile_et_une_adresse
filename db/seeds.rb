@@ -29,36 +29,6 @@ jack = User.create!(
   )
 
 
-puts 'Creating places...'
-
-le_perchoir = Place.create!(
-  name: 'Le Perchoir',
-  address: "14 Rue Crespin du Gast, 75011 Paris",
-  type_of_place: "Un bon verre"
-  )
-
-mama_roma = Place.create!(
-  name: 'Mama Roma',
-  address: "90 Rue Oberkampf, 75011 Paris",
-  type_of_place: "Une bonne table"
-  )
-
-
-puts 'Creating details...'
-
-detail_1 = Detail.create!(
-  comment: "Très cool comme bail!",
-  user: john,
-  place: mama_roma
-  )
-
-detail_2 = Detail.create!(
-  comment: "La focaccia est vraiment ouf!",
-  user: jack,
-  place: mama_roma
-  )
-
-
 puts 'Creating categories'
 
 category_1 = Category.create!(

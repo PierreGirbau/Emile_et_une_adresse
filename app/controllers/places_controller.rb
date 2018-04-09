@@ -20,7 +20,6 @@ class PlacesController < ApplicationController
     @saved_place.place = @place
     @saved_place.save
     @saved_place.visible = "true"
-    raise
   end
 
   def delete_saved_place
@@ -32,11 +31,11 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @saved_place = SavedPlace.new
+    @shared_place = SharedPlace.new
     if @place.save
-      @saved_place.place = @place
-      @saved_place.user = current_user
-      @saved_place.save
+      @shared_place.place = @place
+      @shared_place.user = current_user
+      @shared_place.save
       redirect_to new_place_detail_path(@place)
     else
       render :new
