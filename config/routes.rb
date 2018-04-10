@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :places do
     resources :details, only: [:new, :create]
     resources :users, only: [:show]
-    post 'saved_places'
+    resources :saved_places, only: [:destroy]
   end
 
   resources :details, only: [:index]

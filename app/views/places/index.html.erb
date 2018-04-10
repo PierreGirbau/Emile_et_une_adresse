@@ -3,18 +3,19 @@
   <div class="container">
     <div class="row">
       <div class="search-field">
+        <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
+            <%= text_field_tag 'search_field', nil,
               class: "form-control",
-              placeholder: "Quel arrondissement? 75002? 75003?..."
+              placeholder: "Tapez une adresse"
             %>
-            <%= text_field_tag :query_2,
+            <%#= text_field_tag :query_2,
               params[:query_2],
               class: "form-control",
               placeholder: "Quel type d'endroit?"
             %>
+            <%= hidden_field_tag :query, params[:query], id: "places_params" %>
         </div>
         <div>
           <%= submit_tag "Go Emile!", class: "btn btn-emile" %>

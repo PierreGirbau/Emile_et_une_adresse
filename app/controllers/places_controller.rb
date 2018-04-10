@@ -5,8 +5,12 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     @user = current_user
-    if (params[:query].present? && params[:query_2].present?)
-      @places = Place.where(address: params[:query], type_of_place: params[:query_2])
+    if params[:query].present?
+      array = params[:query].split(",")
+      for i in 0..15
+        @places = Place.where(google_place_id: array[i])
+      end
+      @places
     else
       @places = Place.all
     end
