@@ -4,13 +4,11 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    @user = current_user
+
+
     if params[:query].present?
-      array = params[:query].split(",")
-      for i in 0..15
-        @places = Place.where(google_place_id: array[i])
-      end
-      @places
+      @places = Place.where(google_place_id: params[:query].split(","))
+      binding.pry
     else
       @places = Place.all
     end

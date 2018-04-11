@@ -3,7 +3,7 @@ class Place < ApplicationRecord
     pg_search_scope :search,
       against: [ :address, :type_of_place ]
 
-  validates :type_of_place, :address, :name, presence: true
+  validates :type_of_place, :name, presence: true
   has_many :details, dependent: :destroy
   has_many :users, through: :details
   has_many :saved_places, dependent: :destroy

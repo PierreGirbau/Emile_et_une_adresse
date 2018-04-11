@@ -31,24 +31,42 @@ function nearbySearch() {
           });
   console.log(map)
   const service = new google.maps.places.PlacesService(map);
-  service.nearbySearch({
-            location: place_coordinate,
-            rankBy: google.maps.places.RankBy.DISTANCE,
-            type: ['establishment']
-          }, callback);
+  // service.nearbySearch({
+  //           location: place_coordinate,
+  //           rankBy: google.maps.places.RankBy.DISTANCE,
+  //           type: ['establishment']
+  //         }, callback);
+  service.radarSearch({
+          location: place_coordinate,
+          radius: 700,
+          type: ['establishment']
+      }, callback);
 
 
-function callback(results, status) {
+// function callback(results, status) {
+//         if (status === google.maps.places.PlacesServiceStatus.OK) {
+//           let all_places = []
+//           for (let i = 0; i < results.length; i++) {
+//             let places = results[i]["place_id"];
+//             all_places.push(places)
+//           }
+//           console.log(all_places)
+//           document.getElementById('places_params').value = all_places;
+//         }
+//       }
+    function callback(results, status) {
+
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           let all_places = []
           for (let i = 0; i < results.length; i++) {
+            //Fetch the ID of each Place returned by the Radar Search
             let places = results[i]["place_id"];
             all_places.push(places)
-          }
-          console.log(all_places)
-          document.getElementById('places_params').value = all_places;
-        }
-      }
+          };
+        console.log(all_places)
+        document.getElementById('places_params').value = all_places;
+        };
+      };
       });
     }
   });

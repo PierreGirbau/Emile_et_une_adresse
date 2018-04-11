@@ -1,15 +1,11 @@
 function colorCheckbox1 () {
   const checkboxes_1 = document.querySelectorAll('.radio > label');
+  console.log(checkboxes_1)
   for (var i = 0; i < checkboxes_1.length - 2; i++) {
-    // console.log(checkboxes_1[i])
-    // first_element = checkboxes_1[0]
-    // first_element.classList.add("active");
-    // first_element.checked = true;
     checkboxes_1[i].addEventListener("click", function() {
-      var current_1 = document.querySelectorAll(".active");
-      // console.log(current_1[0])
-      current_1[0].classList.toggle("active");
-      this.className += " active";
+      checkboxes_1[i].classList.add('active')
+      let current_1 = document.querySelectorAll('.active');
+      checkboxes_1[i].classList.toggle("active");
     });
   }
 }
