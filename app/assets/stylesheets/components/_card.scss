@@ -1,5 +1,7 @@
 .card {
-  height: 175px;
+  width: 180px;
+  height: 110px;
+  margin-bottom: 10px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -12,36 +14,37 @@
     color: $pink;
   }
 }
-.card-heart {
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  font-size: 24px;
-  display: flex;
-  justify-content: space-around;
-  width: 15%;
-  p {
-    font-size: 18px;
-  }
+.content {
+  padding-left: 190px;
+  width: 50vh;
 }
-
 .card-category {
-  position: absolute;
-  top: 20px;
-  left: 20px;
   text-transform: uppercase;
+  width: 50vh;
   h1 {
-    font-size: 18px;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
     font-weight: bold;
   }
   p {
-    font-size: 14px;
+    font-size: 10px;
   }
 }
 .card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.card-heart {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  display: flex;
+  p {
+    margin-right: 5px;
+    font-size: 14px;
+  }
 }
 
