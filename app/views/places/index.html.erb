@@ -5,19 +5,11 @@
       <div class="search-field">
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Quel arrondissement ? 75002 ? 75003 ?..."
-            %>
-            <%= text_field_tag :query_2,
-              params[:query_2],
-              class: "form-control",
-              placeholder: "Quel type d'endroit ?"
-            %>
-        </div>
-        <div>
-          <%= submit_tag "Go Emile !", class: "btn btn-emile" %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Quel arrondissement ? 75002 ? 75003 ?..." %>
+            <%= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
+          <div>
+            <%= submit_tag "Go Emile !", class: "btn btn-emile" %>
+          </div>
         </div>
           <% end %>
       </div>
