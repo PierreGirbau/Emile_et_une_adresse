@@ -3,13 +3,23 @@
   <div class="container">
     <div class="row">
       <div class="search-field">
+        <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Quel arrondissement ? 75002 ? 75003 ?..." %>
-            <%= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
-          <div>
-            <%= submit_tag "Go Emile !", class: "btn btn-emile" %>
-          </div>
+
+            <%= text_field_tag 'search_field', nil,
+              class: "form-control",
+              placeholder: "Tapez une adresse"
+            %>
+            <%#= text_field_tag :query_2,
+              params[:query_2],
+              class: "form-control",
+              placeholder: "Quel type d'endroit?"
+            %>
+            <%= hidden_field_tag :query, params[:query], id: "places_params" %>
+        </div>
+        <div>
+          <%= submit_tag "Go Emile!", class: "btn btn-emile" %>
         </div>
           <% end %>
       </div>
@@ -17,6 +27,18 @@
         <div class="col-sm-offset-1 col-sm-10">
           <%= link_to(place) do %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+
+              <div class="card-category">
+                <h1><%= place.name %></h1>
+
+              </div>
+              <div class="card-description">
+                <p><%= place.type_of_place %></p>
+              </div>
+              <div class="card-heart">
+                <p>8</p>
+                <i class="fa fas fa-heart"></i>
+
               <div class="content">
                 <div class="card-category">
                   <h1><%= place.name %></h1>
@@ -39,6 +61,7 @@
                   <p>8</p>
                   <i class="fa fas fa-heart"></i>
                 </div>
+
               </div>
             </div>
           <% end %>

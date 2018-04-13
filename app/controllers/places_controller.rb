@@ -4,9 +4,11 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    @user = current_user
-    if (params[:query].present? && params[:query_2].present?)
-      @places = Place.where(address: params[:query], type_of_place: params[:query_2])
+
+
+    if params[:query].present?
+      @places = Place.where(google_place_id: params[:query].split(","))
+      binding.pry
     else
       @places = Place.all
     end
@@ -18,13 +20,8 @@ class PlacesController < ApplicationController
     @saved_place = SavedPlace.new
     @saved_place.user = @user
     @saved_place.place = @place
-    @saved_place.save
     @saved_place.visible = "true"
-    raise
-  end
-
-  def delete_saved_place
-    @saved_place.destroy if (@saved_place.visible == "false")
+    @saved_place.save
   end
 
   def show
@@ -32,11 +29,11 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @saved_place = SavedPlace.new
+    @shared_place = SharedPlace.new
     if @place.save
-      @saved_place.place = @place
-      @saved_place.user = current_user
-      @saved_place.save
+      @shared_place.place = @place
+      @shared_place.user = current_user
+      @shared_place.save
       redirect_to new_place_detail_path(@place)
     else
       render :new

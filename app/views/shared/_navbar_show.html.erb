@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Explorer", "#", class: "navbar-emile-item navbar-emile-link" %>
-      <%= link_to "Partager", "#", class: "navbar-emile-item navbar-emile-link" %>
-      <%= link_to "Mes adresses", "#", class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Explorer", places_path, class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Partager une adresse", new_place_path, class: "navbar-emile-item navbar-emile-link" %>
+      <%= link_to "Mes adresses", current_user, class: "navbar-emile-item navbar-emile-link" %>
       <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %>
     <% else %>
       <!-- Login link (when logged out) -->
@@ -25,10 +25,10 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-emile-dropdown-menu">
-        <li><a href="#">Explorer</a></li>
-        <li><a href="#">Partager</a></li>
-        <li><a href="#">Mes adresses</a></li>
-        <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "navbar-emile-item navbar-emile-link" %></li>
+        <li><%= link_to "Explorer", places_path %></li>
+        <li><%= link_to "Partager une adresse", new_place_path %></li>
+        <li><%= link_to "Mes adresses", current_user %></li>
+        <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </div>

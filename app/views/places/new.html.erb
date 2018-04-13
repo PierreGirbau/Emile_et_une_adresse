@@ -21,12 +21,12 @@
               <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement', id: "place_name" %>
               <%= f.input :google_place_id, as: "hidden" %>
               <%= f.input :address, as: "hidden" %>
-              <%= f.input :type_of_place, as: :radio_buttons,
-                  collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :",
-                    wrapper: :vertical_radio_and_checkboxes %>
+              <div class="checkboxes">
+                <%= f.input :type_of_place, as: :radio_buttons,
+                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :" %>
+              </div>
               <%= f.button :submit, "Continuer", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
             </div>
-
           <% end %>
         </div>
       </div>
