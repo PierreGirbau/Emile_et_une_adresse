@@ -6,6 +6,7 @@
         <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
+
             <%= text_field_tag 'search_field', nil,
               class: "form-control",
               placeholder: "Tapez une adresse"
@@ -26,6 +27,7 @@
         <div class="col-sm-offset-1 col-sm-10">
           <%= link_to(place) do %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+
               <div class="card-category">
                 <h1><%= place.name %></h1>
 
@@ -36,6 +38,30 @@
               <div class="card-heart">
                 <p>8</p>
                 <i class="fa fas fa-heart"></i>
+
+              <div class="content">
+                <div class="card-category">
+                  <h1><%= place.name %></h1>
+                  <p>
+                  <% if (place.address[-2] == "0") %>
+                    <% if (place.address[-1] == "1") %>
+                      <%= place.address[-1] %> er arrondissement
+                    <% else %>
+                      <%= place.address[-1] %> eme arrondissement
+                    <% end %>
+                  <% else %>
+                    <%= place.address[-2..-1] %> eme arrondissement
+                  <% end %>
+                  </p>
+                </div>
+                <div class="card-description">
+                  <p><%#= place.type_of_place %></p>
+                </div>
+                <div class="card-heart">
+                  <p>8</p>
+                  <i class="fa fas fa-heart"></i>
+                </div>
+
               </div>
             </div>
           <% end %>
