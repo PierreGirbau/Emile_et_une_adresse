@@ -20,6 +20,10 @@ abbr[title], abbr[data-original-title] {
   height: 110px;
 }
 
+.radio input:checked {
+  margin: 1px;
+  }
+
 .radio label {
   padding: 6px 12px;
   width: 100%;
@@ -29,16 +33,15 @@ abbr[title], abbr[data-original-title] {
   font-size: 16px;
   border: 1px solid $pink;
   color: white;
-  &:hover {
-    background-color: $pink;
-    color: white !important;
-  }
+
+  // &:hover {
+  //   background-color: $pink;
+  //   color: white !important;
+  // }
 }
 
-// Javascript on click
-
 .active {
-  background-color: $pink;
+  background-color: $pink !important;
   color: white !important;
 }
 
