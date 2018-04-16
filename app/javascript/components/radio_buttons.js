@@ -1,17 +1,17 @@
-function colorCheckbox1 () {
+function radioButtons () {
   const radio_buttons = document.querySelectorAll("[type=radio]");
   const checkboxes_1 = document.querySelectorAll('.radio > label');
   console.log(radio_buttons)
   radio_buttons.forEach(radioBtn => {
     radioBtn.addEventListener('click', () => {
       if(radioBtn.checked === true) {
-        alert('I am checked!');
+        document.querySelector(`label[for=${radioBtn.id}]`).classList.toggle("active");
       };
     });
   });
 }
 
-export { colorCheckbox1 };
+export { radioButtons };
 
 // function colorCheckbox2 () {
 //   const checkboxes_2 = document.querySelectorAll('.radio > label .season');

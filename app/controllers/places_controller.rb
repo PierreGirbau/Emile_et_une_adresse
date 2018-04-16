@@ -5,10 +5,9 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
 
-
     if params[:query].present?
       @places = Place.where(google_place_id: params[:query].split(","))
-      binding.pry
+      raise
     else
       @places = Place.all
     end
@@ -24,7 +23,19 @@ class PlacesController < ApplicationController
     @saved_place.save
   end
 
+  def average_price
+    average_price = 0
+    # binding.pry
+    @place.details.each do |detail|
+      average_price += detail.price
+    end
+    @place.average_price = ( average_price / (@place.details.count) ).to_f
+    @place.update_attribute(:average_price, average_price)
+    # raise
+  end
+
   def show
+    average_price
   end
 
   def create
@@ -52,7 +63,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:google_place_id, :name, :address, :type_of_place)
+    params.require(:place).permit(:google_place_id, :name, :address, :periods, :type_of_place, :website, :phone_number, :photo, :average_price)
   end
 
   def set_place
