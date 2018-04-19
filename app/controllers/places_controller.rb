@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show]
+  before_action :set_place, only: [:show, :upvote, :downvote]
   skip_before_action :authenticate_user!, only: [:create, :new]
 
   def index
@@ -63,6 +63,24 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+  end
+
+  def upvote
+    @place.upvote_by current_user
+    # redirect_to :back
+    respond_to do |format|
+        format.html {redirect_back(fallback_location: root_path) }
+        format.json { render json: { count: @place.liked_count } }
+    end
+  end
+
+  def downvote
+    @place.downvote_by current_user
+    # redirect_to :back
+    respond_to do |format|
+        format.html {redirect_back(fallback_location: root_path) }
+        format.json { render json: { count: @place.liked_count } }
+    end
   end
 
   private

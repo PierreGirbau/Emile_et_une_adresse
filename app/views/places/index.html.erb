@@ -53,8 +53,10 @@
                     <p><%#= place.type_of_place %></p>
                   </div>
                   <div class="card-heart">
-                    <p>8</p>
-                    <i class="fa fas fa-heart"></i>
+                    <%= link_to like_place_path(place), method: :put do %>
+                      <%= place.get_upvotes.size %>
+                      <i class="fa fas fa-heart"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -83,8 +85,10 @@
                     <p><%#= place.type_of_place %></p>
                   </div>
                   <div class="card-heart">
-                    <p>8</p>
-                    <i class="fa fas fa-heart"></i>
+                    <%= link_to like_place_path(place), method: :put do %>
+                      <%= place.get_upvotes.size %>
+                      <i class="fa fas fa-heart"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
