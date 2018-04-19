@@ -22,6 +22,8 @@ function radarSearch() {
       let map;
       const place_coordinate = {lat: parseFloat(`${lat}`), lng: parseFloat(`${lng}`)}; // ce qu'on tape dans la barre de recherche, en mode autocomplete donc
       console.log(place_coordinate)
+      document.getElementById('places_params').value = [`${lat}`, `${lng}`];
+
       map = new google.maps.Map(document.getElementById('map'), {
         center: place_coordinate,
         zoom: 15
@@ -43,8 +45,9 @@ function radarSearch() {
             let places = results[i]["place_id"];
             all_places.push(places)
             };
-          console.log(all_places)
-          document.getElementById('places_params').value = all_places;
+          // console.log(all_places)
+          console.log(results)
+          // document.getElementById('places_params').value = all_places;
           };
         };
       });
