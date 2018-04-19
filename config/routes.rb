@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show]
-  resources :saved_places, only: [:show] do
-    get 'delete_saved_place'
-  end
+  # resources :saved_places, only: [:show] do
+  #   get 'delete_saved_place'
+  # end
 
   devise_scope :user do
     root to: "devise/sessions#new"
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :places do
     resources :details, only: [:new, :create]
     resources :users, only: [:show]
-    resources :saved_places, only: [:destroy]
+    # resources :saved_places, only: [:destroy]
+    get '/saved_places' => 'places#saved_places'
+    get '/delete_saved_places' => 'places#delete_saved_place'
   end
 
   resources :details, only: [:index]

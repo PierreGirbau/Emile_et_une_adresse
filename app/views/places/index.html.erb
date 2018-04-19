@@ -2,71 +2,97 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
+
       <div class="search-field">
         <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
 
-            <%= text_field_tag 'search_field', nil,
-              class: "form-control",
-              placeholder: "Tapez une adresse"
-            %>
-            <%#= text_field_tag :query_2,
-              params[:query_2],
-              class: "form-control",
-              placeholder: "Quel type d'endroit?"
-            %>
+            <%= text_field_tag 'search_field', nil, class: "form-control", placeholder: "Tapez une adresse" %>
             <%= hidden_field_tag :query, params[:query], id: "places_params" %>
         </div>
+            <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
+            <label for="">
+              <%= radio_button_tag 'type_of_place', "Un bon verre" %>Un bon verre
+            </label>
+            <label for="">
+              <%= radio_button_tag 'type_of_place', "Une bonne table", class: "btn btn-emile" %>Une bonne table
+            </label>
+            <label for="">
+              <%= radio_button_tag 'type_of_place', "Du bon son" %>Du bon son
+            </label>
+            <%#= f.input :type_of_place, as: :radio_buttons,
+                collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :" %>
         <div>
           <%= submit_tag "Go Emile!", class: "btn btn-emile" %>
         </div>
           <% end %>
       </div>
+
       <% @places.each do |place| %>
-        <div class="col-sm-offset-1 col-sm-10">
-          <%= link_to(place) do %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-
-              <div class="card-category">
-                <h1><%= place.name %></h1>
-
-              </div>
-              <div class="card-description">
-                <p><%= place.type_of_place %></p>
-              </div>
-              <div class="card-heart">
-                <p>8</p>
-                <i class="fa fas fa-heart"></i>
-
-              <div class="content">
-                <div class="card-category">
-                  <h1><%= place.name %></h1>
-                  <p>
-                  <% if (place.address[-2] == "0") %>
-                    <% if (place.address[-1] == "1") %>
-                      <%= place.address[-1] %> er arrondissement
+        <% if place.photo.nil? %>
+          <div class="col-sm-offset-1 col-sm-10">
+            <%= link_to(place) do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+                <div class="content">
+                  <div class="card-category">
+                    <h1><%= place.name %></h1>
+                    <p>
+                    <% if (place.address.split(",")[1][5] == "0") %>
+                      <% if (place.address.split(",")[1][5] == "1") %>
+                        <%= place.address.split(",")[1][5] %> er arrondissement
+                      <% else %>
+                        <%= place.address.split(",")[1][5] %> eme arrondissement
+                      <% end %>
                     <% else %>
-                      <%= place.address[-1] %> eme arrondissement
+                      <%= place.address.split(",")[1][4..5] %> eme arrondissement
                     <% end %>
-                  <% else %>
-                    <%= place.address[-2..-1] %> eme arrondissement
-                  <% end %>
-                  </p>
+                    </p>
+                  </div>
+                  <div class="card-description">
+                    <p><%#= place.type_of_place %></p>
+                  </div>
+                  <div class="card-heart">
+                    <p>8</p>
+                    <i class="fa fas fa-heart"></i>
+                  </div>
                 </div>
-                <div class="card-description">
-                  <p><%#= place.type_of_place %></p>
-                </div>
-                <div class="card-heart">
-                  <p>8</p>
-                  <i class="fa fas fa-heart"></i>
-                </div>
-
               </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-sm-offset-1 col-sm-10">
+            <%= link_to(place) do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo %>');">
+                <div class="content">
+                  <div class="card-category">
+                    <h1><%= place.name %></h1>
+                    <p>
+                    <% if (place.address[-2] == "0") %>
+                      <% if (place.address[-1] == "1") %>
+                        <%= place.address[-1] %> er arrondissement
+                      <% else %>
+                        <%= place.address[-1] %> eme arrondissement
+                      <% end %>
+                    <% else %>
+                      <%= place.address[-2..-1] %> eme arrondissement
+                    <% end %>
+                    </p>
+                  </div>
+                  <div class="card-description">
+                    <p><%#= place.type_of_place %></p>
+                  </div>
+                  <div class="card-heart">
+                    <p>8</p>
+                    <i class="fa fas fa-heart"></i>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
+
+      <% end %>
       <% if @places.count == 0 %>
         <div class="few-results">
           <p>Vous ne trouvez pas votre bonheur ?!...</p>
@@ -82,4 +108,3 @@
   </div>
   <%= link_to "ma page user", user_path(current_user), class: "btn btn-emile"  %>
 </div>
-

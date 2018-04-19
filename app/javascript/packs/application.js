@@ -9,11 +9,10 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
-import { colorCheckbox1 } from '../components/checkbox';
-// import { colorCheckbox2 } from '../components/checkbox';
+import { radioButtons } from '../components/radio_buttons';
 import { modalShow } from '../components/modal';
 import { buttonOnClick } from '../components/button_on_click';
-import { nearbySearch } from '../components/nearbysearch';
+import { radarSearch } from '../components/radar_search';
 import 'bootstrap';
 
 if ( document.getElementById('banner-typed-text') ) {
@@ -29,14 +28,13 @@ if ( document.getElementById('modal-id') ) {
 };
 
 if ( document.getElementById('search_field') ) {
- nearbySearch();
+ radarSearch();
 };
 
 if ( document.getElementById('save') ) {
   buttonOnClick();
 };
 
- colorCheckbox1();
- // colorCheckbox2();
-
-
+if ( document.querySelectorAll("[type=radio]") ) {
+  radioButtons();
+};
