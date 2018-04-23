@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show, :upvote, :downvote]
+  before_action :set_place, only: [:show, :upvote, :downvote, :score]
   skip_before_action :authenticate_user!, only: [:create, :new]
 
   def index
@@ -14,9 +14,8 @@ class PlacesController < ApplicationController
 
   def saved_places
     @place = Place.find(params[:place_id])
-    @user = current_user
     @saved_place = SavedPlace.new
-    @saved_place.user = @user
+    @saved_place.user = current_user
     @saved_place.place = @place
     @saved_place.visible = "true"
     @saved_place.save
@@ -35,22 +34,23 @@ class PlacesController < ApplicationController
 
   def average_price
     average_price = 0
-    # binding.pry
     @place.details.each do |detail|
       average_price += detail.price
     end
-    @place.average_price = ( average_price / (@place.details.count) ).to_f
-    @place.update_attribute(:average_price, average_price)
+    @place.average_price = ( average_price / (@place.details.count) ).round
+    @place.update_attribute(:average_price, @place.average_price)
     # raise
   end
 
   def show
     average_price
+    score
   end
 
   def create
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
+    @place.total_heart = 0
     if @place.save
       @shared_place.place = @place
       @shared_place.user = current_user
@@ -59,6 +59,7 @@ class PlacesController < ApplicationController
     else
       render :new
     end
+    raise
   end
 
   def new
@@ -67,20 +68,35 @@ class PlacesController < ApplicationController
 
   def upvote
     @place.upvote_by current_user
-    # redirect_to :back
+
+    # updating hearts of the current_user // ne marche pas encore!
+    current_user.heart_stock = (current_user.heart_capacity - 1) if current_user.heart_capacity > 0
+    current_user.save
+    current_user.update_attribute(:heart_stock, current_user.heart_stock)
+
+    # updating hearts of the places
+    @place.update_attribute(:total_heart, @place.total_heart)
     respond_to do |format|
-        format.html {redirect_back(fallback_location: root_path) }
-        format.json { render json: { count: @place.liked_count } }
+      format.html {redirect_back(fallback_location: root_path) }
+      format.json { render json: { count: @place.liked_count } }
     end
   end
 
   def downvote
     @place.downvote_by current_user
+    current_user.heart_stock += current_user.heart_capacity
+    # redirect_to :back
+    @place.update_attribute(:total_heart, @place.total_heart)
     # redirect_to :back
     respond_to do |format|
-        format.html {redirect_back(fallback_location: root_path) }
-        format.json { render json: { count: @place.liked_count } }
+      format.html {redirect_back(fallback_location: root_path) }
+      format.json { render json: { count: @place.liked_count } }
     end
+  end
+
+  def score
+    @place.total_heart = @place.get_upvotes.size - @place.get_downvotes.size
+    @place.update_attribute(:total_heart, @place.total_heart)
   end
 
   private
