@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col-sm-offset-1 col-sm-10">
         <h2>Mes adresses enregistrées</h2>
-        <% if @saved_places.empty? %>
+        <% if current_user.saved_places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse enregistrée</p>
           </div>
         <% else %>
-          <% @saved_places.each do |saved_place| %>
+          <% current_user.saved_places.each do |saved_place| %>
             <% if saved_place.visible = "true" %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
                 <div class="card-category">
@@ -41,12 +41,12 @@
           <% end %>
         <% end %>
         <h2>Mes adresses partagées</h2>
-        <% if @shared_places.empty? %>
+        <% if current_user.shared_places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse partagée</p>
           </div>
         <% else %>
-          <% @shared_places.each do |shared_place| %>
+          <% current_user.shared_places.each do |shared_place| %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
               <div class="card-category">
                 <h1><%= shared_place.place.name %></h1>

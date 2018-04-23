@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     if params[:query].present? && params[:type_of_place].present?
-      @places = Place.near(params[:query], 10, order: :distance)
+      @places = Place.near(params[:query], 2)
       .where(type_of_place: params[:type_of_place])
     else
       @places = Place.all
@@ -19,6 +19,8 @@ class PlacesController < ApplicationController
     @saved_place.place = @place
     @saved_place.visible = "true"
     @saved_place.save
+    @saved_place << current_user.saved_places
+    raise
     redirect_to place_path(@place)
   end
 
@@ -50,7 +52,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
-    @place.total_heart = 0
+    @place.total_heart = 1
     if @place.save
       @shared_place.place = @place
       @shared_place.user = current_user
@@ -59,7 +61,6 @@ class PlacesController < ApplicationController
     else
       render :new
     end
-    raise
   end
 
   def new

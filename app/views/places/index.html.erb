@@ -97,16 +97,16 @@
         <% end %>
 
       <% end %>
-      <% if @places.count == 0 %>
+      <% if @places.length == 0 %>
         <div class="few-results">
           <p>Vous ne trouvez pas votre bonheur ?!...</p>
           <br>
           <p>Tranquille Emile, de nouvelles adresses arrivent bientôt à Paris...</p>
         </div>
-      <%# elsif @places.count < 3 %>
-        <div class="few-results">
+      <%# elsif @places.length < 3 %>
+<!--         <div class="few-results">
           <p>Désolé, nous n'avons pas plus de résultats à vous proposer</p>
-        </div>
+        </div> -->
       <% end %>
     </div>
   </div>
