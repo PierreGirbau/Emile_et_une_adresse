@@ -2,46 +2,68 @@
 <div class="show">
   <div class="photo">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
-  </div>
-
-  <div class="big-infos">
-    <%= @place.name %>
-    <br>
-    <%= @place.address %>
-    <p><%= @place.total_heart %></p>
-    <i class="fa fas fa-heart"></i>
-  </div>
-  <div class="show-content">
-    <p>Bar à cocktail (à mettre?) / Fermé (à mettre?) / Temps d'attente (à mettre?)</p>
-    <p>Budget (plaisir) environ <%= @place.average_price %> euros par personne</p>
-    <strong><p>Horaires d'ouverture:</p></strong>
-    <ul>
-      <li><%= @place.periods.split(",")[0] %></li>
-      <li><%= @place.periods.split(",")[1] %></li>
-      <li><%= @place.periods.split(",")[2] %></li>
-      <li><%= @place.periods.split(",")[3] %></li>
-      <li><%= @place.periods.split(",")[4] %></li>
-      <li><%= @place.periods.split(",")[5] %></li>
-      <li><%= @place.periods.split(",")[6] %></li>
-    </ul>
-  </div>
-  <div class="big-infos">
-    <%= @place.phone_number %>
-    <%#= link_to "Vers le site internet",'<%= @place.website %>
-    <!-- Préférer la notation au dessus, trouver la bonne! -->
-    <button class="btn"><%= @place.website %></button>
-  </div>
-  <p style="padding-left: 20px;">Les recos qui vont bien :</p>
-  <% @place.details.each do |detail| %>
-    <div class="comment-box">
-      <%= detail.comment %> -
-      <%= detail.user.first_name %>
     </div>
-  <% end %>
-  <div class="other-infos">
-    <%= link_to "Y aller", "https://www.google.com/maps/place/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile" %>
-    <%= link_to "Enregistrer", place_saved_places_path(@place), class: "btn btn-emile", id: "save" %>
+    <div class="big-infos">
+      <div class="name">
+        <%= @place.name %>
+      </div>
+      <div class="hearts">
+        <p><%= @place.total_heart %></p>
+        <i class="fa fas fa-heart"></i>
+      </div>
+      <br>
+      <div class="type">
+        <p>Bar</p>
+      </div>
+      <div class="address">
+        <%= @place.address %>
+      </div>
+      <div class="budget">
+        <i class="fas fa-euro-sign"></i>
+        <p>Budget (plaisir) environ <%= @place.average_price %> euros par personne</p>
+      </div>
+      <div class="hours">
+        <i class="far fa-clock"></i>
+        <p>Fermé - Ouvre à 18h</p>
+      </div>
+      <div class="waiting">
+        <i class="fa fa-hourglass"></i>
+        <p>Temps d'attente de 15 à 30mn</p>
+      </div>
+      <div class="number">
+        <i class="fa fa-phone"></i>
+        <%= @place.phone_number %>
+      </div>
+      <div class="website">
+        <%#= link_to "Vers le site internet",'<%= @place.website %>
+        <!-- Préférer la notation au dessus, trouver la bonne! -->
+        <button class="btn"><%= @place.website %></button>
+      </div>
+    </div>
+      <!-- <strong><p>Horaires d'ouverture:</p></strong> -->
+      <!-- <ul> -->
+        <!-- <li><%#= @place.periods.split(",")[0] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[1] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[2] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[3] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[4] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[5] %></li> -->
+        <!-- <li><%#= @place.periods.split(",")[6] %></li> -->
+      <!-- </ul> -->
+
+
+
+    <p style="padding-left: 20px;">Les recos qui vont bien :</p>
+    <% @place.details.each do |detail| %>
+      <div class="comment-box">
+        <%= detail.comment %> -
+        <%= detail.user.first_name %>
+      </div>
+    <% end %>
+    <div class="other-infos">
+      <%= link_to "Y aller", "https://www.google.com/maps/place/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile" %>
+      <%= link_to "Enregistrer", place_saved_places_path(@place), class: "btn btn-emile", id: "save" %>
+    </div>
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}" %>
+    <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>
-  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}" %>
-  <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
-</div>
