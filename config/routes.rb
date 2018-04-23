@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     # resources :saved_places, only: [:destroy]
     get '/saved_places' => 'places#saved_places'
     get '/delete_saved_places' => 'places#delete_saved_place'
+    member do
+      put "like", to: "places#upvote"
+      put "dislike", to: "places#downvote"
+    end
   end
 
   resources :details, only: [:index]

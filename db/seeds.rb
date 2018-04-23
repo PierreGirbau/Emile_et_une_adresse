@@ -19,29 +19,31 @@ puts 'Creating users...'
 john = User.create!(
   first_name: 'John',
   email: "john@emile.com",
-  password: "123456"
+  password: "123456",
+  birth_date: "19-04-17"
   )
 
 jack = User.create!(
   first_name: 'Jack',
   email: "jack@emile.com",
-  password: "123456"
+  password: "123456",
+  birth_date: "13-02-17"
   )
 
 
-puts 'Creating categories'
+# puts 'Creating categories'
 
-category_1 = Category.create!(
-  name: "Un bon verre",
-)
+# category_1 = Category.create!(
+#   name: "Un bon verre",
+# )
 
-category_2 = Category.create!(
-  name: "Une bonne table",
-)
+# category_2 = Category.create!(
+#   name: "Une bonne table",
+# )
 
-category_3 = Category.create!(
-  name: "Du bon son",
-)
+# category_3 = Category.create!(
+#   name: "Du bon son",
+# )
 
-sleep(2)
-puts 'Done'
+# sleep(2)
+# puts 'Done'

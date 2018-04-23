@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  acts_as_votable
   include PgSearch
     pg_search_scope :search,
       against: [ :address, :type_of_place ]

@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'pg_search'
+gem 'acts_as_votable', '~> 0.11.1'
 
 group :development do
   gem 'rails_real_favicon'

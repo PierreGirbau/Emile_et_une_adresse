@@ -8,11 +8,12 @@
     <%= @place.name %>
     <br>
     <%= @place.address %>
+    <p><%= @place.total_heart %></p>
     <i class="fa fas fa-heart"></i>
   </div>
   <div class="show-content">
     <p>Bar à cocktail (à mettre?) / Fermé (à mettre?) / Temps d'attente (à mettre?)</p>
-    <p>Budget (plaisir) environ <%= @place.average_price %> euros par pers.</p>
+    <p>Budget (plaisir) environ <%= @place.average_price %> euros par personne</p>
     <strong><p>Horaires d'ouverture:</p></strong>
     <ul>
       <li><%= @place.periods.split(",")[0] %></li>
@@ -44,5 +45,3 @@
   <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}" %>
   <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
 </div>
-
-<!-- continuer pour l'url qui est mauvais, arriver à choper l'id de la place puis enregistrer un shared_place en le passant en true et si on reclique sur le bouton, on le repasse en false -->

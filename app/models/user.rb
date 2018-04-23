@@ -7,4 +7,13 @@ class User < ApplicationRecord
   has_many :places, through: :details
   has_many :saved_places
   has_many :shared_places
+  before_save :default_heart_capacity, :default_heart_stock
+
+  def default_heart_capacity
+     self.heart_capacity = 5
+  end
+
+  def default_heart_stock
+     self.heart_stock = 5
+  end
 end
