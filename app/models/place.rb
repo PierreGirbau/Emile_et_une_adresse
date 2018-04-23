@@ -1,8 +1,10 @@
 class Place < ApplicationRecord
-  acts_as_votable
+
   include PgSearch
     pg_search_scope :search,
       against: [ :address, :type_of_place ]
+
+  acts_as_votable
 
   validates :type_of_place, :name, presence: true
   has_many :details, dependent: :destroy

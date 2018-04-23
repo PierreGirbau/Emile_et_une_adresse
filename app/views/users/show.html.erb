@@ -10,7 +10,7 @@
           </div>
         <% else %>
           <% @saved_places.each do |saved_place| %>
-            <% if saved_place.visible = "true" %>
+            <% if saved_place.visible? %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
                 <div class="card-category">
                   <h1><%= saved_place.place.name %></h1>
@@ -34,8 +34,12 @@
                   <i class="fa fas fa-heart"></i>
                 </div>
                 <div class="delete">
-                  <%= link_to "Supprimer",place_delete_saved_places_path(saved_place), data: "You Sure?" %>
+                  <%= link_to "Supprimer",place_delete_saved_places_path(saved_place) %>
                 </div>
+              </div>
+            <% else %>
+              <div class="few-results">
+                <p>N'hésite pas à enregistrer tes adresses préférées!</p>
               </div>
             <% end %>
           <% end %>

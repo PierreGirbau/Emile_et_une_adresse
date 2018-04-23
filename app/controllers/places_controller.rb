@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     if params[:query].present? && params[:type_of_place].present?
-      @places = Place.near(params[:query], 10, order: :distance)
+      @places = Place.near(params[:query], 2)
       .where(type_of_place: params[:type_of_place])
     else
       @places = Place.all
@@ -13,23 +13,23 @@ class PlacesController < ApplicationController
   end
 
   def saved_places
+    # binding.pry
     @place = Place.find(params[:place_id])
     @saved_place = SavedPlace.new
     @saved_place.user = current_user
     @saved_place.place = @place
     @saved_place.visible = "true"
     @saved_place.save
+    raise
+    # @saved_place << current_user.saved_places
     redirect_to place_path(@place)
   end
 
   def delete_saved_place
     @saved_place = SavedPlace.where(user_id: current_user)[0]
-    @saved_place.visible = "false" if @saved_place.visible = "true"
     @saved_place.update_attribute(:visible, "false")
-    respond_to do |format|
-      format.html { redirect_to places_path }
-      format.js  # <-- will render `app/views/reviews/create.js.erb`
-    end
+    @saved_place.save
+    redirect_to places_path
   end
 
   def average_price
@@ -49,7 +49,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
-    @place.total_heart = 0
+    @place.total_heart = 1
     if @place.save
       @shared_place.place = @place
       @shared_place.user = current_user
