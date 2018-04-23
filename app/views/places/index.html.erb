@@ -36,7 +36,9 @@
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
                 <div class="content">
                   <div class="card-category">
-                    <h1><%= place.name %></h1>
+                    <div class="name">
+                      <h1><%= place.name %></h1>
+                    </div>
                     <p>
                     <% if (place.address.split(",")[1][4] == "0") %>
                       <% if (place.address.split(",")[1][5] == "1") %>

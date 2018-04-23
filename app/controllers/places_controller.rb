@@ -39,7 +39,6 @@ class PlacesController < ApplicationController
     end
     @place.average_price = ( average_price / (@place.details.count) ).round
     @place.update_attribute(:average_price, @place.average_price)
-    # raise
   end
 
   def show
@@ -59,7 +58,6 @@ class PlacesController < ApplicationController
     else
       render :new
     end
-    raise
   end
 
   def new
