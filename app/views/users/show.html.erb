@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-sm-offset-1 col-sm-10">
         <h2>Mes adresses enregistrées</h2>
-        <% if current_user.saved_places.empty? %>
+        <% if @saved_places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse enregistrée</p>
           </div>
         <% else %>
-          <% current_user.saved_places.each do |saved_place| %>
-            <% if saved_place.visible = "true" %>
+          <% @saved_places.each do |saved_place| %>
+            <% if saved_place.visible? %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
                 <div class="card-category">
                   <h1><%= saved_place.place.name %></h1>
@@ -34,19 +34,23 @@
                   <i class="fa fas fa-heart"></i>
                 </div>
                 <div class="delete">
-                  <%= link_to "Supprimer",place_delete_saved_places_path(saved_place), data: "You Sure?" %>
+                  <%= link_to "Supprimer",place_delete_saved_places_path(saved_place) %>
                 </div>
+              </div>
+            <% else %>
+              <div class="few-results">
+                <p>N'hésite pas à enregistrer tes adresses préférées!</p>
               </div>
             <% end %>
           <% end %>
         <% end %>
         <h2>Mes adresses partagées</h2>
-        <% if current_user.shared_places.empty? %>
+        <% if @shared_places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse partagée</p>
           </div>
         <% else %>
-          <% current_user.shared_places.each do |shared_place| %>
+          <% @shared_places.each do |shared_place| %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
               <div class="card-category">
                 <h1><%= shared_place.place.name %></h1>

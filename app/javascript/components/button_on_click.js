@@ -1,7 +1,7 @@
 function buttonOnClick() {
   const button = document.getElementById("save");
   console.log(button);
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function(event) {
     if (button.innerHTML === "Enregistrer") {
       button.innerHTML = "Enregistré!";
       button.classList.add("button-clicked");
