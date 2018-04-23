@@ -3,41 +3,108 @@
   background-position: center;
   height: 350px;
 }
-
 .show {
   color: $blue;
 }
-
 .big-infos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  position: relative;
+  padding: 120px;
   .fa {
     color: $pink !important;
   }
 }
-
+.name {
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+.hearts {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 15px;
+  top: -5px;
+  p {
+    padding-top: 10px;
+    padding-right: 5px;
+  }
+}
+.type {
+  position: absolute;
+  left: 20px;
+  top: 27px;
+}
+.address {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+}
+.budget {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 20px;
+  top: 123px;
+  p {
+    font-size: 12px;
+  }
+}
+.hours {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 20px;
+  p {
+    font-size: 12px;
+  }
+}
+.waiting {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 20px;
+  top: 165px;
+  p {
+    font-size: 12px;
+  }
+  .fa {
+    padding-right: 5px;
+  }
+}
+.number {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 20px;
+  top: 190px;
+  .fa {
+    padding-right: 5px;
+  }
+}
+.website {
+  position: absolute;
+  left: 235px;
+  top: 190px;
+}
 .other-infos {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px;
 }
-
 .show-content {
   padding: 20px;
 }
-
 .comment-box {
   border: 1px solid $blue;
   border-radius: 10px;
   padding: 20px;
   margin: 20px;
 }
-
 // javascript button on clicked
-
 .button-clicked {
   color: $pink !important;
   background-color: white !important;
