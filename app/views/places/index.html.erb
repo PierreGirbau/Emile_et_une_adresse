@@ -7,8 +7,8 @@
         <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
-
-            <%= text_field_tag 'search_field', nil, class: "form-control", placeholder: "Tapez une adresse" %>
+            <i class="fa fas fa-check-circle"></i>
+            <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Cherchez paue<i class=\"fa fas fa-plus-circle\"" %>
             <%= hidden_field_tag :query, params[:query], id: "places_params" %>
         </div>
             <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
