@@ -10,38 +10,32 @@
           </div>
         <% else %>
           <% @saved_places.each do |saved_place| %>
-            <% if saved_place.visible? %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-                <div class="card-category">
-                  <h1><%= saved_place.place.name %></h1>
-                  <p>
-                  <% if (saved_place.place.address[-2] == "0") %>
-                    <% if (saved_place.place.address[-1] == "1") %>
-                      <%= saved_place.place.address[-1] %> er arrondissement
-                    <% else %>
-                      <%= saved_place.place.address[-1] %> eme arrondissement
-                    <% end %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+              <div class="card-category">
+                <h1><%= saved_place.place.name %></h1>
+                <p>
+                <% if (saved_place.place.address[-2] == "0") %>
+                  <% if (saved_place.place.address[-1] == "1") %>
+                    <%= saved_place.place.address[-1] %> er arrondissement
                   <% else %>
-                    <%= saved_place.place.address[-2..-1] %> eme arrondissement
+                    <%= saved_place.place.address[-1] %> eme arrondissement
                   <% end %>
-                  </p>
-                </div>
-                <div class="card-description">
-                  <p><%= saved_place.place.type_of_place %></p>
-                </div>
-                <div class="card-heart">
-                  <p>8</p>
-                  <i class="fa fas fa-heart"></i>
-                </div>
-                <div class="delete">
-                  <%= link_to "Supprimer",place_delete_saved_places_path(saved_place) %>
-                </div>
+                <% else %>
+                  <%= saved_place.place.address[-2..-1] %> eme arrondissement
+                <% end %>
+                </p>
               </div>
-            <% else %>
-              <div class="few-results">
-                <p>N'hésite pas à enregistrer tes adresses préférées!</p>
+              <div class="card-description">
+                <p><%= saved_place.place.type_of_place %></p>
               </div>
-            <% end %>
+              <div class="card-heart">
+                <p>8</p>
+                <i class="fa fas fa-heart"></i>
+              </div>
+              <div class="delete">
+                <%= link_to "Supprimer",place_saved_place_path(saved_place), method: :delete %>
+              </div>
+            </div>
           <% end %>
         <% end %>
         <h2>Mes adresses partagées</h2>
