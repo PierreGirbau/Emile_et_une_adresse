@@ -1,9 +1,10 @@
 function radioButtons () {
   const radio_buttons = document.querySelectorAll("[type=radio]");
   const checkboxes_1 = document.querySelectorAll('.radio > label');
-  console.log(radio_buttons)
+  console.log(checkboxes_1)
   radio_buttons.forEach(radioBtn => {
     radioBtn.addEventListener('click', () => {
+      console.log(radioBtn.id)
       if(radioBtn.checked === true) {
         document.querySelector(`label[for=${radioBtn.id}]`).classList.toggle("active");
       };

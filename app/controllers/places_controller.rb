@@ -6,29 +6,11 @@ class PlacesController < ApplicationController
     @places = Place.all
     if params[:query].present? && params[:type_of_place].present?
       @places = Place.near(params[:query], 2)
-      .where(type_of_place: params[:type_of_place])
+      .where("type_of_place like ?", "%#{params[:type_of_place]}%")
     else
       @places = Place.all
     end
   end
-
-  # def saved_places
-  #   # binding.pry
-  #   @place = Place.find(params[:place_id])
-  #   @saved_place = SavedPlace.new
-  #   @saved_place.user = current_user
-  #   @saved_place.place = @place
-  #   @saved_place.save
-  #   # @saved_place << current_user.saved_places
-  #   redirect_to place_path(@place)
-  # end
-
-  # def delete_saved_place
-  #   @saved_place = SavedPlace.where(user_id: current_user)[0]
-  #   @saved_place.update_attribute(:visible, "false")
-  #   @saved_place.save
-  #   redirect_to places_path
-  # end
 
   def average_price
     average_price = 0
@@ -47,15 +29,22 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
-    @place.total_heart = 1
-    if @place.save
+    existing_place = Place.where(name: @place.name).first
+
+    if existing_place.nil?
+      @place.save
+      @place.total_heart = 1
       @shared_place.place = @place
       @shared_place.user = current_user
       @shared_place.save
       redirect_to new_place_detail_path(@place)
-    else
-      render :new
+
+    else (existing_place.name === @place.name)
+      existing_place.update_attribute(:type_of_place,
+        (@place.type_of_place + ", " + existing_place.type_of_place).split(","))
+      redirect_to new_place_detail_path(existing_place)
     end
+
   end
 
   def new

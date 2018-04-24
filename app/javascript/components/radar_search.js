@@ -5,7 +5,7 @@ function radarSearch() {
     new google.maps.LatLng(48.8566667, 2.3509871));
   const options = {
     bounds: parisPosition,
-    types: ['establishment'],
+    types: ['geocode'],
     componentRestrictions: {country: ['fr']}
     };
   if (placeAddress) {
@@ -33,7 +33,7 @@ function radarSearch() {
       service.radarSearch({
               location: place_coordinate,
               radius: 700,
-              type: ['establishment']
+              type: ['geocode']
           }, callback);
 
       function callback(results, status) {
