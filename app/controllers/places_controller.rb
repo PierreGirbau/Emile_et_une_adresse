@@ -12,24 +12,6 @@ class PlacesController < ApplicationController
     end
   end
 
-  # def saved_places
-  #   # binding.pry
-  #   @place = Place.find(params[:place_id])
-  #   @saved_place = SavedPlace.new
-  #   @saved_place.user = current_user
-  #   @saved_place.place = @place
-  #   @saved_place.save
-  #   # @saved_place << current_user.saved_places
-  #   redirect_to place_path(@place)
-  # end
-
-  # def delete_saved_place
-  #   @saved_place = SavedPlace.where(user_id: current_user)[0]
-  #   @saved_place.update_attribute(:visible, "false")
-  #   @saved_place.save
-  #   redirect_to places_path
-  # end
-
   def average_price
     average_price = 0
     @place.details.each do |detail|

@@ -4,6 +4,23 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px 50px;
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    width: 65%;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(232, 58, 104);
+    border-image: initial;
+  }
 }
 .few-results {
   background-color: white;
