@@ -12,25 +12,23 @@ class PlacesController < ApplicationController
     end
   end
 
-  def saved_places
-    # binding.pry
-    @place = Place.find(params[:place_id])
-    @saved_place = SavedPlace.new
-    @saved_place.user = current_user
-    @saved_place.place = @place
-    @saved_place.visible = "true"
-    @saved_place.save
-    raise
-    # @saved_place << current_user.saved_places
-    redirect_to place_path(@place)
-  end
+  # def saved_places
+  #   # binding.pry
+  #   @place = Place.find(params[:place_id])
+  #   @saved_place = SavedPlace.new
+  #   @saved_place.user = current_user
+  #   @saved_place.place = @place
+  #   @saved_place.save
+  #   # @saved_place << current_user.saved_places
+  #   redirect_to place_path(@place)
+  # end
 
-  def delete_saved_place
-    @saved_place = SavedPlace.where(user_id: current_user)[0]
-    @saved_place.update_attribute(:visible, "false")
-    @saved_place.save
-    redirect_to places_path
-  end
+  # def delete_saved_place
+  #   @saved_place = SavedPlace.where(user_id: current_user)[0]
+  #   @saved_place.update_attribute(:visible, "false")
+  #   @saved_place.save
+  #   redirect_to places_path
+  # end
 
   def average_price
     average_price = 0
@@ -100,7 +98,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:google_place_id, :name, :address, :periods, :type_of_place, :website, :phone_number, :photo, :average_price)
+    params.require(:place).permit(:google_place_id, :name, :address, :periods, :type_of_place, :website, :phone_number, :photo, :average_price, :total_heart)
   end
 
   def set_place

@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   end
 
   resources :places do
+    resources :saved_places, only: [:create, :destroy]
     resources :details, only: [:new, :create]
     resources :users, only: [:show]
     # resources :saved_places, only: [:destroy]
-    get '/saved_places' => 'places#saved_places'
-    get '/delete_saved_places' => 'places#delete_saved_place'
+    # get '/saved_places' => 'places#saved_places'
+    # get '/delete_saved_places' => 'places#delete_saved_place'
     member do
       put "like", to: "places#upvote"
       put "dislike", to: "places#downvote"

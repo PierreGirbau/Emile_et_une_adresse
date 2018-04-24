@@ -1,16 +1,12 @@
-function buttonOnClick() {
-  const button = document.getElementById("save");
-  console.log(button);
-  button.addEventListener('click', function(event) {
-    if (button.innerHTML === "Enregistrer") {
-      button.innerHTML = "Enregistré!";
-      button.classList.add("button-clicked");
-    } else {
-      button.innerHTML = "Enregistrer";
-      button.classList.remove("button-clicked");
-    }
-  });
-};
+// function buttonOnClick() {
+//   const button = document.getElementById("save");
+//   console.log(button);
+//   button.addEventListener('click', function(event) {
+//       button.innerHTML = "Enregistré!";
+//       button.classList.add("button-clicked");
+//       event.preventDefault();
+//   });
+// };
 
 export { buttonOnClick };
 
