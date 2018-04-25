@@ -33,11 +33,28 @@
   }
 }
 .search-bar .form-control {
+  position: relative;
   border-radius: 30px;
   text-align: center;
-  padding-right: 60px;
   width: 90vw;
   margin: 10px 0px 15px 0px;
+}
+.fa.fas.fa-check-circle {
+  position: absolute;
+  z-index: 1;
+  top: 95px;
+  right: 30px;
+}
+@media (min-width: 500px) {
+  .search-bar .form-control {
+    position: relative;
+  }
+  .fa.fas.fa-check-circle {
+    position: absolute;
+    z-index: 1;
+    top: 103px;
+    right: 85px;
+  }
 }
 .btn.btn-emile {
   margin-bottom: 20px;

@@ -9,7 +9,7 @@
           <%= form_tag places_path, method: :get do %>
             <i class="fa fas fa-check-circle"></i>
             <%= text_field_tag 'search_field', nil, class: "form-control search" %>
-            <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez une adresse" %>
+            <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez" %>
         </div>
             <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
             <label for="">
