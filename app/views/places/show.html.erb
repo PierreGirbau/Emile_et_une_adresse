@@ -20,7 +20,13 @@
         <%= @place.phone_number %>
       </div>
       <div class="website">
-        <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'" />
+
+        <%#= link_to "Vers le site internet",'<%= @place.website %>
+        <!-- Préférer la notation au dessus, trouver la bonne! -->
+        <% if @place.website != "undefined" %>
+          <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'" />
+        <% end %>
+
       </div>
     </div>
     <br>
@@ -45,7 +51,7 @@
       </div>
     <% end %>
     <div class="other-infos">
-      <%= link_to "Y aller", "https://www.google.com/maps/place/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile" %>
+      <%= link_to "Y aller", "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile" %>
       <%= link_to "Enregistrer", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
     <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}" %>
