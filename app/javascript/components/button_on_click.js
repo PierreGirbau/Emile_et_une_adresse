@@ -1,12 +1,12 @@
-// function buttonOnClick() {
-//   const button = document.getElementById("save");
-//   console.log(button);
-//   button.addEventListener('click', function(event) {
-//       button.innerHTML = "Enregistré!";
-//       button.classList.add("button-clicked");
-//       event.preventDefault();
-//   });
-// };
+function buttonOnClick() {
+  const labels = document.querySelectorAll("label[for]")
+  console.log(labels)
+  labels.forEach(label => {
+    label.addEventListener('click', () => {
+      label[for=input].checked = 'checked'
+    })
+  })
+};
 
 export { buttonOnClick };
 

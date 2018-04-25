@@ -2,9 +2,9 @@
   width: 100vw;
 }
 .card {
-  width: 180px;
   height: 150px;
-  margin-bottom: 10px;
+  border: 1px solid #f4f4f475;
+  margin-bottom: 120px;
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -17,11 +17,9 @@
   }
 }
 .content {
-  padding-left: 190px;
-  width: 50vh;
+  padding-top: 150px;
 }
 .card-category {
-  width: 50vh;
   h1 {
     text-transform: uppercase;
     padding-top: 5px;
@@ -30,6 +28,7 @@
     font-size: 14px;
     font-weight: bold;
     color: white;
+    width: 450px !important;
   }
   p {
     font-size: 12px;
@@ -56,3 +55,14 @@
   }
 }
 
+.delete {
+  position: absolute;
+  bottom: 5px;
+  color: white;
+  right: 5px;
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+}
