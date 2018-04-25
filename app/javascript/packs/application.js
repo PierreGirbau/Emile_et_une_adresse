@@ -11,7 +11,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
 import { radioButtons } from '../components/radio_buttons';
 import { modalShow } from '../components/modal';
-import { buttonOnClick } from '../components/button_on_click';
+// import { buttonOnClick } from '../components/button_on_click';
 import { radarSearch } from '../components/radar_search';
 // import { initializeAutocomplete } from '../components/autocomplete_index';
 import 'bootstrap';
@@ -35,7 +35,7 @@ if ( document.getElementById('search_field') ) {
 };
 
 
-  buttonOnClick();
+  // buttonOnClick();
 
 
 if ( document.querySelectorAll("[type=radio]") ) {

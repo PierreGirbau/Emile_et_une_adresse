@@ -8,15 +8,15 @@
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
             <i class="fa fas fa-check-circle"></i>
-            <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Cherchez paue<i class=\"fa fas fa-plus-circle\"" %>
-            <%= hidden_field_tag :query, params[:query], id: "places_params" %>
+            <%= text_field_tag 'search_field', nil, class: "form-control search" %>
+            <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez une adresse" %>
         </div>
             <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
             <label for="">
               <%= radio_button_tag 'type_of_place', "Un bon verre" %>Un bon verre
             </label>
             <label for="">
-              <%= radio_button_tag 'type_of_place', "Une bonne table", class: "btn btn-emile" %>Une bonne table
+              <%= radio_button_tag 'type_of_place', "Une bonne table" %>Une bonne table
             </label>
             <label for="">
               <%= radio_button_tag 'type_of_place', "Du bon son" %>Du bon son
@@ -24,7 +24,7 @@
             <%#= f.input :type_of_place, as: :radio_buttons,
                 collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :" %>
         <div>
-          <%= submit_tag "Go Emile!", class: "btn btn-emile" %>
+          <%= submit_tag "Go Émile !", class: "btn btn-emile" %>
         </div>
           <% end %>
       </div>
@@ -85,9 +85,9 @@
       <% end %>
       <% if @places.length == 0 %>
         <div class="few-results">
-          <p>Vous ne trouvez pas votre bonheur ?!...</p>
+          <p>Vous ne trouvez pas votre bonheur ..?</p>
           <br>
-          <p>Tranquille Emile, de nouvelles adresses arrivent bientôt à Paris...</p>
+          <p>Tranquille Émile, de nouvelles adresses arrivent bientôt à Paris !</p>
         </div>
       <% end %>
     </div>
