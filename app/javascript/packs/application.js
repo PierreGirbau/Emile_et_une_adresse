@@ -34,10 +34,12 @@ if ( document.getElementById('search_field') ) {
  radarSearch();
 };
 
-if ( document.getElementById('save') ) {
+
   buttonOnClick();
-};
+
 
 if ( document.querySelectorAll("[type=radio]") ) {
   radioButtons();
 };
+
+

@@ -2,34 +2,69 @@
 <div class="wrapper show">
   <div class="container">
     <div class="row">
-      <div class="col-sm-offset-1 col-sm-10">
-        <h2>Mes adresses enregistrées</h2>
-        <% if @saved_places.empty? %>
-          <div class="few-results">
-            <p>Tu n'as encore aucune adresse enregistrée</p>
-          </div>
-        <% else %>
-          <% @saved_places.each do |saved_place| %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-              <div class="card-category">
-                <h1><%= saved_place.place.name %></h1>
-                <p>
-                <%= saved_place.place.address.split(",")[1][1..5] %>
-                </p>
-              </div>
-              <div class="card-description">
-                <p><%= saved_place.place.type_of_place %></p>
-              </div>
-              <div class="card-heart">
-                <p>8</p>
-                <i class="fa fas fa-heart"></i>
-              </div>
-              <div class="delete">
-                <%= link_to "Supprimer",place_saved_place_path(saved_place), method: :delete %>
-              </div>
+      <h2>Mes adresses enregistrées</h2>
+      <% if @saved_places.empty? %>
+        <div class="few-results">
+          <p>Tu n'as encore aucune adresse enregistrée</p>
+        </div>
+      <% else %>
+        <% @saved_places.each do |saved_place| %>
+          <% if (saved_place.place.photo == "") %>
+            <div class="col-sm-offset-1 col-sm-10">
+              <%= link_to(saved_place.place) do %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+                  <div class="content">
+                    <div class="card-category">
+                      <div class="name">
+                        <h1><%= saved_place.place.name %></h1>
+                      </div>
+                      <p>
+                      <%= saved_place.place.address.split(",")[1][1..5] %> | <%= saved_place.place.average_price %>
+                      </p>
+                    </div>
+                    <div class="card-description">
+                      <p><%#= place.type_of_place %></p>
+                    </div>
+                    <div class="card-heart">
+                      <%= saved_place.place.total_heart %>
+                      <i class="fa fas fa-heart"></i>
+                    </div>
+                    <div class="delete">
+                      <%= link_to "Supprimer",place_saved_place_path(saved_place), method: :delete %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <%= link_to(saved_place.place) do %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= saved_place.place.photo %>');">
+                  <div class="delete">
+                    <%= link_to 'Supprimer'.html_safe,place_saved_place_path(saved_place), method: :delete %>
+                  </div>
+                  <div class="content">
+                    <div class="card-category">
+                      <h1><%= saved_place.place.name %></h1>
+                      <p>
+                      <%= saved_place.place.address.split(",")[1][1..5] %> | Budget d'environ <%= saved_place.place.average_price.to_i %> euros par personne
+                      </p>
+                    </div>
+                    <div class="card-description">
+                      <p><%#= place.type_of_place %></p>
+                    </div>
+                    <div class="card-heart">
+                      <%= saved_place.place.total_heart %>
+                      <i class="fa fas fa-heart"></i>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>
+        <% end %>
+
         <h2>Mes adresses partagées</h2>
         <% if current_user.places.empty? %>
           <div class="few-results">
@@ -37,23 +72,59 @@
           </div>
         <% else %>
           <% current_user.places.each do |shared_place| %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-              <div class="card-category">
-                <h1><%= shared_place.name %></h1>
-                <p>
-                <%= shared_place.address.split(",")[1][1..5] %>
-                </p>
+            <% if (shared_place.photo == "") %>
+              <div class="col-sm-offset-1 col-sm-10">
+                <%= link_to(shared_place) do %>
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+                    <div class="content">
+                      <div class="card-category">
+                        <div class="name">
+                          <h1><%= shared_place.name %></h1>
+                        </div>
+                        <p>
+                        <%= shared_place.address.split(",")[1][1..5] %> | <%= shared_place.average_price %>
+                        </p>
+                      </div>
+                      <div class="card-description">
+                        <p><%#= place.type_of_place %></p>
+                      </div>
+                      <div class="card-heart">
+                        <%#= shared_place.total_heart %>
+                        <!-- <i class="fa fas fa-heart"></i> -->
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-              <!-- <div class="card-description">
-                <p><%= shared_place.type_of_place %></p>
-              </div> -->
-              <div class="card-heart">
-                <p>8</p>
-                <i class="fa fas fa-heart"></i>
+            <% else %>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <%= link_to(shared_place) do %>
+                  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= shared_place.photo %>');">
+                    <div class="content">
+                      <div class="card-category">
+                        <h1><%= shared_place.name %></h1>
+                        <p>
+                        <%= shared_place.address.split(",")[1][1..5] %> | Budget d'environ <%= shared_place.average_price.to_i %> euros par personne
+                        </p>
+                      </div>
+                      <div class="card-description">
+                        <p><%#= place.type_of_place %></p>
+                      </div>
+                      <div class="card-heart">
+                        <%#= shared_place.total_heart %>
+                        <!-- <i class="fa fas fa-heart"></i> -->
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+          <% end %>
+
+
+
+
         </div>
       </div>
     </div>

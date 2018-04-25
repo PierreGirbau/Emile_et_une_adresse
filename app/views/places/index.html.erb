@@ -40,7 +40,7 @@
                       <h1><%= place.name %></h1>
                     </div>
                     <p>
-                    <%= place.address.split(",")[1][1..5] %>
+                    <%= place.address.split(",")[1][1..5] %> | <%= place.average_price %>
                     </p>
                   </div>
                   <div class="card-description">
@@ -57,14 +57,14 @@
             <% end %>
           </div>
         <% else %>
-          <div class="col-sm-offset-1 col-sm-10">
+          <div class="col-xs-12 col-sm-12 col-md-4">
             <%= link_to(place) do %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo %>');">
                 <div class="content">
                   <div class="card-category">
                     <h1><%= place.name %></h1>
                     <p>
-                    <%= place.address.split(",")[1][1..5] %>
+                    <%= place.address.split(",")[1][1..5] %> | Budget d'environ <%= place.average_price.to_i %> euros par personne
                     </p>
                   </div>
                   <div class="card-description">
@@ -89,12 +89,7 @@
           <br>
           <p>Tranquille Emile, de nouvelles adresses arrivent bientôt à Paris...</p>
         </div>
-      <%# elsif @places.length < 3 %>
-<!--         <div class="few-results">
-          <p>Désolé, nous n'avons pas plus de résultats à vous proposer</p>
-        </div> -->
       <% end %>
     </div>
   </div>
-  <%= link_to "ma page user", user_path(current_user), class: "btn btn-emile"  %>
 </div>
