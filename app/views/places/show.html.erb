@@ -11,11 +11,8 @@
         <p><%= @place.total_heart %></p>
         <i class="fa fas fa-heart"></i>
       </div>
-      <div class="type">
-        <p>Bar</p>
-      </div>
       <div class="budget">
-        <i class="fas fa-euro-sign"></i>
+        <i class="fa fa-eur"></i>
         <p>Budget (plaisir) environ <%= @place.average_price.to_i %> euros par personne</p>
       </div>
       <div class="number">
@@ -23,23 +20,22 @@
         <%= @place.phone_number %>
       </div>
       <div class="website">
-        <%#= link_to "Vers le site internet",'<%= @place.website %>
-        <!-- Préférer la notation au dessus, trouver la bonne! -->
-        <button class="btn"><%= @place.website %></button>
+        <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'" />
       </div>
     </div>
+    <br>
+    <div class="hours">
       <strong><p>Horaires d'ouverture:</p></strong>
       <ul>
-        <li><%= @place.periods.split(",")[0] %></li>
-        <li><%= @place.periods.split(",")[1] %></li>
-        <li><%= @place.periods.split(",")[2] %></li>
-        <li><%= @place.periods.split(",")[3] %></li>
-        <li><%= @place.periods.split(",")[4] %></li>
-        <li><%= @place.periods.split(",")[5] %></li>
-        <li><%= @place.periods.split(",")[6] %></li>
+        <li><span><%= @place.periods.split(",")[0] %> / <%= @place.periods.split(",")[1] %></span></li>
+        <li><span><%= @place.periods.split(",")[2] %> / <%= @place.periods.split(",")[3] %></span></li>
+        <li><span><%= @place.periods.split(",")[4] %> / <%= @place.periods.split(",")[5] %></span></li>
+        <li><span><%= @place.periods.split(",")[6] %> / <%= @place.periods.split(",")[7] %></span></li>
+        <li><span><%= @place.periods.split(",")[8] %> / <%= @place.periods.split(",")[9] %></span></li>
+        <li><span><%= @place.periods.split(",")[10] %> / <%= @place.periods.split(",")[11] %></span></li>
+        <li><span><%= @place.periods.split(",")[12] %> / <%= @place.periods.split(",")[13] %></span></li>
       </ul>
-
-
+    </div>
 
     <p style="padding-left: 20px;">Les recos qui vont bien :</p>
     <% @place.details.each do |detail| %>
