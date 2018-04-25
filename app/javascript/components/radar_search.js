@@ -17,6 +17,9 @@ function radarSearch() {
     });
     autocomplete.addListener('place_changed', function() {
       const place = autocomplete.getPlace();
+      console.log(place)
+      console.log(placeAddress)
+      placeAddress.insertAdjacentHTML("afterend", `<i class="fa fas fa-check-circle"></i>`);
       const lat = place.geometry.location.lat();
       const lng = place.geometry.location.lng();
       let map;

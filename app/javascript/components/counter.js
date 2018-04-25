@@ -12,14 +12,13 @@ function counter() {
   var number = parseInt($('.counter').text());
   const counter = document.querySelector(".counter")
   if (i < 14) {
-    console.log(i)
     i += 1
     counter.innerHTML = `<h1>${i}</h1>`
   } else {
     counter.innerHTML = `<h1>14 établissements au total!</h1>`
   }
+  setInterval(counter, 500);
 }
 
-setInterval(counter, 500);
 
 export { counter };

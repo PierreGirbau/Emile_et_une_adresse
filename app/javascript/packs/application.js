@@ -35,7 +35,6 @@ if ( document.getElementById('search_field') ) {
  radarSearch();
 };
 
-
   // buttonOnClick();
 if ( document.querySelector(".counter") ) {
   counter();
