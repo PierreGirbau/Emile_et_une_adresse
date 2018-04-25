@@ -2,6 +2,9 @@
   background-size: cover !important;
   background-position: center;
   height: 350px;
+  .card {
+    margin-bottom: 10px;
+  }
 }
 .show {
   color: $blue;
@@ -35,42 +38,15 @@
   left: 20px;
   top: 27px;
 }
-.address {
-  position: absolute;
-  left: 20px;
-  top: 50px;
-}
 .budget {
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   left: 20px;
-  top: 123px;
+  top: 60px;
   p {
     font-size: 12px;
-  }
-}
-.hours {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  left: 20px;
-  p {
-    font-size: 12px;
-  }
-}
-.waiting {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  left: 20px;
-  top: 165px;
-  p {
-    font-size: 12px;
-  }
-  .fa {
-    padding-right: 5px;
   }
 }
 .number {
@@ -79,15 +55,15 @@
   justify-content: space-between;
   align-items: center;
   left: 20px;
-  top: 190px;
+  top: 85px;
   .fa {
     padding-right: 5px;
   }
 }
 .website {
   position: absolute;
-  left: 235px;
-  top: 190px;
+  left: 20px;
+  top: 110px;
 }
 .other-infos {
   display: flex;
