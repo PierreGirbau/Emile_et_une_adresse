@@ -40,7 +40,11 @@
                       <h1><%= place.name %></h1>
                     </div>
                     <p>
-                    <%= place.address.split(",")[1][1..5] %> | <%= place.average_price %>
+                    <% if place.average_price = 0 %>
+                      <%= place.address.split(",")[1][1..5] %> | Découvrez le budget...
+                    <% else %>
+                      <%= place.address.split(",")[1][1..5] %> | <%= place.average_price %>
+                    <% end %>
                     </p>
                   </div>
                   <div class="card-description">
@@ -64,7 +68,11 @@
                   <div class="card-category">
                     <h1><%= place.name %></h1>
                     <p>
-                    <%= place.address.split(",")[1][1..5] %> | Budget d'environ <%= place.average_price.to_i %> euros par personne
+                    <% if place.average_price = 0 %>
+                      <%= place.address.split(",")[1][1..5] %> | Découvrez le budget...
+                    <% else %>
+                      <%= place.address.split(",")[1][1..5] %> | <%= place.average_price.to_i %>
+                    <% end %>
                     </p>
                   </div>
                   <div class="card-description">

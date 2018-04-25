@@ -13,11 +13,11 @@ class PlacesController < ApplicationController
   end
 
   def average_price
-    average_price = 0
+    average_price = 1
     @place.details.each do |detail|
       average_price += detail.price
     end
-    @place.average_price = ( average_price / (@place.details.count) ).round
+    @place.average_price = ( (average_price - 1) / (@place.details.count) ).round
     @place.update_attribute(:average_price, @place.average_price)
   end
 
@@ -30,19 +30,26 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
     existing_place = Place.where(name: @place.name).first
+    # binding.pry
+    if @place.address == ""
+      flash.now[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
+      render :new
+    else
+      if existing_place.nil?
+        @place.save
+        @place.total_heart = 1
+        @shared_place.place = @place
+        @shared_place.user = current_user
+        @shared_place.save
+        redirect_to new_place_detail_path(@place)
 
-    if existing_place.nil?
-      @place.save
-      @place.total_heart = 1
-      @shared_place.place = @place
-      @shared_place.user = current_user
-      @shared_place.save
-      redirect_to new_place_detail_path(@place)
-
-    else (existing_place.name === @place.name)
-      existing_place.update_attribute(:type_of_place,
-        (@place.type_of_place + ", " + existing_place.type_of_place).split(","))
-      redirect_to new_place_detail_path(existing_place)
+      elsif (existing_place.name === @place.name)
+        existing_place.update_attribute(:type_of_place,
+          (@place.type_of_place + ", " + existing_place.type_of_place).split(","))
+        redirect_to new_place_detail_path(existing_place)
+      else
+        render :new
+      end
     end
 
   end
