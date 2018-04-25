@@ -1,4 +1,3 @@
-<%= render 'shared/navbar_home' %>
 <div class="wrapper">
   <div class="container home">
   <h1>ÉMILE ET UNE ADRESSE</h1>
@@ -12,7 +11,7 @@
             <%= f.error_notification %>
             <div class="form-inputs ">
               <%= f.input :first_name, label: false, required: true, autofocus: true, placeholder: 'Prénom' %>
-              <%= f.input :birth_date, as: :date, start_year: Date.today.year - 78, end_year:Date.today.year - 1,
+              <%= f.input :birth_date, as: :date, start_year: Date.today.year - 78, end_year:Date.today.year,
                            order: [:day, :month, :year], label: "Date de naissance", required: true, class: "date"%>
               <%= f.input :email, label: false, required: true, autofocus: true, placeholder: 'Adresse email' %>
               <%= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
@@ -30,7 +29,6 @@
       <h2>Paris</h2>
       <h3>Saison 1 : Les beaux jours à Paname</h3>
     </div>
-    <%#= link_to "Crée ton adresse", new_place_path, class: "btn btn-emile"  %>
   </div>
 </div>
 
