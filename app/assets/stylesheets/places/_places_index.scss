@@ -6,10 +6,9 @@
   padding: 10px 50px;
   label {
     display: inline-block;
-    max-width: 100%;
+    width: 90vh;
     margin-bottom: 5px;
     font-weight: bold;
-    width: 65%;
     margin-bottom: 15px;
     text-align: center;
     font-size: 16px;
@@ -34,14 +33,34 @@
   }
 }
 .search-bar .form-control {
+  position: relative;
   border-radius: 30px;
   text-align: center;
-  padding-right: 60px;
+  width: 90vw;
   margin: 10px 0px 15px 0px;
+}
+.fa.fas.fa-check-circle {
+  position: absolute;
+  z-index: 1;
+  top: 95px;
+  right: 30px;
+}
+@media (min-width: 500px) {
+  .search-bar .form-control {
+    position: relative;
+  }
+  .fa.fas.fa-check-circle {
+    position: absolute;
+    z-index: 1;
+    top: 103px;
+    right: 85px;
+  }
 }
 .btn.btn-emile {
   margin-bottom: 20px;
   width: 100%;
+  font-weight: bold;
+  padding: 10px 100px;
 }
 .card-category h1 {
   width: 150px;
