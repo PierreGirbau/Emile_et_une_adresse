@@ -1,4 +1,4 @@
-<%= render 'shared/navbar_without_return' %>
+<%= render 'shared/navbar_index' %>
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -11,6 +11,7 @@
             <%= text_field_tag 'search_field', nil, class: "form-control search" %>
             <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez" %>
         </div>
+
             <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
             <label>
               <input type="radio" name="type_of_place" id="type_of_place_Un_bon_verre" value="Un bon verre">Un bon verre
@@ -21,8 +22,7 @@
             <label>
               <input type="radio" name="type_of_place" id="type_of_place_Du_bon_son" value="Du bon son">Du bon son
             </label>
-            <%#= f.input :type_of_place, as: :radio_buttons,
-                collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :" %>
+          <!-- </div> -->
         <div>
           <%= submit_tag "Go Émile !", class: "btn btn-emile" %>
         </div>
@@ -64,7 +64,7 @@
                   <div class="card-category">
                     <h1><%= place.name %></h1>
                     <p>
-                      <%= place.address.split(",")[1][1..5] %> | Budget d'environ <%= place.average_price %> euros par personne
+                      <%= place.address.split(",")[1][1..5] %> | Budget d'environ <%= place.average_price.to_i %> euros par personne
                     </p>
                   </div>
                   <div class="card-description">
