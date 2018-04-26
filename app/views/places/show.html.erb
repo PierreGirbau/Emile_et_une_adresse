@@ -31,13 +31,9 @@
     <div class="hours">
       <strong><p>Horaires d'ouverture:</p></strong>
       <ul>
-        <li><span><%= @place.periods.split(",")[0] %> / <%= @place.periods.split(",")[1] %></span></li>
-        <li><span><%= @place.periods.split(",")[2] %> / <%= @place.periods.split(",")[3] %></span></li>
-        <li><span><%= @place.periods.split(",")[4] %> / <%= @place.periods.split(",")[5] %></span></li>
-        <li><span><%= @place.periods.split(",")[6] %> / <%= @place.periods.split(",")[7] %></span></li>
-        <li><span><%= @place.periods.split(",")[8] %> / <%= @place.periods.split(",")[9] %></span></li>
-        <li><span><%= @place.periods.split(",")[10] %> / <%= @place.periods.split(",")[11] %></span></li>
-        <li><span><%= @place.periods.split(",")[12] %> / <%= @place.periods.split(",")[13] %></span></li>
+        <% @place.periods.split(",").each do |day_schedule| %>
+          <li><span><%= day_schedule %></span></li>
+        <% end %>
       </ul>
     </div>
 
@@ -52,6 +48,6 @@
       <%= link_to "Y aller", "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile" %>
       <%= link_to "Enregistrer", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}", class: "map" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
       <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>

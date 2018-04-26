@@ -14,7 +14,7 @@ import { modalShow } from '../components/modal';
 // import { buttonOnClick } from '../components/button_on_click';
 import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
-import { radioButtonsAddClass } from '../components/radio_buttons_add_class';
+import { radioButtonsAddClass, radioButtonsAddClass2 } from '../components/radio_buttons_add_class';
 import 'bootstrap';
 
 // initializeAutocomplete();
@@ -44,8 +44,12 @@ if ( document.querySelectorAll("[type=radio]") ) {
   radioButtonsColored();
 };
 
-if ( document.querySelectorAll(".radio") ) {
+if ( document.querySelector('.radio > label[for="place_type_of_place_une_bonne_table"]') ) {
   radioButtonsAddClass();
+};
+
+if ( document.querySelector('.radio > label[for="detail_season_toute_lannée"]') ) {
+  radioButtonsAddClass2();
 };
 
 

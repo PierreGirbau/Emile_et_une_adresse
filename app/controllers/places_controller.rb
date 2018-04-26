@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :upvote, :downvote, :score]
-  # skip_before_action :authenticate_user!, only: [:create, :new]
+  skip_before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @places = Place.all
@@ -58,6 +58,7 @@ class PlacesController < ApplicationController
     current_user.heart_stock = current_user.heart_capacity  if current_user.heart_capacity > 0
     current_user.save
     current_user.update_attribute(:heart_stock, current_user.heart_stock)
+    flash[:notice] = "Vous venez de liker #{@place.name}. Vous ne pouvez liker qu'une fois chaque établissement !"
 
     # updating hearts of the places
     @place.update_attribute(:total_heart, @place.total_heart)
