@@ -13,7 +13,7 @@
       </div>
       <div class="budget">
         <i class="fa fa-eur"></i>
-        <p>Budget (plaisir) environ <%= @place.average_price.to_i %> euros par personne</p>
+        <p>Budget (plaisir) environ <%= @place.average_price %> euros par personne</p>
       </div>
       <div class="number">
         <i class="fa fa-phone"></i>
@@ -21,10 +21,8 @@
       </div>
       <div class="website">
 
-        <%#= link_to "Vers le site internet",'<%= @place.website %>
-        <!-- Préférer la notation au dessus, trouver la bonne! -->
         <% if @place.website != "undefined" %>
-          <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'" />
+          <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'"/>
         <% end %>
 
       </div>

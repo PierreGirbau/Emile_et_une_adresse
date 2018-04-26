@@ -17,8 +17,8 @@ function counter() {
   } else {
     counter.innerHTML = `<h1>14 établissements au total!</h1>`
   }
-  setInterval(counter, 500);
 }
 
+setInterval(counter, 500);
 
 export { counter };
