@@ -4,6 +4,7 @@
   height: 350px;
   .card {
     margin-bottom: 10px;
+    height: 200px;
   }
 }
 .show {
@@ -81,7 +82,7 @@
 .hours p {
   position: absolute;
   left: 20px;
-  top: 465px;
+  top: 510px;
 }
 ul li {
   /* Bullet color */
@@ -127,7 +128,7 @@ ul li span {
   .map {
     width: 40vw;
     position: absolute;
-    top: 250px;
-    left: 645px;
+    top: 285px;
+    right: 30px;
   }
 }
