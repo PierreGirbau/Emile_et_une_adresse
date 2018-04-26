@@ -67,7 +67,9 @@
 .navbar-emile-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: $pink;
+}
+.navbar-emile-dropdown-menu li {
+  list-style-type: none;
 }
 .navbar-emile-dropdown-menu li > a {
   transition: color 0.3s ease;
