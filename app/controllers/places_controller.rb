@@ -1,28 +1,18 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :upvote, :downvote, :score]
-  skip_before_action :authenticate_user!, only: [:create, :new]
+  # skip_before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @places = Place.all
     if params[:query].present? && params[:type_of_place].present?
       @places = Place.near(params[:query], 2)
-      .where("type_of_place like ?", "%#{params[:type_of_place]}%")
+        .where("type_of_place like ?", "%#{params[:type_of_place]}%")
     else
       @places = Place.all
     end
   end
 
-  def average_price
-    average_price = 1
-    @place.details.each do |detail|
-      average_price += detail.price
-    end
-    @place.average_price = ( (average_price - 1) / (@place.details.count) ).round
-    @place.update_attribute(:average_price, @place.average_price)
-  end
-
   def show
-    average_price
     score
   end
 
@@ -34,22 +24,20 @@ class PlacesController < ApplicationController
     if @place.address == ""
       flash.now[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
       render :new
-    else
-      if existing_place.nil?
-        @place.save
+    elsif existing_place.nil?
         @place.total_heart = 1
+        @place.save
         @shared_place.place = @place
         @shared_place.user = current_user
         @shared_place.save
         redirect_to new_place_detail_path(@place)
 
-      elsif (existing_place.name === @place.name)
-        existing_place.update_attribute(:type_of_place,
-          (@place.type_of_place + ", " + existing_place.type_of_place).split(","))
-        redirect_to new_place_detail_path(existing_place)
-      else
-        render :new
-      end
+    elsif (existing_place.name === @place.name)
+      existing_place.update_attribute(:type_of_place,
+        ("#{@place.type_of_place}, #{existing_place.type_of_place}"))
+      redirect_to new_place_detail_path(existing_place)
+    else
+      render :new
     end
 
   end
@@ -87,7 +75,7 @@ class PlacesController < ApplicationController
   end
 
   def score
-    @place.total_heart = @place.get_upvotes.size - @place.get_downvotes.size
+    @place.total_heart = @place.total_heart + (@place.get_upvotes.size - @place.get_downvotes.size)
     @place.update_attribute(:total_heart, @place.total_heart)
   end
 
