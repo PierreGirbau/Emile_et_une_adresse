@@ -3,25 +3,19 @@
   <div class="container">
     <div class="row">
 
-      <div class="search-field">
+      <div class="search-field col-xs-12 col-sm-6 col-sm-offset-3">
         <div id="map"></div>
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
 
-            <%= text_field_tag 'search_field', nil, class: "form-control search" %>
-            <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez" %>
+            <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Cherchez par adresse ou arrondissement" %>
+            <%= hidden_field_tag :query, params[:query], id: "places_params" %>
         </div>
 
             <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
-            <label>
-              <input type="radio" name="type_of_place" id="type_of_place_Un_bon_verre" value="Un bon verre">Un bon verre
-            </label>
-            <label>
-              <input type="radio" name="type_of_place" id="type_of_place_Une_bonne_table" value="Une bonne table">Une bonne table
-            </label>
-            <label>
-              <input type="radio" name="type_of_place" id="type_of_place_Du_bon_son" value="Du bon son">Du bon son
-            </label>
+          <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required" type="radio" value="Un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">Un bon verre</label></span>
+          <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required" type="radio" value="Une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">Une bonne table</label></span>
+          <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
           <!-- </div> -->
         <div>
           <%= submit_tag "Go Émile !", class: "btn btn-emile" %>

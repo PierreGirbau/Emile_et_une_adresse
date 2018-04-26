@@ -28,7 +28,7 @@
               <div class="radio-buttons">
                 <!-- pas de classe radio-buttons encore, à remplir pour bon affichage! -->
                 <%= f.input :type_of_place, as: :radio_buttons,
-                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :" %>
+                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :", label_for_html: { class: "btns" } %>
               </div>
               <%= f.button :submit, "Continuer", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
             </div>
