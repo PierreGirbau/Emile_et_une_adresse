@@ -81,7 +81,7 @@
 .hours p {
   position: absolute;
   left: 20px;
-  top: 455px;
+  top: 465px;
 }
 ul li {
   /* Bullet color */
@@ -119,13 +119,15 @@ ul li span {
   border: 1px solid $pink !important;
 }
 
-.map-show {
+.map {
   width: 100vw;
 }
 
 @media (min-width:801px) {
-  .map-show {
-    padding-top: 30px;
-    width: 30vw;
+  .map {
+    width: 40vw;
+    position: absolute;
+    top: 250px;
+    left: 645px;
   }
 }
