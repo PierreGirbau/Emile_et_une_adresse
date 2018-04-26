@@ -11,15 +11,16 @@
             <%= text_field_tag 'search_field', nil, class: "form-control search" %>
             <%= hidden_field_tag :query, params[:query], id: "places_params", placeholder: "Renseignez" %>
         </div>
-          <!-- <div class="label-for"> -->
-            <label for="">
-              <%= radio_button_tag 'type_of_place', "Un bon verre" %>Un bon verre
+
+            <%#= text_field_tag :query_2, params[:query_2], class: "form-control", placeholder: "Quel type d'endroit ?" %>
+            <label>
+              <input type="radio" name="type_of_place" id="type_of_place_Un_bon_verre" value="Un bon verre">Un bon verre
             </label>
-            <label for="">
-              <%= radio_button_tag 'type_of_place', "Une bonne table" %>Une bonne table
+            <label>
+              <input type="radio" name="type_of_place" id="type_of_place_Une_bonne_table" value="Une bonne table">Une bonne table
             </label>
-            <label for="">
-              <%= radio_button_tag 'type_of_place', "Du bon son" %>Du bon son
+            <label>
+              <input type="radio" name="type_of_place" id="type_of_place_Du_bon_son" value="Du bon son">Du bon son
             </label>
           <!-- </div> -->
         <div>

@@ -3,7 +3,6 @@ Place.destroy_all
 Detail.destroy_all
 User.destroy_all
 
-
 puts 'Creating users...'
 
 john = User.create!(
