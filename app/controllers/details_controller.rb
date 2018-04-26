@@ -30,7 +30,7 @@ class DetailsController < ApplicationController
   end
 
   def compute_hearts
-    @place.total_heart += @place.total_heart
+    @place.total_heart = @place.total_heart + 1
     @place.update_attribute(:total_heart, @place.total_heart)
   end
 

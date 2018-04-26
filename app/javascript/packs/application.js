@@ -9,12 +9,12 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
-import { radioButtons } from '../components/radio_buttons';
+import { radioButtonsColored } from '../components/radio_buttons_colored';
 import { modalShow } from '../components/modal';
 // import { buttonOnClick } from '../components/button_on_click';
 import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
-// import { initializeAutocomplete } from '../components/autocomplete_index';
+import { radioButtonsAddClass } from '../components/radio_buttons_add_class';
 import 'bootstrap';
 
 // initializeAutocomplete();
@@ -41,7 +41,11 @@ if ( document.querySelector(".counter") ) {
 };
 
 if ( document.querySelectorAll("[type=radio]") ) {
-  radioButtons();
+  radioButtonsColored();
+};
+
+if ( document.querySelectorAll(".radio") ) {
+  radioButtonsAddClass();
 };
 
 

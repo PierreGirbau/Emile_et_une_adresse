@@ -4,9 +4,9 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    if params[:query].present? && params[:type_of_place].present?
+    if params[:query].present? && params[:place][:type_of_place].present?
       @places = Place.near(params[:query], 2)
-        .where("type_of_place like ?", "%#{params[:type_of_place]}%")
+        .where("type_of_place like ?", "%#{params[:place][:type_of_place]}%")
     else
       @places = Place.all
     end
@@ -25,7 +25,7 @@ class PlacesController < ApplicationController
       flash.now[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
       render :new
     elsif existing_place.nil?
-        @place.total_heart = 1
+        @place.total_heart = 0
         @place.save
         @shared_place.place = @place
         @shared_place.user = current_user
@@ -42,6 +42,11 @@ class PlacesController < ApplicationController
 
   end
 
+  def score
+    @place.total_heart = @place.total_heart + (@place.get_upvotes.size - @place.get_downvotes.size)
+    @place.update_attribute(:total_heart, @place.total_heart)
+  end
+
   def new
     @place = Place.new
   end
@@ -50,7 +55,7 @@ class PlacesController < ApplicationController
     @place.upvote_by current_user
 
     # updating hearts of the current_user // ne marche pas encore!
-    current_user.heart_stock = (current_user.heart_capacity - 1) if current_user.heart_capacity > 0
+    current_user.heart_stock = current_user.heart_capacity  if current_user.heart_capacity > 0
     current_user.save
     current_user.update_attribute(:heart_stock, current_user.heart_stock)
 
@@ -72,11 +77,6 @@ class PlacesController < ApplicationController
       format.html {redirect_back(fallback_location: root_path) }
       format.json { render json: { count: @place.liked_count } }
     end
-  end
-
-  def score
-    @place.total_heart = @place.total_heart + (@place.get_upvotes.size - @place.get_downvotes.size)
-    @place.update_attribute(:total_heart, @place.total_heart)
   end
 
   private

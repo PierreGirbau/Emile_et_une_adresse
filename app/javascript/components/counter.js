@@ -1,10 +1,3 @@
-// function counter() {
-//   const counter = document.querySelector(".counter")
-//   console.log(counter)
-//   const i = 2
-//   counter.innerHTML = `<h1>${i}</h1>`
-// };
-
 let i = 0
 
 function counter() {
@@ -17,8 +10,8 @@ function counter() {
   } else {
     counter.innerHTML = `<h1>14 établissements au top !</h1>`
   }
+  setInterval(counter, 500);
 }
 
-setInterval(counter, 500);
 
 export { counter };
