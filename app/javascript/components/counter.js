@@ -15,7 +15,7 @@ function counter() {
     i += 1
     counter.innerHTML = `<h1>${i}</h1>`
   } else {
-    counter.innerHTML = `<h1>14 établissements au total!</h1>`
+    counter.innerHTML = `<h1>14 établissements au top !</h1>`
   }
 }
 

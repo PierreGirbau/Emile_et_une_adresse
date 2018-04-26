@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180425162315) do
+ActiveRecord::Schema.define(version: 20180426074125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,6 @@ ActiveRecord::Schema.define(version: 20180425162315) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "detailed_categories", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "detail_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_detailed_categories_on_category_id"
-    t.index ["detail_id"], name: "index_detailed_categories_on_detail_id"
   end
 
   create_table "details", force: :cascade do |t|
@@ -115,8 +106,6 @@ ActiveRecord::Schema.define(version: 20180425162315) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
-  add_foreign_key "detailed_categories", "categories"
-  add_foreign_key "detailed_categories", "details"
   add_foreign_key "details", "places"
   add_foreign_key "details", "users"
   add_foreign_key "saved_places", "places"

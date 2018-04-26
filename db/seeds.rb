@@ -2,7 +2,6 @@ puts 'Cleaning database...'
 Place.destroy_all
 Detail.destroy_all
 User.destroy_all
-Category.destroy_all
 
 
 puts 'Creating users...'

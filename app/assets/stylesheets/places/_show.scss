@@ -87,6 +87,7 @@ ul li {
   /* Bullet color */
   color: $pink;
   list-style-type: disc;
+  margin-right: 10px;
 }
 ul li span {
   /* Text color */
@@ -116,4 +117,15 @@ ul li span {
   color: $pink !important;
   background-color: white !important;
   border: 1px solid $pink !important;
+}
+
+.map-show {
+  width: 100vw;
+}
+
+@media (min-width:801px) {
+  .map-show {
+    padding-top: 30px;
+    width: 30vw;
+  }
 }

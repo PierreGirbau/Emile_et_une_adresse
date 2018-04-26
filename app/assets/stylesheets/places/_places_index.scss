@@ -21,6 +21,13 @@
     border-image: initial;
   }
 }
+
+@media (min-width:801px) {
+  #search_field {
+    width: 950px;
+  }
+}
+
 .few-results {
   background-color: white;
   color: $pink;
