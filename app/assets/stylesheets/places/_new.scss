@@ -8,6 +8,14 @@
   margin-top: 20px;
   width: 100%;
 }
+.form-control {
+  font-size: 16px;
+  border-radius: 15px;
+  text-align: center;
+}
+.form-control.select.required {
+  padding-left: 120px;
+}
 
 abbr[title], abbr[data-original-title] {
   display: none;
