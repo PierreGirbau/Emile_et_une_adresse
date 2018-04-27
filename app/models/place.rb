@@ -6,7 +6,8 @@ class Place < ApplicationRecord
 
   acts_as_votable
 
-  validates :type_of_place, :name, presence: true
+  validates :type_of_place, presence: true
+  validates :name, presence: true
   has_many :details, dependent: :destroy
   has_many :users, through: :details
   has_many :saved_places, dependent: :destroy

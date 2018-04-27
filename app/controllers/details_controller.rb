@@ -2,6 +2,7 @@ class DetailsController < ApplicationController
   before_action :find_place, only: [:create, :new]
 
   def create
+    # raise
     @detail = Detail.new(detail_params)
     @detail.place = @place
     @detail.user = current_user

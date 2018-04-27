@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    score
+    # score
   end
 
   def create
@@ -21,17 +21,20 @@ class PlacesController < ApplicationController
     @shared_place = SharedPlace.new
     existing_place = Place.where(name: @place.name).first
     # binding.pry
+    # binding.pry
     if @place.address == ""
       flash.now[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
       render :new
     elsif existing_place.nil?
-        @place.total_heart = 0
-        @place.save
+      @place.total_heart = 0
+      if @place.save
         @shared_place.place = @place
         @shared_place.user = current_user
         @shared_place.save
         redirect_to new_place_detail_path(@place)
-
+      else
+        render :new
+      end
     elsif (existing_place.name === @place.name)
       existing_place.update_attribute(:type_of_place,
         ("#{@place.type_of_place}, #{existing_place.type_of_place}"))
