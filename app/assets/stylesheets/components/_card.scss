@@ -4,7 +4,7 @@
 .card {
   height: 150px;
   border: 1px solid #f4f4f475;
-  margin-bottom: 120px;
+  margin-bottom: 130px;
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -16,9 +16,11 @@
     color: $pink;
   }
 }
+
 .content {
   padding-top: 150px;
 }
+
 .card-category {
   h1 {
     text-transform: uppercase;
@@ -28,7 +30,7 @@
     font-size: 14px;
     font-weight: bold;
     color: white;
-    width: 450px !important;
+    width: 350px !important;
   }
   p {
     font-size: 12px;
@@ -36,11 +38,13 @@
     color: white;
   }
 }
+
 .card-description {
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 12px;
 }
+
 .card-heart {
   margin-top: 5px;
   margin-bottom: 5px;
