@@ -11,7 +11,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
 import { radioButtonsColored } from '../components/radio_buttons_colored';
 import { modalShow } from '../components/modal';
-// import { buttonOnClick } from '../components/button_on_click';
+import { setTimeout } from '../components/flash_alert_disappears';
 import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
 import { radioButtonsAddClass, radioButtonsAddClass2 } from '../components/radio_buttons_add_class';
@@ -51,5 +51,10 @@ if ( document.querySelector('.radio > label[for="place_type_of_place_une_bonne_t
 if ( document.querySelector('.radio > label[for="detail_season_toute_lannée"]') ) {
   radioButtonsAddClass2();
 };
+
+if ( document.querySelector('.alert') ) {
+  setTimeout();
+};
+
 
 

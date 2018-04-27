@@ -3,6 +3,7 @@ function radioButtonsColored () {
     console.log(e)
     $(".active").not($(this).addClass('active')).removeClass();
   });
+  console.log(document.querySelectorAll(".btns"))
 }
 
 export { radioButtonsColored };
