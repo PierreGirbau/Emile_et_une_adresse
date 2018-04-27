@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    # score
+    score
   end
 
   def create
@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
     # binding.pry
     # binding.pry
     if @place.address == ""
-      flash.now[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
+      flash[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
       render :new
     elsif existing_place.nil?
       @place.total_heart = 0
@@ -46,8 +46,8 @@ class PlacesController < ApplicationController
   end
 
   def score
-    @place.total_heart = @place.total_heart + (@place.get_upvotes.size - @place.get_downvotes.size)
-    @place.update_attribute(:total_heart, @place.total_heart)
+    @place.total_heart = @place.total_heart - 1 + (@place.get_upvotes.size - @place.get_downvotes.size)
+    # @place.update_attribute(:total_heart, @place.total_heart)
   end
 
   def new

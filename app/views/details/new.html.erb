@@ -13,7 +13,7 @@
               <%= f.input :season, as: :radio_buttons,
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
                     wrapper: :vertical_radio_and_checkboxes, class: "season" %>
-              <%= f.input :price, collection: ['10 euros', '15 euros', '20 euros', '25 euros', '30 euros', '35 euros', '40 euros', '45 euros', '50 euros'], prompt: "5 euros", label: "Combien dépensez-vous en moyenne ?", placeholder: 'Montant en €' %>
+              <%= f.input :price, collection: ['5 euros', '10 euros', '15 euros', '20 euros', '25 euros', '30 euros', '35 euros', '40 euros', '45 euros', '50 euros'], prompt: "5 euros", label: "Combien dépensez-vous en moyenne ?", value_method: :first, placeholder: 'Montant en €', selected: 0 %>
               <%= f.input :comment, label: "Quelle est votre reco ?",
               placeholder: 'Un plat, un verre, un endroit ou un moment que vous affectionnez particulièrement ?', class: "comment"%>
               <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
