@@ -13,15 +13,13 @@ class PlacesController < ApplicationController
   end
 
   def show
-    score
+    @place.total_heart = @place.total_heart  + (@place.get_upvotes.size - @place.get_downvotes.size)
   end
 
   def create
     @place = Place.new(place_params)
     @shared_place = SharedPlace.new
     existing_place = Place.where(name: @place.name).first
-    # binding.pry
-    # binding.pry
     if @place.address == ""
       flash[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
       render :new
