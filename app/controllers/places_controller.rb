@@ -47,7 +47,6 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
-  private
 
   def upvote
     @place.upvote_by current_user
@@ -77,6 +76,8 @@ class PlacesController < ApplicationController
       format.json { render json: { count: @place.liked_count } }
     end
   end
+
+  private
 
   def place_params
     params.require(:place).permit(:google_place_id, :name, :address, :periods, :type_of_place, :website, :phone_number, :photo, :average_price, :total_heart)
