@@ -3,12 +3,10 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :new]
 
   def index
-    @places = Place.all
+    @places = []
     if params[:query].present? && params[:place][:type_of_place].present?
       @places = Place.near(params[:query], 2)
         .where("type_of_place like ?", "%#{params[:place][:type_of_place]}%")
-    else
-      @places = Place.all
     end
   end
 
