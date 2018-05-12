@@ -21,10 +21,6 @@ abbr[title], abbr[data-original-title] {
   display: none;
 }
 
-.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
-  width: 0px;
-}
-
 .form-control.text.optional {
   font-size: 16px;
   border-radius: 5px;
@@ -32,8 +28,8 @@ abbr[title], abbr[data-original-title] {
 }
 
 .radio input:checked {
-  margin: 1px;
-  }
+  color: $pink;
+}
 
 .radio label {
   padding: 6px 12px;
@@ -44,11 +40,6 @@ abbr[title], abbr[data-original-title] {
   font-size: 16px;
   border: 1px solid $pink;
   color: white;
-
-  // &:hover {
-  //   background-color: $pink;
-  //   color: white !important;
-  // }
 }
 
 .active {
@@ -63,4 +54,22 @@ abbr[title], abbr[data-original-title] {
   font-size: 35px;
   text-align: center;
   }
+}
+
+.radio input:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: $pink;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  margin-left: -25px;
 }

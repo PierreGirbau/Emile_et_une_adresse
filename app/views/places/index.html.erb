@@ -8,6 +8,8 @@
         <div class="search-bar">
           <%= form_tag places_path, method: :get do %>
 
+            <%= button_tag "Autour de moi", class: "btn btn-emile", id: "geoloc" %>
+            <p style="color: white; text-align: center;">ou</p>
             <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Cherchez par adresse ou arrondissement" %>
             <%= hidden_field_tag :query, params[:query], id: "places_params" %>
         </div>
@@ -18,7 +20,7 @@
           <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
           <!-- </div> -->
         <div>
-          <%= submit_tag "Go Émile !", class: "btn btn-emile" %>
+          <%= submit_tag "Go Émile !", style: 'display:none;', class: "btn btn-emile", id: "go-emile" %>
         </div>
           <% end %>
       </div>
@@ -66,10 +68,8 @@
                     <p><%#= place.type_of_place %></p>
                   </div>
                   <div class="card-heart">
-                    <%= link_to like_place_path(place), method: :put do %>
-                      <%= place.get_upvotes.size %>
-                      <i class="fa fas fa-heart"></i>
-                    <% end %>
+                    <%= place.total_heart %>
+                    <i class="fa fas fa-heart"></i>
                   </div>
                 </div>
               </div>

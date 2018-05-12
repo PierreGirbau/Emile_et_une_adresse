@@ -9,12 +9,13 @@
 
 import { loadDynamicBannerText } from '../components/banner';
 import { flatpickrr } from '../plugins/flatpickr';
-import { radioButtonsColored } from '../components/radio_buttons_colored';
 import { modalShow } from '../components/modal';
 import { setTimeout } from '../components/flash_alert_disappears';
 import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
 import { radioButtonsAddClass, radioButtonsAddClass2 } from '../components/radio_buttons_add_class';
+import { geoloc } from '../components/geoloc';
+import { submitTag } from '../components/submit_tag';
 import 'bootstrap';
 
 // initializeAutocomplete();
@@ -40,10 +41,6 @@ if ( document.querySelector(".counter") ) {
   counter();
 };
 
-if ( document.querySelectorAll("[type=radio]") ) {
-  radioButtonsColored();
-};
-
 if ( document.querySelector('.radio > label[for="place_type_of_place_une_bonne_table"]') ) {
   radioButtonsAddClass();
 };
@@ -56,5 +53,10 @@ if ( document.querySelector('.alert') ) {
   setTimeout();
 };
 
+if ( document.getElementById('geoloc') ) {
+  geoloc();
+};
 
-
+if ( document.getElementById('go-emile') ) {
+  submitTag();
+};
