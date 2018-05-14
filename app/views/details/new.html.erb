@@ -13,9 +13,9 @@
               <%= f.input :season, as: :radio_buttons,
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top c'est :",
                     wrapper: :vertical_radio_and_checkboxes, class: "season" %>
-              <%= f.input :price, collection: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50'], as: :select, prompt: "", label: "Combien dépensez-vous en moyenne ?" %>
+              <%= f.input :price, collection: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55','60','65','70','75','80','85','90','100','150','200','250','300','350','400','450','500'], as: :select, prompt: "", label: "Combien dépensez-vous en moyenne par personne ?" %>
               <%= f.input :comment, label: "Quelle est votre reco ?",
-              placeholder: 'Un plat, un verre, un endroit ou un moment que vous affectionnez particulièrement ?', class: "comment"%>
+              placeholder: 'Un plat, un verre, un endroit ou un moment que vous affectionnez particulièrement 😉 ?', class: "comment"%>
               <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
             </div>
           <% end %>
