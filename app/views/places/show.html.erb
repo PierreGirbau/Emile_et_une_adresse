@@ -13,16 +13,16 @@
       </div>
       <div class="budget">
         <i class="fa fa-eur"></i>
-        <p>Budget (plaisir) environ <%= @place.average_price.to_i %> euros par personne</p>
+        <p><%= @place.average_price.to_i %> euros environ par personne</p>
       </div>
       <div class="number">
         <i class="fa fa-phone"></i>
         <%= @place.phone_number %>
       </div>
       <div class="website">
-
+        <i class="fa fa-globe"></i>
         <% if @place.website != "undefined" %>
-          <input type="button" class="btn-medium" id="modal-id-2" value="Site web" onclick="window.location.href='<%= @place.website %>'"/>
+          <input type="button" value="Site web" onclick="window.location.href='<%= @place.website %>'"/>
         <% end %>
 
       </div>
