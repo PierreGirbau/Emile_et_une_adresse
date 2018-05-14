@@ -20,6 +20,15 @@
 abbr[title], abbr[data-original-title] {
   display: none;
 }
+.form-post {
+  .fa.fas.fa-check-circle {
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    right: 35px;
+    color: green;
+  }
+}
 
 .form-control.text.optional {
   font-size: 16px;

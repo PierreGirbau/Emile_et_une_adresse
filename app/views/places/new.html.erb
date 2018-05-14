@@ -17,8 +17,8 @@
 
         <div class="form-post">
           <%= simple_form_for @place do |f| %>
-            <div class="form-inputs ">
-              <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement', id: "place_name" %>
+            <div class="form-inputs" id="search_field">
+              <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement à Paris', id: "place_name" %>
               <%= f.input :google_place_id, as: "hidden" %>
               <%= f.input :address, as: "hidden" %>
               <%= f.input :phone_number, as: "hidden" %>

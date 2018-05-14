@@ -8,7 +8,7 @@ function counter() {
     i += 1
     counter.innerHTML = `<h1>${i}</h1>`
   } else {
-    counter.innerHTML = `<h1>5 établissements au top !</h1>`
+    counter.innerHTML = `<h1>5 adresses partagées !</h1>`
   }
 }
   setInterval(counter, 500);
