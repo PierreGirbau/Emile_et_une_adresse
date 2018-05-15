@@ -3,11 +3,28 @@
     padding-top: 50px;
     padding-bottom: 20px;
     font-size: 25px;
-    text-decoration: underline dotted $pink;
+    font-weight: 500;
   }
 }
 .name {
   margin-right: 45px;
+}
+.saved_places {
+  .few-results {
+    background-color: white;
+    color: $pink;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+  }
+}
+.shared_places h2 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 // .card-heart {
 //   margin-top: 5px;

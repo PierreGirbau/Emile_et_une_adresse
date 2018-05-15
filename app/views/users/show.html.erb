@@ -4,9 +4,11 @@
     <div class="row">
       <h2>Mes adresses enregistrées</h2>
       <% if @saved_places.empty? %>
+      <div class="saved_places">
         <div class="few-results">
           <p>Tu n'as encore aucune adresse enregistrée</p>
         </div>
+      </div>
       <% else %>
         <% @saved_places.each do |saved_place| %>
           <% if (saved_place.place.photo == "") %>
@@ -65,8 +67,9 @@
         <% end %>
       <% end %>
       </div>
-
+      <div class="shared_places">
         <h2>Mes adresses partagées</h2>
+        </div>
         <% if current_user.places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse partagée</p>
