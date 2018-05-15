@@ -13,7 +13,7 @@
 .big-infos {
   width: 55vh;
   position: relative;
-  padding: 120px;
+  padding: 100px;
   .fa {
     color: $pink !important;
   }
@@ -21,9 +21,17 @@
 .name {
   position: absolute;
   left: 20px;
-  top: 5px;
+  top: 0px;
   font-size: 20px;
   font-weight: bold;
+}
+.address {
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  left: 20px;
+  top: 30px;
 }
 .hearts {
   position: absolute;
@@ -31,7 +39,7 @@
   justify-content: space-between;
   align-items: center;
   right: 5px;
-  top: 0px;
+  top: -10px;
   p {
     padding-top: 10px;
     padding-right: 5px;
@@ -43,7 +51,7 @@
   justify-content: space-between;
   align-items: center;
   left: 20px;
-  top: 70px;
+  top: 85px;
   p {
     font-size: 16px;
     margin-left: 10px;
@@ -59,7 +67,7 @@
   align-items: center;
   font-size: 16px;
   left: 20px;
-  top: 105px;
+  top: 115px;
   .fa {
     padding-right: 5px;
   }
@@ -75,7 +83,7 @@
 .hours p {
   position: absolute;
   left: 20px;
-  top: 510px;
+  top: 465px;
 }
 ul, ol {
   margin-top: 25px;
@@ -92,11 +100,11 @@ ul li span {
 }
 .other-infos {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   .btn {
-    width: 50%;
+    width: 45%;
     padding: 10px;
   }
 }
