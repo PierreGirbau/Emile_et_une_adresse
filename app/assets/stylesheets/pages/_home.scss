@@ -47,6 +47,7 @@ h3 {
   a {
     color: white;
     font-size: 12px;
+    white-space: pre;
     font-weight: lighter;
   }
 }
@@ -62,13 +63,13 @@ h3 {
 }
 .counter h1 {
   margin-top: 20px;
+  font-size: 26px !important;
 }
 .footer h2 {
   font-size: 18px;
   margin-top: 45px;
   margin-bottom: 0px;
 }
-
 
 // modal
 
