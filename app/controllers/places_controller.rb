@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = []
     if params[:query].present? && params[:place][:type_of_place].present?
-      @places = Place.near(params[:query], 2)
+      @places = Place.near(params[:query], 1)
         .where("type_of_place like ?", "%#{params[:place][:type_of_place]}%")
     end
   end

@@ -17,13 +17,13 @@ function radarSearch() {
     });
     autocomplete.addListener('place_changed', function() {
       const place = autocomplete.getPlace();
-      console.log(place)
-      console.log(placeAddress)
       placeAddress.insertAdjacentHTML("afterend", `<i class="fa fas fa-check-circle"></i>`);
       const lat = place.geometry.location.lat();
       const lng = place.geometry.location.lng();
+      console.log(lat);
+      console.log(lng);
       let map;
-      const place_coordinate = {lat: parseFloat(`${lat}`), lng: parseFloat(`${lng}`)}; // ce qu'on tape dans la barre de recherche, en mode autocomplete donc
+      const place_coordinate = {lat: parseFloat(`${lat}`), lng: parseFloat(`${lng}`)}; // ce que l'on tape dans la barre de recherche, en mode autocomplete donc
       console.log(place_coordinate)
       document.getElementById('places_params').value = [`${lat}`, `${lng}`];
 
@@ -48,9 +48,7 @@ function radarSearch() {
             let places = results[i]["place_id"];
             all_places.push(places)
             };
-          // console.log(all_places)
           console.log(results)
-          // document.getElementById('places_params').value = all_places;
           };
         };
       });

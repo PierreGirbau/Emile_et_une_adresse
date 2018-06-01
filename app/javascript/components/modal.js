@@ -9,5 +9,3 @@ function modalShow () {
 };
 
 export { modalShow };
-
-// .label[for=place_type_of_place_1]"
