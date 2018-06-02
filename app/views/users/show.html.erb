@@ -6,7 +6,7 @@
       <% if @saved_places.empty? %>
       <div class="saved_places">
         <div class="few-results">
-          <p>Tu n'as encore aucune adresse enregistrée</p>
+          <p>Vous n’avez pas encore d’adresses enregistrées 🙄</p>
         </div>
       </div>
       <% else %>
@@ -93,8 +93,8 @@
                         <p><%#= place.type_of_place %></p>
                       </div>
                       <div class="card-heart">
-                        <%#= shared_place.total_heart %>
-                        <!-- <i class="fa fas fa-heart"></i> -->
+                        <%= shared_place.total_heart %>
+                        <i class="fa fas fa-heart"></i>
                       </div>
                     </div>
                   </div>
@@ -115,8 +115,8 @@
                         <p><%#= place.type_of_place %></p>
                       </div>
                       <div class="card-heart">
-                        <%#= shared_place.total_heart %>
-                        <!-- <i class="fa fas fa-heart"></i> -->
+                        <%= shared_place.total_heart %>
+                        <i class="fa fas fa-heart"></i>
                       </div>
                     </div>
                   </div>
