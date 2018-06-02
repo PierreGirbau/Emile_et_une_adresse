@@ -1,4 +1,4 @@
-<%= render 'shared/navbar_show' %>
+ <%= render 'shared/navbar_show' %>
 <div class="show">
   <div class="photo">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
@@ -33,10 +33,10 @@
     </div>
 
     <div class="hours">
-      <strong><p>Horaires d'ouverture:</p></strong>
+      <strong><p>Horaires d'ouverture :</p></strong>
       <ul>
         <% @place.periods.split(",").each do |day_schedule| %>
-          <li><span><%= day_schedule %></span></li>
+          <li><span><%= day_schedule.capitalize %></span></li>
         <% end %>
       </ul>
     </div>
