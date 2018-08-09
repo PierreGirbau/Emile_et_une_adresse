@@ -9,7 +9,7 @@
           <h1>Je partage ma bonne adresse</h1>
         </div>
         <div class="form-post">
-          <%= simple_form_for [@place, @detail] do |f| %>
+          <%= simple_form_for @detail do |f| %>
             <div class="form-inputs ">
               <div class="radio-buttons">
                 <%= f.input :type_of_place, as: :radio_buttons,
