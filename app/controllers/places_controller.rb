@@ -90,7 +90,6 @@ class PlacesController < ApplicationController
 
   def average_price(place)
     average_price = 0
-    binding.pry
     place.details.each do |detail|
       average_price += detail.price
     end
