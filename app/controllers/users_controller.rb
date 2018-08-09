@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:show]
 
   def show
     @saved_places = current_user.saved_places

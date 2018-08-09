@@ -2,25 +2,26 @@
 </div>
 
 <div class="wrapper">
-
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-
+        <div class="big-title">
+          <h1>Je partage ma bonne adresse</h1>
+        </div>
         <div class="form-post">
           <%= simple_form_for [@place, @detail] do |f| %>
             <div class="form-inputs ">
+              <div class="radio-buttons">
+                <%= f.input :type_of_place, as: :radio_buttons,
+                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :", label_for_html: { class: "btns" } %>
+              </div>
               <%= f.input :season, as: :radio_buttons,
                   collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top, c'est :",
                     wrapper: :vertical_radio_and_checkboxes, class: "season" %>
-              <%= f.input :price, collection: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55','60','65','70','75','80','85','90','100','150','200','250','300','350','400','450','500 et +'], as: :select, prompt: "", label: "Budget tout compris par personne ?" %>
-              <%= f.input :comment, label: "Laissez parler vos émotions (en - de 100 caractères 🙃)",
-              placeholder: 'Un plat, une ambiance, une expérience 😍', class: "comment"%>
-              <%= f.button :submit, "Je partage", class: "btn btn-emile" %>
+              <%= f.button :submit, "Continuer", class: "btn btn-emile" %>
             </div>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>

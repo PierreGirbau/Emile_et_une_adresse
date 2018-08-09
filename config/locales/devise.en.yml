@@ -1,6 +1,13 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 en:
+  activerecord:
+      errors:
+        models:
+          user:
+            attributes:
+              email:
+                taken: déjà utilisé
   devise:
     confirmations:
       confirmed: "Votre compte a été validé."

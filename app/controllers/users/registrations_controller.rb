@@ -5,14 +5,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    password = 'tranquilleemile'
+    return flash[:alert] = 'Email déjà utilisé !' if User.find_by(email: params[:user][:email])
+    user = User.create!(email: params[:user][:email], first_name: params[:user][:first_name], password: password)
+    associate_place_and_detail_to_user
+    redirect_to static_path
+  end
+
+  def associate_place_and_detail_to_user
+    @place_detail = Detail.find(params[:user][:detail_id])
+    @place = @place_detail.place
+    @place.update_columns(type_of_place: @place_detail.type_of_place)
+    @shared_place = SharedPlace.new
+    @shared_place.place = @place
+    @shared_place.user = User.find_by(email: params[:user][:email])
+    @shared_place.save
+    @place_detail.update_columns(user_id: User.find_by(email: params[:user][:email]).id)
+  end
 
   # GET /resource/edit
   # def edit
@@ -51,9 +66,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    new_place_path(resource)
-  end
+  # def after_sign_up_path_for(resource)
+  #   static_path(resource)
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

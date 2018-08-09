@@ -84,7 +84,7 @@
 .hours p {
   position: absolute;
   left: 20px;
-  top: 465px;
+  top: 400px;
 }
 ul, ol {
   margin-top: 25px;
@@ -101,11 +101,11 @@ ul li span {
 }
 .other-infos {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   .btn {
-    width: 45%;
+    width: 80%;
     padding: 10px;
   }
 }

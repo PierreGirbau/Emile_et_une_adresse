@@ -14,23 +14,20 @@
             <%= f.error_notification %>
             <div class="form-inputs ">
               <%= f.input :first_name, label: false, required: true, autofocus: true, placeholder: 'Prénom' %>
-              <%= f.input :birth_date, as: :date, start_year: Date.today.year - 78, end_year:Date.today.year,
+              <%#= f.input :birth_date, as: :date, start_year: Date.today.year - 78, end_year:Date.today.year,
                            order: [:day, :month, :year], label: "Date de naissance", required: true, class: "date"%>
               <%= f.input :email, label: false, required: true, autofocus: true, placeholder: 'Adresse email' %>
-              <%= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
-              <%= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
+              <%= f.hidden_field :detail_id, value: params[:id] %>
+              <%#= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
+              <%#= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
             </div>
 
             <div class="form-actions">
-              <%= f.button :submit, "S'inscrire", class: "btn btn-emile" %>
+              <%= f.button :submit, "Partager mon établissement", class: "btn btn-emile"  %>
             </div>
           <% end %>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <h2><br>Paris</br></h2>
-<!--       <h3>Saison 1 : Les beaux jours à Paname</h3> -->
     </div>
   </div>
 </div>

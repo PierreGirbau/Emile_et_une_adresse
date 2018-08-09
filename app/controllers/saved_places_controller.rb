@@ -1,4 +1,5 @@
 class SavedPlacesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @place = Place.find(params[:place_id])

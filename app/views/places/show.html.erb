@@ -1,4 +1,4 @@
- <%= render 'shared/navbar_show' %>
+ <%#= render 'shared/navbar_show' %>
 <div class="show">
   <div class="photo">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
@@ -8,8 +8,7 @@
         <%= @place.name %>
       </div>
       <div class="address">
-        <p><%= @place.address %></p>
-<!--         <i class="fa fas fa-heart"></i> -->
+        <p><u><%= link_to @place.address, "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", target: :_blank %></u></p>
       </div>
       <div class="hearts">
         <p><%= @place.total_heart %></p>
@@ -26,7 +25,7 @@
       <div class="website">
         <i class="fa fa-globe"></i>
         <% if @place.website != "undefined" %>
-          <input type="button" value="Site web" onclick="window.location.href='<%= @place.website %>'"/>
+          <u><%= link_to 'Site web', "#{@place.website}", target: :_blank %></u>
         <% end %>
 
       </div>
@@ -44,14 +43,15 @@
     <p style="padding-left: 20px;"><b>Les petites recos qui vont bien :</b></p>
     <% @place.details.each do |detail| %>
       <div class="comment-box">
-        <%= detail.comment %> -
+        <%= @place.comment %> -
         <%= detail.user.first_name %>
       </div>
     <% end %>
     <div class="other-infos">
-      <%= link_to "Y aller", "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", class: "btn btn-emile", target: :_blank %>
-      <%= link_to "Enregistrer", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
+
+      <%= link_to "Enregistrer dans mon carnet", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=12&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
       <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>
+  <%= render 'shared/navbar_app' %>

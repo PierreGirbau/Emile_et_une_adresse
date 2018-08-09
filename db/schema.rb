@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426074125) do
+ActiveRecord::Schema.define(version: 20180808094048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20180426074125) do
   create_table "details", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "place_id"
-    t.text "comment"
     t.string "season"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type_of_place"
+    t.integer "price"
     t.index ["place_id"], name: "index_details_on_place_id"
     t.index ["user_id"], name: "index_details_on_user_id"
   end
@@ -44,11 +44,13 @@ ActiveRecord::Schema.define(version: 20180426074125) do
     t.string "periods"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type_of_place"
     t.string "google_place_id"
     t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.text "comment"
+    t.integer "price"
+    t.string "type_of_place"
   end
 
   create_table "saved_places", force: :cascade do |t|
@@ -88,6 +90,10 @@ ActiveRecord::Schema.define(version: 20180426074125) do
     t.integer "heart_stock"
     t.integer "heart_capacity"
     t.date "birth_date"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

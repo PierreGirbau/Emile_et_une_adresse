@@ -1,12 +1,16 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :upvote, :downvote, :score]
-  skip_before_action :authenticate_user!, only: [:create, :new]
+  before_action :find_place_detail, only: [:new]
+  skip_before_action :authenticate_user!, only: [:show, :index, :new, :create, :average_price, :compute_hearts]
 
   def index
     @places = []
-    if params[:query].present? && params[:place][:type_of_place].present?
+    type_of_place = params[:query_2]
+    if params[:query].present? && type_of_place.present?
       @places = Place.near(params[:query], 2)
-        .where("type_of_place like ?", "%#{params[:place][:type_of_place]}%")
+        .where("type_of_place like ?", "%#{type_of_place}%")
+    else
+      render :index
     end
   end
 
@@ -16,25 +20,32 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
+    @place_detail = Detail.find(params[:place_detail])
+    @place_detail.update_columns(price: params[:place][:price])
     @shared_place = SharedPlace.new
-    existing_place = Place.where(name: @place.name).first
+    existing_place = Place.where(name: params[:place][:name]).first
+
     if @place.address == ""
-      flash[:alert] = "Cet établissement ne semble pas être un bar ou restaurant, ou l'établissement est peut-être définitivement fermé. Veuillez en entrer un autre"
+      flash[:alert] = "Erreur de correspondance ou réseau. Merci de renseigner un autre endroit : bar, restaurant ou club."
       render :new
+
     elsif existing_place.nil?
       @place.total_heart = 0
       if @place.save
-        @shared_place.place = @place
-        @shared_place.user = current_user
-        @shared_place.save
-        redirect_to new_place_detail_path(@place)
+        @place_detail.update_columns(place_id: @place.id)
+        average_price(@place)
+        compute_hearts(@place)
+        flash[:notice] = "Endroit ajouté avec succès !"
+        redirect_to new_user_registration_app_path(@place_detail)
       else
         render :new
       end
     elsif (existing_place.name === @place.name)
-      existing_place.update_attribute(:type_of_place,
-        ("#{@place.type_of_place}, #{existing_place.type_of_place}"))
-      redirect_to new_place_detail_path(existing_place)
+      @place_detail.update_columns(place_id: existing_place.id)
+      average_price(existing_place)
+      compute_hearts(existing_place)
+      flash[:notice] = "Endroit ajouté avec succès !"
+      redirect_to new_user_registration_app_path(@place_detail)
     else
       render :new
     end
@@ -77,11 +88,32 @@ class PlacesController < ApplicationController
 
   private
 
+  def average_price(place)
+    average_price = 0
+    binding.pry
+    place.details.each do |detail|
+      average_price += detail.price
+    end
+    place.average_price = ( average_price / (place.details.count) ).to_i
+    place.update_attribute(:average_price, place.average_price)
+  end
+
+  def compute_hearts(place)
+    place.total_heart = place.total_heart + 1
+    place.update_attribute(:total_heart, place.total_heart)
+  end
+
   def place_params
-    params.require(:place).permit(:google_place_id, :name, :address, :periods, :type_of_place, :website, :phone_number, :photo, :average_price, :total_heart)
+    params.require(:place).permit(
+      :type_of_place, :google_place_id, :name, :address, :periods, :comment, :price, :website, :phone_number, :photo, :average_price, :total_heart
+    )
   end
 
   def set_place
     @place = Place.find(params[:id])
+  end
+
+  def find_place_detail
+    @place_detail ||= Detail.find(params[:detail_id])
   end
 end

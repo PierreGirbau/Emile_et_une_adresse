@@ -15,7 +15,7 @@ import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
 import { radioButtonsAddClass, radioButtonsAddClass2 } from '../components/radio_buttons_add_class';
 import { geoloc } from '../components/geoloc';
-import { submitTag } from '../components/submit_tag';
+import { radioButtonsChecked, submitTag } from '../components/radio_buttons_checked';
 import 'bootstrap';
 
 // initializeAutocomplete();
@@ -50,7 +50,7 @@ if ( document.querySelector('.radio > label[for="detail_season_toute_lannée"]')
 };
 
 if ( document.querySelector('.alert') ) {
-  setTimeout();
+  // setTimeout();
 };
 
 if ( document.getElementById('geoloc') ) {
@@ -58,5 +58,6 @@ if ( document.getElementById('geoloc') ) {
 };
 
 if ( document.getElementById('go-emile') ) {
+  radioButtonsChecked();
   submitTag();
 };

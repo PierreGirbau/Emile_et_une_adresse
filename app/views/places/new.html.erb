@@ -1,11 +1,15 @@
-<%= render 'shared/navbar_home' %>
-<div class="wrapper">
+<div class="navbar-emile">
+</div>
 
+<div class="wrapper">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="big-title">
+          <h1>Quel est votre bar, restaurant ou club préféré ?</h1>
+        </div>
 
-        <div class="modal fade" id= "modal-id" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<!--         <div class="modal fade" id= "modal-id" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content" id="modal-content">
               <h1>Libérons Émile !</h1>
@@ -13,24 +17,25 @@
               <button type="button" class="btn btn-emile" id="modal-id-2">C'est parti !</button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="form-post">
           <%= simple_form_for @place do |f| %>
             <div class="form-inputs" id="search_field">
               <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement à Paris', id: "place_name" %>
+              <%= f.input :price, collection: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55','60','65','70','75','80','85','90','100','150','200','250','300','350','400','450','500 et +'], as: :select, prompt: "", label: "Budget tout compris par personne ?" %>
+              <%= f.input :comment, label: "Laissez parler vos émotions (en - de 100 caractères 🙃)",
+              placeholder: 'Un plat, une ambiance, une expérience 😍', class: "comment"%>
               <%= f.input :google_place_id, as: "hidden" %>
               <%= f.input :address, as: "hidden" %>
               <%= f.input :phone_number, as: "hidden" %>
               <%= f.input :website, as: "hidden" %>
               <%= f.input :photo, as: "hidden" %>
               <%= f.input :periods, as: "hidden" %>
+              <%= hidden_field_tag(:place_detail, @place_detail.id) %>
               <div class="radio-buttons">
                 <!-- pas de classe radio-buttons encore, à remplir pour bon affichage! -->
-                <%= f.input :type_of_place, as: :radio_buttons,
-                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :", label_for_html: { class: "btns" } %>
-              </div>
-              <%= f.button :submit, "Continuer", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" } %>
+              <%= f.button :submit, "Continuer", class: "btn btn-emile", data: { target: ".bs-example-modal-lg", toggle: "modal" }%>
             </div>
           <% end %>
         </div>
