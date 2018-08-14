@@ -198,8 +198,9 @@
 
 .flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
+  align-items: center;
 }
 
 .oj {
@@ -220,5 +221,20 @@
   #btn-2 {
     width: 50%;
     margin-left: 250px;
+  }
+}
+
+.btn-emilee {
+  color: white;
+  // border: 1px solid #999999;
+  padding: 10px;
+  border-radius: 30px;
+  border-color: $pink;
+  // font-weight: lighter;
+  opacity: 1;
+  background-color: $pink;
+  width: 80%;
+  p {
+    font-weight: bold;
   }
 }
