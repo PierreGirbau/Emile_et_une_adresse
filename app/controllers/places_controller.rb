@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
   before_action :find_place_detail, only: [:new]
   skip_before_action :authenticate_user!, only: [:show, :index, :new, :create, :average_price, :compute_hearts]
 
+  def oli
+    
+  end
   def index
     @places = []
     type_of_place = params[:query_2]
@@ -19,6 +22,7 @@ class PlacesController < ApplicationController
   end
 
   def create
+    raise
     @place = Place.new(place_params)
     @place_detail = Detail.find(params[:place_detail])
     @place_detail.update_columns(price: params[:place][:price])
@@ -40,6 +44,7 @@ class PlacesController < ApplicationController
       else
         render :new
       end
+
     elsif (existing_place.name === @place.name)
       @place_detail.update_columns(place_id: existing_place.id)
       average_price(existing_place)
@@ -49,7 +54,6 @@ class PlacesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def new

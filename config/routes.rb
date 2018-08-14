@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
+  get 'places/oli'
+
+
   root to: 'details#new'
 
   resources :details, only: [:new, :create] do
