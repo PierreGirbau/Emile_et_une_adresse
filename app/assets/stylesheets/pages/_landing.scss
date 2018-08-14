@@ -105,6 +105,10 @@
 
 .text-content {
 	padding: 20px;
+  h1 {
+    font-family: Montserrat, Quicksand;
+    font-size: 40px;
+  }
   .cest {
     border: 1px ridge white;
     margin-top: 70px;
@@ -117,17 +121,19 @@
 .banner p {
   font-size: 25px;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-bottom: 30px;
 }
 
+.cestp {
+  margin-top: 50px;
+  margin-right: none !important;
+}
 // cards
 .content-card {
 	color: $blue;
 	text-align: center;
 	padding-top: 60px !important;
 	h1 {
-    font-size: 36px;
+    font-size: 34px;
 		margin-bottom: 20px;
 		font-weight: bold;
 	}
@@ -163,6 +169,7 @@
 
 .margin-bottom {
 	margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .pink {
@@ -192,6 +199,7 @@
 .flex {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .oj {
@@ -202,4 +210,15 @@
 
 .pinkk {
   color: $pink !important;
+}
+
+@media (min-width: 800px) {
+  #btn-landing {
+    width: 50%;
+    margin-left: 0px;
+  }
+  #btn-2 {
+    width: 50%;
+    margin-left: 250px;
+  }
 }
