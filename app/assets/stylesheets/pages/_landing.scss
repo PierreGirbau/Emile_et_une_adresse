@@ -96,6 +96,9 @@
   a {
     font-size: 28px;
   }
+  p {
+    margin-bottom: 0px !important;
+  }
 }
 
 #btn-customed {
@@ -119,7 +122,7 @@
 }
 
 .banner p {
-  font-size: 25px;
+  font-size: 22px;
   color: rgb(255, 255, 255);
 }
 
@@ -138,7 +141,7 @@
 		font-weight: bold;
 	}
   p {
-    font-size: 25px;
+    font-size: 22px;
   }
   .btn {
     font-size: 16px;
@@ -201,6 +204,9 @@
   justify-content: space-around;
   text-align: center;
   align-items: center;
+  p {
+    margin-bottom: 0px !important;
+  }
 }
 
 .oj {
@@ -215,7 +221,7 @@
 
 @media (min-width: 800px) {
   #btn-landing {
-    width: 50%;
+    width: 55%;
     margin-left: 0px;
   }
   #btn-2 {
