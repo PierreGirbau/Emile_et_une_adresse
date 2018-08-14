@@ -22,7 +22,6 @@ class PlacesController < ApplicationController
   end
 
   def create
-    raise
     @place = Place.new(place_params)
     @place_detail = Detail.find(params[:place_detail])
     @place_detail.update_columns(price: params[:place][:price])
