@@ -1,11 +1,16 @@
+<div class="navbar-emile">
+</div>
+
 <div class="wrapper">
-  <div class="container home">
-  <h1>ÉMILE ET UNE ADRESSE</h1>
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <div class="type-text">
-          <span id="banner-typed-text"></span>
+        <div class="big-title">
+          <h1>Super ! Restons en contact !</h1>
         </div>
+<!--         <div class="type-text">
+          <span id="banner-typed-text"></span>
+        </div> -->
 <!--         <div class="baseline">
           <h2>Croquez Paris !</h2>
         </div> -->
@@ -20,10 +25,10 @@
               <%= f.hidden_field :detail_id, value: params[:id] %>
               <%#= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
               <%#= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
-            </div>
 
-            <div class="form-actions">
-              <%= f.button :submit, "Partager mon établissement", class: "btn btn-emile"  %>
+              <div class="radio-buttons">
+              <%= f.button :submit, "Je partage", class: "btn btn-emile"  %>
+              </div>
             </div>
           <% end %>
         </div>

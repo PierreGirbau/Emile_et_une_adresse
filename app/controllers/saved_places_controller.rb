@@ -6,9 +6,9 @@ class SavedPlacesController < ApplicationController
     @saved_place = current_user.saved_places.build(place: @place)
     # binding.pry
     if @saved_place.save
-      flash[:notice] = "Enregistrée dans - Mes adresses -"
+      flash[:notice] = "Enregistrée dans mon carnet"
     else
-      flash[:alert] = "Vous l'avez déjà dans vos adresses préférées :)"
+      flash[:alert] = "Vous avez déjà enregistré cette adresse !"
     end
     redirect_to place_path(@place)
   end

@@ -1,7 +1,7 @@
  <%#= render 'shared/navbar_show' %>
 <div class="show">
   <div class="photo">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo_google %>');">
     </div>
     <div class="big-infos">
       <div class="name">
@@ -30,12 +30,17 @@
 
       </div>
     </div>
+    
+    <%= link_to 'Editer', edit_place_path(@place)  %>
+    <% if @place.photo %>
+      <%= cl_image_tag @place.photo, height: 300, width: 400, crop: :fill %>
+    <% end %>
 
     <div class="hours">
       <strong><p>Horaires d'ouverture :</p></strong>
       <ul>
         <% @place.periods.split(",").each do |day_schedule| %>
-          <li><span><%= day_schedule.capitalize %></span></li>
+          <li><%= day_schedule.capitalize %></li>
         <% end %>
       </ul>
     </div>
@@ -44,14 +49,14 @@
     <% @place.details.each do |detail| %>
       <div class="comment-box">
         <%= @place.comment %> -
-        <%= detail.user.first_name %>
+        <%= detail&.user&.first_name %>
       </div>
     <% end %>
     <div class="other-infos">
 
       <%= link_to "Enregistrer dans mon carnet", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=12&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
       <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>
   <%= render 'shared/navbar_app' %>

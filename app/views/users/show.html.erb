@@ -13,6 +13,7 @@
         <% @saved_places.each do |saved_place| %>
           <% if (saved_place.place.photo == "") %>
             <div class="col-xs-12 col-sm-12 col-md-4">
+              <p><%= link_to 'Supprimer de mon carnet'.html_safe,place_saved_place_path(saved_place), method: :delete, class: 'delete-link' %></p>
               <%= link_to(saved_place.place) do %>
                 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
                   <div class="content">
@@ -32,7 +33,7 @@
                       <i class="fa fas fa-heart"></i>
                     </div>
                     <div class="delete">
-                      <%= link_to "Supprimer",place_saved_place_path(saved_place), method: :delete %>
+                      <%#= link_to "Supprimer",place_saved_place_path(saved_place), method: :delete %>
                     </div>
                   </div>
                 </div>
@@ -40,11 +41,9 @@
             </div>
           <% else %>
             <div class="col-xs-12 col-sm-12 col-md-4">
+              <p><%= link_to 'Supprimer de mon carnet'.html_safe,place_saved_place_path(saved_place), method: :delete, class: 'delete-link' %></p>
               <%= link_to(saved_place.place) do %>
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= saved_place.place.photo %>');">
-                  <div class="delete">
-                    <%= link_to 'Supprimer'.html_safe,place_saved_place_path(saved_place), method: :delete %>
-                  </div>
+                <div class="card saved-place-part" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= saved_place.place.photo %>');">
                   <div class="content">
                     <div class="card-category">
                       <h1><%= saved_place.place.name %></h1>
@@ -67,9 +66,8 @@
         <% end %>
       <% end %>
       </div>
-      <div class="shared_places">
-        <h2>Mes adresses partagées</h2>
-        </div>
+      <div class="row show">
+        <h2>Mes adresses partagées</h2>        
         <% if current_user.places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse partagée</p>
@@ -125,6 +123,7 @@
             <% end %>
           <% end %>
         <% end %>
+      </div>
       </div>
       <%= render 'shared/navbar_app' %>
     </div>

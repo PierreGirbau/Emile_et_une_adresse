@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
 
   include PgSearch
     pg_search_scope :search,
@@ -18,4 +19,16 @@ class Place < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def table?
+    type_of_place == 'Une bonne table'
+  end
+
+  def drink?
+    type_of_place == 'Un bon verre'
+  end
+
+  def club?
+    type_of_place == 'Du bon son'
+  end
 end

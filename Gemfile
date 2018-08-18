@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.4.3'
 
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -34,3 +36,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'dotenv-rails'

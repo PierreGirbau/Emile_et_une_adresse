@@ -14,18 +14,16 @@
 
           <%= form_tag places_path, method: :get do %>
           <p style="color: white; text-align: center; margin-top: 30px;">Je recherche :</p>
-            <% if params[:place] %>
-              <%= hidden_field_tag :query_2, params[:place][:type_of_place], class: "form-control", placeholder: "Quel type d'endroit ?" %>
-            <% end %>
             <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required" type="radio" value="Un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">Un bon verre</label></span>
             <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required" type="radio" value="Une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">Une bonne table</label></span>
             <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
+            
         <div id="map"></div>
         <div class="search-bar">
           <p style="color: white; text-align: center; margin-top: 30px;">qui se trouve...</p>
           <%= button_tag "Autour de moi", class: "btn btn-emile", style: "margin-bottom: 5px;", id: "geoloc" %>
-          <p style="color: white; text-align: center; margin-top: 10px;">ou autour d'une adresse précise...</p>
-          <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Entrez une localisation" %>
+          <!-- <p style="color: white; text-align: center; margin-top: 10px;">ou autour d'une adresse précise...</p> -->
+          <!-- <%= text_field_tag 'search_field', nil, class: "form-control search", placeholder: "Entrez une localisation" %> -->
           <%= hidden_field_tag :query, params[:query], id: "places_params" %>
           <%#= hidden_field_tag :type_of_place, params[:place][:type_of_place], id: "places_params_2" %>
         </div>
@@ -37,13 +35,17 @@
       </div>
       <% if @places.length == 0 %>
         <div class="few-results">
-          <p>Faites une recherche pour<br>trouver votre bonheur...</p>
+          <% if @query == "" %>
+            <p>Erreur réseau, merci de relancer la recherche</p>
+          <% else %>
+            <p>Faites une recherche pour<br>trouver votre bonheur...</p>
+          <% end %>
           <!-- <br> -->
           <!-- <p>Tranquille Émile, de nouvelles adresses arrivent bientôt !</p> -->
         </div>
       <% end %>
       <% @places.each do |place| %>
-        <% if (place.photo == "") %> 
+        <% if (place.photo_google == "") %> 
           <div class="col-xs-12 col-sm-12 col-md-4">
             <%= link_to(place) do %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
@@ -61,7 +63,7 @@
                   </div>
                   <div class="card-heart">
                     <%= link_to like_place_path(place), method: :put do %>
-                      <%= place.get_upvotes.size %>
+                      <%= place.total_heart %>
                       <i class="fa fas fa-heart"></i>
                     <% end %>
                   </div>
@@ -72,7 +74,7 @@
         <% else %>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <%= link_to(place) do %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo %>');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo_google %>');">
 
                 <div class="content">
                   <div class="card-category">
