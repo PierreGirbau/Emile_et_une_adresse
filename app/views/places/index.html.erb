@@ -2,7 +2,6 @@
 
 <div class="navbar-emile">
 </div>
-
 <div class="wrapper">
   <div class="container">
     <div class="row">
@@ -70,7 +69,37 @@
                 </div>
               </div>
             <% end %>
+            <% if current_user&.email == "franklin@franklin.fr" %>
+              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
+            <% end %>
           </div>
+        <% elsif place.photo.url %>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <%= link_to(place) do %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo %>');">
+
+                <div class="content">
+                  <div class="card-category">
+                    <h1><%= place.name %></h1>
+                    <p>
+                      <%= place.address.split(",")[1][1..5] %> | Budget d'environ <%= place.average_price.to_i %> euros par personne
+                    </p>
+                  </div>
+                  <div class="card-description">
+                    <p><%#= place.type_of_place %></p>
+                  </div>
+                  <div class="card-heart">
+                    <%= place.total_heart %>
+                    <i class="fa fas fa-heart"></i>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <% if current_user&.email == "franklin@franklin.fr" %>
+              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
+            <% end %>
+          </div>
+
         <% else %>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <%= link_to(place) do %>
@@ -92,6 +121,9 @@
                   </div>
                 </div>
               </div>
+            <% end %>
+            <% if current_user&.email == "franklin@franklin.fr" %>
+              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
             <% end %>
           </div>
         <% end %>

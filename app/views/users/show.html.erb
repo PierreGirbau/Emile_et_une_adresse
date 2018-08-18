@@ -11,7 +11,7 @@
       </div>
       <% else %>
         <% @saved_places.each do |saved_place| %>
-          <% if (saved_place.place.photo == "") %>
+          <% if (saved_place.place.photo_google == "") %>
             <div class="col-xs-12 col-sm-12 col-md-4">
               <p><%= link_to 'Supprimer de mon carnet'.html_safe,place_saved_place_path(saved_place), method: :delete, class: 'delete-link' %></p>
               <%= link_to(saved_place.place) do %>
@@ -43,7 +43,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4">
               <p><%= link_to 'Supprimer de mon carnet'.html_safe,place_saved_place_path(saved_place), method: :delete, class: 'delete-link' %></p>
               <%= link_to(saved_place.place) do %>
-                <div class="card saved-place-part" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= saved_place.place.photo %>');">
+                <div class="card saved-place-part" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= saved_place.place.photo_google %>');">
                   <div class="content">
                     <div class="card-category">
                       <h1><%= saved_place.place.name %></h1>

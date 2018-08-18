@@ -1,14 +1,19 @@
  <%#= render 'shared/navbar_show' %>
 <div class="show">
   <div class="photo">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo_google %>');">
-    </div>
+    <% if @place.photo.url %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
+      </div>
+    <% else %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo_google %>');">
+      </div>
+    <% end %>
     <div class="big-infos">
       <div class="name">
         <%= @place.name %>
       </div>
       <div class="address">
-        <p><u><%= link_to @place.address, "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", target: :_blank %></u></p>
+        <p><%= link_to @place.address, "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", target: :_blank %></p>
       </div>
       <div class="hearts">
         <p><%= @place.total_heart %></p>
@@ -27,14 +32,8 @@
         <% if @place.website != "undefined" %>
           <u><%= link_to 'Site web', "#{@place.website}", target: :_blank %></u>
         <% end %>
-
       </div>
     </div>
-    
-    <%= link_to 'Editer', edit_place_path(@place)  %>
-    <% if @place.photo %>
-      <%= cl_image_tag @place.photo, height: 300, width: 400, crop: :fill %>
-    <% end %>
 
     <div class="hours">
       <strong><p>Horaires d'ouverture :</p></strong>

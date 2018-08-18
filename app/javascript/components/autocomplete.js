@@ -42,7 +42,7 @@ function autocomplete() {
         document.getElementById('place_name').value = place_name;
         document.getElementById('place_phone_number').value = place_phone;
         document.getElementById('place_website').value = place_website;
-        document.getElementById('place_photo').value = place_photo;
+        document.getElementById('place_photo_google').value = place_photo;
         document.getElementById('place_periods').value = place_periods;
       });
     };

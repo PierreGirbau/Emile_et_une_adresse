@@ -17,9 +17,9 @@ class SavedPlacesController < ApplicationController
     @saved_place = SavedPlace.find(params[:place_id])
 
     if @saved_place.destroy
-      flash[:notice] = "Établissement #{@saved_place.place.name} bien enlevé de - Mes adresses -"
+      flash[:notice] = "Établissement #{@saved_place.place.name} bien enlevé de mon carnet"
     else
-      flash[:alert] = "Échec de la suppression!"
+      flash[:alert] = "Échec de la suppression !"
     end
       redirect_to user_path
   end
