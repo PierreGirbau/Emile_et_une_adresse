@@ -6,4 +6,9 @@
 
 .delete-link {
 	color: white;
+	opacity: 0.7;
+	font-size: 12px;
+	&:hover {
+		text-decoration: none;
+	}
 }

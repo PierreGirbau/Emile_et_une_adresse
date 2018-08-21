@@ -6,9 +6,9 @@ class SavedPlacesController < ApplicationController
     @saved_place = current_user.saved_places.build(place: @place)
     # binding.pry
     if @saved_place.save
-      flash[:notice] = "Enregistrée dans mon carnet"
+      flash[:notice] = "Ajoutée dans mes favoris !"
     else
-      flash[:alert] = "Vous avez déjà enregistré cette adresse !"
+      flash[:alert] = "Vous avez déjà ajouté cette adresse !"
     end
     redirect_to place_path(@place)
   end
@@ -17,7 +17,7 @@ class SavedPlacesController < ApplicationController
     @saved_place = SavedPlace.find(params[:place_id])
 
     if @saved_place.destroy
-      flash[:notice] = "Établissement #{@saved_place.place.name} bien enlevé de mon carnet"
+      flash[:notice] = "Adresse #{@saved_place.place.name} bien retirée de mes favoris !"
     else
       flash[:alert] = "Échec de la suppression !"
     end

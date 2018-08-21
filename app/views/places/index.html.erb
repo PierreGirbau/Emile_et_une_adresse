@@ -27,18 +27,14 @@
           <%#= hidden_field_tag :type_of_place, params[:place][:type_of_place], id: "places_params_2" %>
         </div>
 
-        <div style="margin-top: 40px;">
-          <%= submit_tag "Go Émile !", class: "btn btn-emile", id: "go-emile" %>
+        <div style="margin-top: 10px;">
+          <%= submit_tag "Explorer !", class: "btn btn-emile", id: "go-emile" %>
         </div>
           <% end %>
       </div>
       <% if @places.length == 0 %>
         <div class="few-results">
-          <% if @query == "" %>
-            <p>Erreur réseau, merci de relancer la recherche</p>
-          <% else %>
-            <p>Faites une recherche pour<br>trouver votre bonheur...</p>
-          <% end %>
+          <p>Merci de lancer la recherche.</p>
           <!-- <br> -->
           <!-- <p>Tranquille Émile, de nouvelles adresses arrivent bientôt !</p> -->
         </div>
@@ -69,7 +65,7 @@
                 </div>
               </div>
             <% end %>
-            <% if current_user&.email == "franklin@franklin.fr" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
             <% end %>
           </div>
@@ -95,7 +91,7 @@
                 </div>
               </div>
             <% end %>
-            <% if current_user&.email == "franklin@franklin.fr" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
             <% end %>
           </div>
@@ -122,7 +118,7 @@
                 </div>
               </div>
             <% end %>
-            <% if current_user&.email == "franklin@franklin.fr" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
             <% end %>
           </div>

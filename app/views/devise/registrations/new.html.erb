@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="big-title">
-          <h1>Super ! Restons en contact !</h1>
+          <h1>Vous y êtes presque ! Laissez-nous votre contact.</h1>
         </div>
 <!--         <div class="type-text">
           <span id="banner-typed-text"></span>
@@ -18,16 +18,16 @@
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs ">
-              <%= f.input :first_name, label: false, required: true, autofocus: true, placeholder: 'Prénom' %>
+              <%= f.input :first_name, label: 'Quel est votre prénom ?', required: true, autofocus: true, placeholder: 'Prénom' %>
               <%#= f.input :birth_date, as: :date, start_year: Date.today.year - 78, end_year:Date.today.year,
                            order: [:day, :month, :year], label: "Date de naissance", required: true, class: "date"%>
-              <%= f.input :email, label: false, required: true, autofocus: true, placeholder: 'Adresse email' %>
+              <%= f.input :email, label: 'Quel est votre adresse email ?', required: true, autofocus: true, placeholder: 'Adresse email' %>
               <%= f.hidden_field :detail_id, value: params[:id] %>
               <%#= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
               <%#= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
 
               <div class="radio-buttons">
-              <%= f.button :submit, "Je partage", class: "btn btn-emile"  %>
+              <%= f.button :submit, "Partager mon adresse !", class: "btn btn-emile"  %>
               </div>
             </div>
           <% end %>

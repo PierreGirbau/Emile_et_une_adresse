@@ -75,10 +75,16 @@
 }
 .website {
   position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
   left: 20px;
   top: 140px;
   .fa {
     padding-bottom: 10px;
+  }
+  u {
+    padding-left: 5px;
   }
 }
 .hours p {
@@ -89,6 +95,13 @@
 ul, ol {
   margin-top: 25px;
 }
+
+.hours {
+  ul li {
+    color: $blue;
+  }
+}
+
 ul li {
   /* Bullet color */
   color: $pink;
@@ -128,6 +141,7 @@ ul li span {
 
 .map {
   width: 100vw;
+  margin-bottom: 45px;
 }
 
 @media (min-width:801px) {
