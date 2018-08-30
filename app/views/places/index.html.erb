@@ -42,7 +42,7 @@
       <% @places.each do |place| %>
         <% if (place.photo_google == "") %> 
           <div class="col-xs-12 col-sm-12 col-md-4">
-            <% if current_user&.email == "frank@oli.com" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
             <% end %>
             <%= link_to(place) do %>
@@ -71,7 +71,7 @@
           </div>
         <% elsif place.photo.url %>
           <div class="col-xs-12 col-sm-12 col-md-4">
-            <% if current_user&.email == "frank@oli.com" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
             <% end %>
             <%= link_to(place) do %>
@@ -99,7 +99,7 @@
 
         <% else %>
           <div class="col-xs-12 col-sm-12 col-md-4">
-            <% if current_user&.email == "frank@oli.com" %>
+            <% if current_user&.email == "admin@admin.fr" %>
               <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
             <% end %>
             <%= link_to(place) do %>
