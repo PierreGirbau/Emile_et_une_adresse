@@ -13,9 +13,9 @@
 
           <%= form_tag places_path, method: :get do %>
           <p style="color: white; text-align: center; margin-top: 30px;">Je recherche :</p>
-            <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required" type="radio" value="Un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">Un bon verre</label></span>
-            <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required" type="radio" value="Une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">Une bonne table</label></span>
-            <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
+            <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required radioo" type="radio" value="Un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">Un bon verre</label></span>
+            <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required radioo" type="radio" value="Une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">Une bonne table</label></span>
+            <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required radioo" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
             
         <div id="map"></div>
         <div class="search-bar">
@@ -32,16 +32,19 @@
         </div>
           <% end %>
       </div>
-      <% if @places.length == 0 %>
-        <div class="few-results">
-          <p>Merci de lancer la recherche.</p>
+      <%# if @places.length == 0 %>
+        <!-- <div class="few-results"> -->
+          <!-- <p>Merci de lancer la recherche.</p> -->
           <!-- <br> -->
           <!-- <p>Tranquille Émile, de nouvelles adresses arrivent bientôt !</p> -->
         </div>
-      <% end %>
+      <%# end %>
       <% @places.each do |place| %>
         <% if (place.photo_google == "") %> 
           <div class="col-xs-12 col-sm-12 col-md-4">
+            <% if current_user&.email == "frank@oli.com" %>
+              <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
+            <% end %>
             <%= link_to(place) do %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
                 <div class="content">
@@ -65,12 +68,12 @@
                 </div>
               </div>
             <% end %>
-            <% if current_user&.email == "admin@admin.fr" %>
-              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
-            <% end %>
           </div>
         <% elsif place.photo.url %>
           <div class="col-xs-12 col-sm-12 col-md-4">
+            <% if current_user&.email == "frank@oli.com" %>
+              <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
+            <% end %>
             <%= link_to(place) do %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo %>');">
 
@@ -91,16 +94,16 @@
                 </div>
               </div>
             <% end %>
-            <% if current_user&.email == "admin@admin.fr" %>
-              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
-            <% end %>
+           
           </div>
 
         <% else %>
           <div class="col-xs-12 col-sm-12 col-md-4">
+            <% if current_user&.email == "frank@oli.com" %>
+              <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
+            <% end %>
             <%= link_to(place) do %>
               <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= place.photo_google %>');">
-
                 <div class="content">
                   <div class="card-category">
                     <h1><%= place.name %></h1>
@@ -117,9 +120,6 @@
                   </div>
                 </div>
               </div>
-            <% end %>
-            <% if current_user&.email == "admin@admin.fr" %>
-              <%= link_to 'Editer', edit_place_path(place), class: 'delete-link' %>
             <% end %>
           </div>
         <% end %>

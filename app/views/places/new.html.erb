@@ -21,7 +21,7 @@
               <%= f.input :name, label: false, placeholder: 'Nom de l\'établissement à Paris', id: "place_name" %>
               <%= f.input :price, collection: ['5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55','60','65','70','75','80','85','90','100','150','200','250','300','350','400','450'], as: :select, prompt: "", label: "Budget tout compris par personne ?" %>
               <%= f.input :comment, label: "Laissez parler vos émotions <i class='fa fa-heart pinkk'></i>".html_safe,
-              placeholder: 'En moins de 100 caractères 🙃', class: "comment"%>
+              placeholder: 'En moins de 150 caractères 🙃', class: "comment"%>
               <%= f.input :google_place_id, as: "hidden" %>
               <%= f.input :address, as: "hidden" %>
               <%= f.input :phone_number, as: "hidden" %>

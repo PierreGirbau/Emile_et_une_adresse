@@ -46,6 +46,10 @@
     font-weight: bold;
   }
 }
+
+#btn-submit {
+  padding: 10px 0px;
+}
 .budget {
   position: absolute;
   display: flex;
@@ -95,23 +99,18 @@
 ul, ol {
   margin-top: 25px;
 }
+ul {list-style: none}
+li::before {content: "•"; color: $pink}
+li::before {content: "•"; color: $pink;
+  display: inline-block; width: 1em;}
 
-.hours {
-  ul li {
-    color: $blue;
-  }
-}
+// ul li {
+//   /* Bullet color */
+//   color: $blue;
+//   list-style-type: disc;
+//   margin-right: 10px;
+// }
 
-ul li {
-  /* Bullet color */
-  color: $pink;
-  list-style-type: disc;
-  margin-right: 10px;
-}
-ul li span {
-  /* Text color */
-  color: $blue;
-}
 .other-infos {
   display: flex;
   justify-content: center;
@@ -146,7 +145,7 @@ ul li span {
 
 @media (min-width:801px) {
   .map {
-    width: 30vw;
+    width: 25vw;
     position: absolute;
     top: 285px;
     right: 30px;

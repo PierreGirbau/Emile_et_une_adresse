@@ -13,7 +13,7 @@
         <%= @place.name %>
       </div>
       <div class="address">
-        <p><%= link_to @place.address, "https://www.google.com/maps/search/?q=place_id:#{@place.google_place_id}", target: :_blank %></p>
+        <p><%= link_to @place.address, "https://www.google.com/maps/search/?api=1&query=#{@place.latitude},#{@place.longitude}&query_place_id=#{@place.google_place_id}", target: :_blank %></p>
       </div>
       <div class="hearts">
         <p><%= @place.total_heart %></p>
@@ -39,7 +39,7 @@
       <strong><p>Horaires d'ouverture :</p></strong>
       <ul>
         <% @place.periods.split(",").each do |day_schedule| %>
-          <li><%= day_schedule.capitalize %></li>
+          <li class="blue"><%= day_schedule.capitalize %></li>
         <% end %>
       </ul>
     </div>

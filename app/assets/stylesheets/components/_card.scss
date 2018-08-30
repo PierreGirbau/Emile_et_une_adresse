@@ -4,7 +4,7 @@
 .card {
   height: 150px;
   border: 1px solid #f4f4f475;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -17,6 +17,9 @@
   }
 }
 
+.container {
+  margin-bottom: 50px;
+}
 .content {
   padding-top: 150px;
 }

@@ -12,7 +12,7 @@ class Place < ApplicationRecord
   has_many :saved_places, dependent: :destroy
   has_many :shared_places, dependent: :destroy
 
-  validates :comment, length: { maximum: 100,
+  validates :comment, length: { maximum: 150,
    too_long: "%{count} caractères, c'est le maximum autorisé désolé" }
 
   validates :comment, :price, :name, presence: true
