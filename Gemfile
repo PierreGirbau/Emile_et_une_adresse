@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'

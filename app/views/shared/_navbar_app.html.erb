@@ -1,4 +1,5 @@
 <div class="footer oli">
+  <div><%= image_tag("Logo_seul.png", width: '30') %></div>
   <div><%= link_to 'Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, places_path %></div>
-  <div><%= link_to "Mes favoris", current_user %></div>
+  <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, current_user %></div>
 </div>

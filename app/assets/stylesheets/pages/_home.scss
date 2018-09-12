@@ -1,3 +1,22 @@
+// sessions#new
+.logo-sign-in {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.wrapper-sign-in {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.email {
+  border-color: $pink;
+}
+
+.password {
+  border-color: $pink;
+}
+
 // Specific CSS for your home-page
 .wrapper {
   background: linear-gradient(to right, #363E8D, #0575E6);
@@ -9,6 +28,7 @@
   font-size: 38px;
   text-align: center;
 }
+
 h2,h3 {
   color: white;
   font-weight: lighter;
@@ -52,9 +72,9 @@ h3 {
   }
 }
 .type-text {
-  margin-top: 5px;
+  margin-top: 10px;
   text-align: center;
-  color: white;
+  color: $blue;
   font-size: 30px;
   .typed-cursor {
     color: $pink;

@@ -47,7 +47,7 @@
     <p style="padding-left: 20px;"><b>Les petites recos qui vont bien :</b></p>
     <% @place.details.each do |detail| %>
       <div class="comment-box">
-        <%= @place.comment %> -
+        <%= detail&.comment %> -
         <%= detail&.user&.first_name %>
       </div>
     <% end %>
