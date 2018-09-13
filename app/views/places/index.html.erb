@@ -1,5 +1,3 @@
-<%#= render 'shared/navbar_index' %>
-
 <div class="navbar-emile">
 </div>
 <div class="wrapper">
@@ -10,10 +8,12 @@
         <div class="big-title">
           <h1>Les bonnes adresses de Paris</h1>
         </div>
+
+          <%= form_tag places_path, method: :get do %>
           <p style="color: white; text-align: center; margin-top: 30px;">Je recherche :</p>
-            <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required radioo" type="radio" value="un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">un bon verre</label></span>
-            <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required radioo" type="radio" value="une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">une bonne table</label></span>
-            <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required radioo" type="radio" value="du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">du bon son</label></span>
+            <span class="radio"><label for="place_type_of_place_un_bon_verre" class="btns"><input class="radio_buttons required radioo" type="radio" value="Un bon verre" name="place[type_of_place]" id="place_type_of_place_un_bon_verre">Un bon verre</label></span>
+            <span class="radio"><label for="place_type_of_place_une_bonne_table" class="btns"><input class="radio_buttons required radioo" type="radio" value="Une bonne table" name="place[type_of_place]" id="place_type_of_place_une_bonne_table">Une bonne table</label></span>
+            <span class="radio"><label for="place_type_of_place_du_bon_son" class="btns"><input class="radio_buttons required radioo" type="radio" value="Du bon son" name="place[type_of_place]" id="place_type_of_place_du_bon_son">Du bon son</label></span>
 
         <div id="map"></div>
         <div class="search-bar">
@@ -44,7 +44,7 @@
               <%= link_to '[Editer <i class="fa fas fa-camera-retro"></i>]'.html_safe, edit_place_path(place), class: 'delete-link' %>
             <% end %>
             <%= link_to(place) do %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('https://source.unsplash.com/random');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
                 <div class="content">
                   <div class="card-category">
                     <div class="name">
