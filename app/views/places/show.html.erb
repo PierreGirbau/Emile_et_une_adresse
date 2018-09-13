@@ -47,8 +47,7 @@
     <p style="padding-left: 20px;"><b>Ce qui fait vibrer la communauté :</b></p>
     <% @place.details.each do |detail| %>
       <div class="comment-box">
-        <p><%= detail&.comment %> -</p>
-        <b><%= detail&.user&.first_name %></b>
+        <p><%= detail&.comment %> - <%= detail&.user&.first_name %></b>
       </div>
     <% end %>
     <div class="other-infos">
