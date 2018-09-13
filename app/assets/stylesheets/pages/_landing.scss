@@ -6,12 +6,16 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
+  padding: 0px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+
+.margin-bottom-reduce {
+  margin-bottom: 0px !important;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -29,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Basic navbar item */
@@ -135,7 +139,7 @@
 .content-card {
 	color: $blue;
 	text-align: center;
-	padding-top: 60px !important;
+	// padding-top: 30px !important;
 	h1 {
     font-size: 34px;
 		margin-bottom: 20px;
@@ -151,7 +155,6 @@
 
 .border-top {
 	border-top: 1px solid $blue;
-  margin-top: 30px;
 }
 
 // footer

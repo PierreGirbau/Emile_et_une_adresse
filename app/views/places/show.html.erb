@@ -2,10 +2,10 @@
 <div class="show">
   <div class="photo">
     <% if @place.photo.url %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= @place.photo %>');">
       </div>
     <% else %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo_google %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= @place.photo_google %>');">
       </div>
     <% end %>
     <div class="big-infos">
@@ -13,7 +13,7 @@
         <%= @place.name %>
       </div>
       <div class="address">
-        <p><%= link_to @place.address, "https://www.google.com/maps/search/?api=1&query=#{@place.latitude},#{@place.longitude}&query_place_id=#{@place.google_place_id}", target: :_blank %></p>
+        <a href="#oh"><%= @place.address %></a>
       </div>
       <div class="hearts">
         <p><%= @place.total_heart %></p>
@@ -44,11 +44,11 @@
       </ul>
     </div>
 
-    <p style="padding-left: 20px;"><b>Les petites recos qui vont bien :</b></p>
+    <p style="padding-left: 20px;"><b>Ce qui fait vibrer la communauté :</b></p>
     <% @place.details.each do |detail| %>
       <div class="comment-box">
-        <%= detail&.comment %> -
-        <%= detail&.user&.first_name %>
+        <p><%= detail&.comment %> -</p>
+        <b><%= detail&.user&.first_name %></b>
       </div>
     <% end %>
     <div class="other-infos">
@@ -56,6 +56,7 @@
       <%= link_to "Ajouter dans mes favoris", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
+      <div id='oh'></div>
       <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>
   <%= render 'shared/navbar_app' %>

@@ -6,7 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
-    <%= link_to 'Se connecter'.html_safe, new_user_session_path %>
+    <%= link_to 'Connexion'.html_safe, new_user_session_path %>
   </div>
 </div>
 
@@ -14,8 +14,8 @@
   <div class="text-content">
     <h1>UNE ADRESSE, UNE ÉMOTION.</h1>
     <p style="margin-bottom: 0px;">Partagez votre adresse coup de coeur à Paris</p>
-    <p>et découvrez les spots les plus populaires autour de vous</p>
-    <%= link_to '<p>C\'EST PARTI !</p>'.html_safe, root_path, id: 'btn-landing', class: 'btn btn-emile cestp'%>
+    <p>et explorez les spots les plus populaires autour de vous</p>
+    <%= link_to '<p>PARTAGER MON COUP DE COEUR</p>'.html_safe, root_path, class: 'btn btn-emile-landing cestp'%>
   </div>
 </div>
 
@@ -24,21 +24,24 @@
     <div class="col-sm-offset-3 col-sm-6 col-md-offset-1 col-md-10">
       <div class="content-card text-content">
         <h1><span class="pink" id="pink">203</span> adresses ont été partagées.</h1><h1>À 1000, Émile envoie la sauce !</h1>
+        <!-- <br> -->
+      <!--   <p>Qui n'a jamais ressenti cet état d'excitation, cet effet "whaou" "excellent" "oufissime" en découvrant une bonne adresse pour la première fois.</p> -->
         <br>
-        <p>Qui n'a jamais ressenti cet état d'excitation, cet effet "whaou" "excellent" "oufissime" en découvrant une bonne adresse pour la première fois.</p>
+        <p>La mission d'Émile, demander à chacun de partager son adresse coup de coeur.</p>
         <br>
-        <p>La mission d'Émile, demander à chacun de partager sa bonne adresse de quartier, cette même adresse qui vous a fait vibrer.</p>
+        <p class="margin-bottom-reduce">Une fois les 1000 adresses partagées à Paris,</p>
+        <!-- <br> -->
+        <p>Émile libérera toutes les bonnes adresses autour de vous.</p>
         <br>
-        <p>Une fois les 1000 adresses partagées à Paris, Émile libérera et géolocalisera toutes les bonnes adresses autour de vous.</p>
-        <br>
-        <p>Pas de note, pas de commentaire négatif. Avec Émile, c'est que du kiff !</p>
+        <p class="margin-bottom-reduce">Pas de notes, pas de commentaires négatifs.</p>
+        <p>Partagez ce qui vous fait vibrer et soutenez votre établissement préféré.</p>
       </div>
 
     </div>
   </div>
   <div class="row">
    <div class="col-xs-12">
-      <%= link_to '<p>PARTAGER MA BONNE ADRESSE</p>'.html_safe, root_path, id: 'btn-2', class: 'btn btn-emile flex'%>
+      <%= link_to '<p>PARTAGER MON COUP DE COEUR</p>'.html_safe, root_path, id: 'btn-2', class: 'btn btn-emile flex'%>
    </div>
   </div>
 </div>
@@ -57,13 +60,13 @@
         <br>
         <p>Chaque jour, ces femmes et ces hommes contribuent à façonner notre art de vivre, cet art de vivre à la française que le monde entier nous envie.</p>
         <br>
-        <p>Émile et une adresse.com est un hommage à tous ces artistes du matin, du midi et du soir.</p>
+        <p>Emile et une adresse est un hommage à tous ces artistes du matin, du midi et du soir.</p>
       </div>
     </div>
   </div>
   <div class="row">
    <div class="col-xs-12">
-      <%= link_to '<p>PARTAGER MA BONNE ADRESSE</p>'.html_safe, root_path, id: 'btn-2', class: 'btn btn-emile flex'%>
+      <%= link_to '<p>PARTAGER MON COUP DE COEUR</p>'.html_safe, root_path, id: 'btn-2', class: 'btn btn-emile flex'%>
    </div>
   </div>
 </div>
@@ -71,9 +74,11 @@
 <div class="footer">
   <div class="row">
     <div class="col-xs-4-offset-4 col-sm-4-offset-4 margin-bottom">
-      ©2018 - Émile et une adresse <i class="fa fa-heart pinkk"></i>
+      ©2018 - Emile et une adresse <i class="fa fa-heart pinkk"></i>
       <br>
-      www.emiletuneadresse.com - Tous droits réservés
+      www.emileetuneadresse.com
+      <br>
+      Tous droits réservés
     </div>
   </div>
 </div>

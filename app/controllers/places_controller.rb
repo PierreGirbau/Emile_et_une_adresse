@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:edit, :update, :show, :index, :new, :create, :average_price, :compute_hearts]
 
   def oli
-    
+
   end
   def index
     @places = []
@@ -13,10 +13,9 @@ class PlacesController < ApplicationController
     end
     @query = params[:query]
     # raise
+    # binding.pry
     if params[:query] != "" && type_of_place.present?
-      # raise
-      # raise
-      @places = Place.near(params[:query], 3)
+      @places = Place.near(params[:query], 7)
         .where("type_of_place like ?", "%#{type_of_place}%")
     else
       render :index
@@ -63,9 +62,9 @@ class PlacesController < ApplicationController
 
 
     elsif (existing_place.name === @place.name)
-      existing_place_table = Place.find_by(name: params[:place][:name], type_of_place: 'Une bonne table')
-      existing_place_drink = Place.find_by(name: params[:place][:name], type_of_place: 'Un bon verre')
-      existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'Du bon son')
+      existing_place_table = Place.find_by(name: params[:place][:name], type_of_place: 'une bonne table')
+      existing_place_drink = Place.find_by(name: params[:place][:name], type_of_place: 'un bon verre')
+      existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'du bon son')
       # binding.pry
 
       if existing_place_table.present? && (@place_detail.type_of_place == existing_place_table.type_of_place)

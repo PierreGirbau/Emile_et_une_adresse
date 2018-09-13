@@ -1,3 +1,28 @@
+.btn-emile-landing {
+  margin-bottom: 20px;
+  width: 350px;
+  font-weight: bold;
+  padding: 10px 100px;
+  color: white;
+  // border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border-color: $pink;
+  // font-weight: lighter;
+  opacity: 1;
+  background-color: $pink;
+  p {
+    font-size: 20px !important;
+  }
+}
+.btn-emile-landing:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: white;
+  background-color: $pink;
+  border-color: $pink;
+}
+
 .btn-emile {
   color: white;
   // border: 1px solid #999999;

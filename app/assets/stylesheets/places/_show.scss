@@ -130,6 +130,7 @@ li::before {content: "•"; color: $pink;
   border-radius: 10px;
   padding: 20px;
   margin: 20px;
+  word-break:break-all;
 }
 // javascript button on clicked
 .button-clicked {

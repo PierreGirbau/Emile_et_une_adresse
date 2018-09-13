@@ -6,17 +6,17 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="big-title">
-          <h1>Je partage ma bonne adresse</h1>
+          <h1>Je partage mon coup de coeur</h1>
         </div>
         <div class="form-post">
           <%= simple_form_for @detail do |f| %>
             <div class="form-inputs ">
               <div class="radio-buttons">
                 <%= f.input :type_of_place, as: :radio_buttons,
-                    collection: ["Un bon verre", "Une bonne table", "Du bon son"], label: "Je recommande cet établissement pour :", label_for_html: { class: "btns" } %>
+                    collection: ["un bon verre", "une bonne table", "du bon son"], label: "Je recommande cet établissement pour :", label_for_html: { class: "btns" } %>
               </div>
               <%= f.input :season, as: :radio_buttons,
-                  collection: ['Pendant les beaux jours', 'Toute l\'année'], label: "Le top du top, c'est :",
+                  collection: ['pendant les beaux jours', 'toute l\'année'], label: "Le top du top, c'est :",
                     wrapper: :vertical_radio_and_checkboxes, class: "season" %>
               <%= f.button :submit, "Continuer", class: "btn btn-emile" %>
             </div>
