@@ -28,34 +28,36 @@
         <%= @place.phone_number %>
       </div>
       <div class="website">
-        <i class="fa fa-globe"></i>
         <% if @place.website != "undefined" %>
+          <i class="fa fa-globe"></i>
           <u><%= link_to 'Site web', "#{@place.website}", target: :_blank %></u>
         <% end %>
       </div>
     </div>
 
-    <div class="hours">
-      <strong><p>Horaires d'ouverture :</p></strong>
-      <ul>
-        <% @place.periods.split(",").each do |day_schedule| %>
-          <li class="blue"><%= day_schedule.capitalize %></li>
-        <% end %>
-      </ul>
-    </div>
+    <% if @place.periods != "undefined" %>
+      <div class="hours">
+          <strong><p>Horaires d'ouverture :</p></strong>
+          <ul>
+            <% @place.periods.split(",").each do |day_schedule| %>
+              <li class="blue"><%= day_schedule.capitalize %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% else %>
+      <div class="hours">
+      </div>
+    <% end %>
 
     <p style="padding-left: 20px;"><b>Ce qui fait vibrer la communauté :</b></p>
     <% @place.details.each do |detail| %>
       <div class="comment-box">
-        <p><%= detail&.comment %> - <%= detail&.user&.first_name %></b>
+        <p><%= detail&.comment %> - <b><%= detail&.user&.first_name %></b></p>
       </div>
     <% end %>
     <div class="other-infos">
-
       <%= link_to "Ajouter dans mes favoris", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
     </div>
       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
-      <div id='oh'></div>
-      <!-- bien pour avoir une carte statique, il faut juste l'adresse de l'endroit -->
   </div>
   <%= render 'shared/navbar_app' %>

@@ -22,7 +22,7 @@
   position: absolute;
   left: 20px;
   top: 0px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 .address {
@@ -96,6 +96,8 @@
   left: 20px;
   top: 400px;
 }
+
+
 ul, ol {
   margin-top: 25px;
 }
@@ -130,7 +132,7 @@ li::before {content: "•"; color: $pink;
   border-radius: 10px;
   padding: 20px;
   margin: 20px;
-  word-break:break-all;
+  // word-break: break-all;
 }
 // javascript button on clicked
 .button-clicked {
@@ -146,7 +148,7 @@ li::before {content: "•"; color: $pink;
 
 @media (min-width:801px) {
   .map {
-    width: 25vw;
+    width: 20vw;
     position: absolute;
     top: 285px;
     right: 30px;

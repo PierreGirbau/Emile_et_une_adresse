@@ -34,7 +34,9 @@ function autocomplete() {
         var place_phone = place["formatted_phone_number"];
         var place_website = place["website"];
         var place_photo = place["photos"][0].getUrl({'maxWidth': 3000, 'maxHeight': 3000});
-        var place_periods = place["opening_hours"]["weekday_text"];
+        if(place["opening_hours"]) {
+          var place_periods = place["opening_hours"]["weekday_text"];
+        }
 
         // pour le post, permet de remplir les clés place_id, name et addresse de la place
         document.getElementById('place_google_place_id').value = google_place_id;
