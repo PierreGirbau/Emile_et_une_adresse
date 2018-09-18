@@ -17,15 +17,13 @@ Rails.application.routes.draw do
   # end
 
   get 'places/oli'
-
-
-  root to: 'details#new'
+  root to: 'pages#landing'
 
   resources :details, only: [:new, :create] do
     resources :places, only: [:new, :create]
     resources :users, only: [:new]
   end
-  
+
   resources :places, except: [:new] do
     resources :saved_places, only: [:create, :destroy]
     resources :users, only: [:show]
@@ -41,7 +39,6 @@ Rails.application.routes.draw do
   resources :details, only: [:index]
 
   get '/static' => 'pages#static'
-  get '/landing' => 'pages#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
