@@ -1,9 +1,6 @@
-puts 'Cleaning database...'
-Place.destroy_all
-Detail.destroy_all
-User.destroy_all
-SharedPlace.destroy_all
-SavedPlace.destroy_all
+
+
+p users = User.all.each { |user| p "#{user.first_name} - #{user.email}"}
 
 # puts 'Creating users...'
 
