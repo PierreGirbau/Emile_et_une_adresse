@@ -29,6 +29,6 @@ class Place < ApplicationRecord
   end
 
   def club?
-    type_of_place == 'Du bon son'
+    type_of_place == 'Un bon artisan'
   end
 end

@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
     elsif (existing_place.name === @place.name)
       existing_place_table = Place.find_by(name: params[:place][:name], type_of_place: 'une bonne table')
       existing_place_drink = Place.find_by(name: params[:place][:name], type_of_place: 'un bon verre')
-      existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'du bon son')
+      existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'un bon artisan')
       # binding.pry
 
       if existing_place_table.present? && (@place_detail.type_of_place == existing_place_table.type_of_place)
