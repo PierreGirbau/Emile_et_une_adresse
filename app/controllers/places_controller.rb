@@ -15,7 +15,7 @@ class PlacesController < ApplicationController
     # raise
     # binding.pry
     if params[:query] != "" && type_of_place.present?
-      @places = Place.near(params[:query], 30)
+      @places = Place.near(params[:query], 1000)
         .where("type_of_place like ?", "%#{type_of_place}%")
     else
       render :index
