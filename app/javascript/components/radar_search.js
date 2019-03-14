@@ -15,6 +15,7 @@ function radarSearch() {
         e.preventDefault(); // Do not submit the form on Enter.
       };
     });
+
     autocomplete.addListener('place_changed', function() {
       const place = autocomplete.getPlace();
       placeAddress.insertAdjacentHTML("afterend", `<i class="fa fas fa-check-circle"></i>`);
