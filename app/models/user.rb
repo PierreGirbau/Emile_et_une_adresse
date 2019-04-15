@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :saved_places, dependent: :destroy
   has_many :shared_places, dependent: :destroy
   before_save :default_heart_capacity, :default_heart_stock
-  validate :uniqu_email
+  before_create :uniqu_email
 
   def uniqu_email
     self.errors.add(:email, 'Email is already in use') if User.where(:email => self.email).exists?

@@ -22,6 +22,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'pg_search'
+gem 'rails_admin', '~> 1.3'
 
 group :development do
   gem 'rails_real_favicon'
