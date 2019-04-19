@@ -12,8 +12,11 @@ class PlacesController < ApplicationController
       type_of_place = params[:place][:type_of_place]
     end
     @query = params[:query]
-    if params[:query] == "" && type_of_place.present?
+    # if params[:query] == "" && type_of_place.present?
+    # if params[:place] == "" && type_of_place.present?
     # if type_of_place.present?
+
+    if params[:query].present? && type_of_place.present?
       @places = Place.near(params[:query], 1000)
         .where("type_of_place like ?", "%#{type_of_place}%")
       # @places = Place.where(type_of_place: type_of_place)
