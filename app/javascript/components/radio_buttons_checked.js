@@ -3,7 +3,7 @@ function radioButtonsChecked() {
   $('.search-bar').hide();
   // $('#geoloc').hide();
   // $('#go-emile').hide();
-  
+
   radio_buttons.forEach((radio_button) => {
     radio_button.addEventListener('change', function() {
       const checked = document.querySelector('.radio input:checked');
@@ -24,7 +24,7 @@ function submitTag() {
   //   $('#go-emile').click();
   // }
   const radio_buttons = document.querySelectorAll('.radio_buttons');
-  
+
   radio_buttons.forEach((radio_button) => {
     radio_button.addEventListener('change', function() {
         // $('.search-bar').show();
@@ -38,7 +38,7 @@ function submitTag() {
   //     $('#go-emile').attr('disabled',true);
   //     $('#search_field').keyup(function(){
   //         if($(this).val().length !=0)
-  //             $('#go-emile').attr('disabled', false);            
+  //             $('#go-emile').attr('disabled', false);
   //         else
   //             $('#go-emile').attr('disabled',true);
   //     })
