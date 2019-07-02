@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     return flash[:alert] = 'Email déjà utilisé !' if User.find_by(email: params[:user][:email])
     user = User.create!(email: params[:user][:email], first_name: params[:user][:first_name], password: password)
     associate_place_and_detail_to_user
-    redirect_to static_path
+    redirect_to static_path(place: @place)
   end
 
   def associate_place_and_detail_to_user
