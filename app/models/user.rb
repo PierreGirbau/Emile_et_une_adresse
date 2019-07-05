@@ -10,6 +10,8 @@ class User < ApplicationRecord
   before_save :default_heart_capacity, :default_heart_stock
   before_create :uniqu_email
 
+  validates :places, length: { maximum: 5 }
+
   def uniqu_email
     self.errors.add(:email, 'Email is already in use') if User.where(:email => self.email).exists?
   end
