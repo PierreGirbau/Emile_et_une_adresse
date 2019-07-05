@@ -6,15 +6,14 @@
       <div class="modal-content" id="modal-content">
         <%= image_tag("Logo_seul_grand.png", width: '150') %>
         <h1>1000 mercis pour cette adresse !</h1>
-        <p>Grâce à vous, Émile se rapproche des 1000 adresses et l'application sera bientôt ouverte à tous les membres de la communauté. </p>
+        <p>L'application sera bientôt ouverte à tous. </p>
         <p class="margin-bottom-reduce">Le jour J, Émile vous tiendra informé par e-mail.</p>
 
-        <p>En attendant, voici la fiche de votre coup de coeur.</p>
-        <%= link_to place_path(Place.find(params[:place])), id: 'btn-2', class: 'btn btn-emile flex' do %>
-          <p style="padding: 0 !important">VOIR</p>
+        <p>D'ici là, découvrez sans plus attendre votre coup de coeur.</p>
+        <%= link_to place_path(Place.find(params[:place])), id: 'btn-2', class: 'btn btn-emile flex margin-top-24px' do %>
+          <p class="font-size-16px" style="padding: 0 !important">VOIR MON COUP DE COEUR</p>
         <% end %>
 
-        <p>À très vite !</p>
         <!-- <%#= link_to t(".sign_in", default: "En savoir plus"), new_user_session_path, class: "btn btn-emile", style: "padding:5px;"%> -->
 <!--           <input type="button" class="btn btn-emile" id="modal-id-2" value="En savoir plus" onclick="window.location.href='http://www.tranquilleemile.com/'" /> -->
       </div>

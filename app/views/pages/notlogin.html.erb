@@ -5,14 +5,11 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content" id="modal-content">
         <%= image_tag("Logo_seul_grand.png", width: '150') %>
-        <h1>Connectez-vous pour avoir accès à cette page.</h1>
-        <%= link_to '<p>SE CONNECTER</p>'.html_safe, new_user_session_path, id: 'btn-2', class: 'btn btn-emile flex'%>
+        <h1>Connectez-vous pour accéder à cette page !</h1>
+        <%= link_to '<p style="padding: 0;">SE CONNECTER</p>'.html_safe, new_user_session_path, id: 'btn-2', class: 'btn btn-emile flex margin-top-24px'%>
+        <p >Rejoignez-nous dès à présent en partageant votre adresse coup de coeur.  C'est parti ! </p>
 
-        <p>Si vous n'avez pas encore de compte chez nous, c'est très simple. Il suffit de partager une bonne adresse avec nous. C'est par ici ! </p>
-
-        <%= link_to '<p>PARTAGER</p>'.html_safe, new_detail_path, id: 'btn-2', class: 'btn btn-emile flex'%>
-
-        <p>À très vite !</p>
+        <%= link_to '<p style="padding: 0;">PARTAGER</p>'.html_safe, new_detail_path, id: 'btn-2', class: 'btn btn-emile flex margin-top-24px'%>
         <!-- <%#= link_to t(".sign_in", default: "En savoir plus"), new_user_session_path, class: "btn btn-emile", style: "padding:5px;"%> -->
 <!--           <input type="button" class="btn btn-emile" id="modal-id-2" value="En savoir plus" onclick="window.location.href='http://www.tranquilleemile.com/'" /> -->
       </div>

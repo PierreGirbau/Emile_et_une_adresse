@@ -14,7 +14,7 @@
       </div>
       <div class="address">
         <!-- <a href="#oh"><%= @place.address %></a> -->
-        <p><%= link_to @place.address, "https://www.google.com/maps/search/?api=1&query=#{@place.latitude},#{@place.longitude}&query_place_id=#{@place.google_place_id}", target: :_blank %></p>
+        <p class="text-decoration-underline"><%= link_to @place.address, "https://www.google.com/maps/search/?api=1&query=#{@place.latitude},#{@place.longitude}&query_place_id=#{@place.google_place_id}", target: :_blank %></p>
       </div>
       <div class="hearts">
         <p><%= @place.total_heart %></p>
