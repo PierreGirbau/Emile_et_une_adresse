@@ -23,6 +23,7 @@
                            order: [:day, :month, :year], label: "Date de naissance", required: true, class: "date"%>
               <%= f.input :email, label: 'Quel est votre adresse email ?', required: true, autofocus: true, placeholder: 'Adresse email' %>
               <%= f.hidden_field :detail_id, value: params[:id] %>
+              <%= f.hidden_field :detail_id_2, value: params[:detail_id] %>
               <%#= f.input :password, label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: 'Mot de passe', class: "hint" %>
               <%#= f.input :password_confirmation, label: false, required: true, placeholder: 'Confirmez mot de passe' %>
 

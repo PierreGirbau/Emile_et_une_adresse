@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resources :details, only: [:index]
 
   get '/static' => 'pages#static'
+  get '/notlogin' => 'pages#notlogin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
