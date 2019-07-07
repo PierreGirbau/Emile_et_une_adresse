@@ -1,0 +1,14 @@
+<div class="navbar-emile">
+</div>
+<div class="wrapper">
+  <div class="modal fade" id= "modal-id" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="modal-content">
+        <%= image_tag("Logo_seul_grand.png", width: '150') %>
+        <h1>Vous avez déjà partagé un coup de coeur avec vous.</h1>
+        <p>Connectez-vous pour accéder à toutes les fonctionnalités !</p>
+        <%= link_to '<p style="padding: 0;">SE CONNECTER</p>'.html_safe, new_user_session_path, id: 'btn-2', class: 'btn btn-emile flex margin-top-24px'%>
+      </div>
+    </div>
+  </div>
+</div>

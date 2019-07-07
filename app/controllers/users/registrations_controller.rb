@@ -12,10 +12,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     password = 'mimile'
-    return flash[:alert] = 'Email déjà utilisé !' if User.find_by(email: params[:user][:email])
-    user = User.create!(email: params[:user][:email], first_name: params[:user][:first_name], password: password)
-    associate_place_and_detail_to_user
-    redirect_to static_path(place: @place)
+    # return flash[:alert] = 'Email déjà utilisé !' if User.find_by(email: params[:user][:email])
+    if !User.find_by(email: params[:user][:email]).nil?
+      if User.find_by(email: params[:user][:email]).places.include?(Detail.find(params[:user][:detail_id]).place)
+        redirect_to alreadyshared_path
+      else
+        redirect_to alreadylogin_path
+        associate_place_and_detail_to_user
+      end
+    else
+      user = User.create!(email: params[:user][:email], first_name: params[:user][:first_name], password: password)
+      associate_place_and_detail_to_user
+      redirect_to static_path(place: @place)
+    end
   end
 
   def associate_place_and_detail_to_user

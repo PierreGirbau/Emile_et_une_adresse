@@ -8,7 +8,19 @@
   </div>
 
   <div>
-    <div class="plus-button"><div style="margin: 0 !important; color: white; font-size: 32px;"><i class="fa fa-plus"></i></div></div>
+    <% if user_signed_in? && current_user.places.length < 5 %>
+      <%= link_to new_detail_path do %>
+        <div class="plus-button"><div style="margin: 0 !important; color: white; font-size: 32px;"><i class="fa fa-plus"></i></div></div>
+      <% end %>
+    <% elsif user_signed_in? && current_user.places.length >= 5 %>
+      <%= link_to toomanyshared_path do %>
+        <div class="plus-button-inactive"><div style="margin: 0 !important; color: white; font-size: 32px;"><i class="fa fa-plus"></i></div></div>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <div class="plus-button-inactive"><div style="margin: 0 !important; color: white; font-size: 32px;"><i class="fa fa-plus"></i></div></div>
+      <% end %>
+    <% end %>
   </div>
 
   <!-- <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:landing, :static, :notlogin]
+  skip_before_action :authenticate_user!, only: [:landing, :static, :notlogin, :alreadylogin, :alreadyshared]
 
   def home; end
 
@@ -9,4 +9,10 @@ class PagesController < ApplicationController
   def landing; end
 
   def notlogin; end
+
+  def alreadylogin; end
+
+  def alreadyshared; end
+
+  def toomanyshared; end
 end

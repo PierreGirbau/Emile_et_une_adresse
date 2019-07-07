@@ -55,52 +55,138 @@ class PlacesController < ApplicationController
     elsif existing_place.nil?
       @place.total_heart = 0
       @place.type_of_place = @place_detail.type_of_place
+
       if @place.save
         @place_detail.update_columns(place_id: @place.id, comment: @place.comment)
         average_price(@place)
         compute_hearts(@place)
-        redirect_to new_user_registration_app_path(@place_detail)
+
+        if user_signed_in?
+
+          @place = @place_detail.place
+          @place.update_columns(type_of_place: @place_detail.type_of_place)
+          @shared_place.place = @place
+          @shared_place.user = current_user
+          @shared_place.save
+          @place_detail.update_columns(user_id: current_user.id)
+
+          redirect_to place_path(@place)
+
+        else
+          redirect_to new_user_registration_app_path(@place_detail)
+        end
       else
         render :new
       end
 
 
     elsif (existing_place.name === @place.name)
-      existing_place_table = Place.find_by(name: params[:place][:name], type_of_place: 'une bonne table')
-      existing_place_drink = Place.find_by(name: params[:place][:name], type_of_place: 'un bon verre')
-      existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'un bon artisan')
-      # binding.pry
 
-      if existing_place_table.present? && (@place_detail.type_of_place == existing_place_table.type_of_place)
-        @place_detail.update_columns(place_id: existing_place_table.id, comment: params[:place][:comment])
-        average_price(existing_place_table)
-        compute_hearts(existing_place_table)
-        redirect_to new_user_registration_app_path(@place_detail)
 
-      elsif existing_place_drink.present? && (@place_detail.type_of_place == existing_place_drink.type_of_place)
-        @place_detail.update_columns(place_id: existing_place_drink.id, comment: params[:place][:comment])
-        average_price(existing_place_drink)
-        compute_hearts(existing_place_drink)
-        redirect_to new_user_registration_app_path(@place_detail)
 
-      elsif existing_place_club.present? && (@place_detail.type_of_place == existing_place_club.type_of_place)
-        @place_detail.update_columns(place_id: existing_place_club.id,  comment: params[:place][:comment])
-        average_price(existing_place_club)
-        compute_hearts(existing_place_club)
-        redirect_to new_user_registration_app_path(@place_detail)
-
+      #start
+      if user_signed_in? && current_user.places.include?(existing_place)
+        redirect_to alreadyshared_path
       else
-        @place.total_heart = 0
-        @place.type_of_place = @place_detail.type_of_place
-        if @place.save
-          @place_detail.update_columns(place_id: @place.id, comment: params[:place][:comment])
-          average_price(@place)
-          compute_hearts(@place)
-          redirect_to new_user_registration_app_path(@place_detail)
-        else
-          render :new
-        end
+
+                existing_place_table = Place.find_by(name: params[:place][:name], type_of_place: 'une bonne table')
+                existing_place_drink = Place.find_by(name: params[:place][:name], type_of_place: 'un bon verre')
+                existing_place_club = Place.find_by(name: params[:place][:name], type_of_place: 'un bon artisan')
+                # binding.pry
+
+                if existing_place_table.present? && (@place_detail.type_of_place == existing_place_table.type_of_place)
+                  @place_detail.update_columns(place_id: existing_place_table.id, comment: params[:place][:comment])
+                  average_price(existing_place_table)
+                  compute_hearts(existing_place_table)
+
+
+
+                  if user_signed_in?
+
+                    @place = @place_detail.place
+                    @place.update_columns(type_of_place: @place_detail.type_of_place)
+                    @shared_place.place = @place
+                    @shared_place.user = current_user
+                    @shared_place.save
+                    @place_detail.update_columns(user_id: current_user.id)
+
+                    redirect_to place_path(@place)
+                  else
+                    redirect_to new_user_registration_app_path(@place_detail)
+                  end
+
+                elsif existing_place_drink.present? && (@place_detail.type_of_place == existing_place_drink.type_of_place)
+                  @place_detail.update_columns(place_id: existing_place_drink.id, comment: params[:place][:comment])
+                  average_price(existing_place_drink)
+                  compute_hearts(existing_place_drink)
+
+                  if user_signed_in?
+
+                    @place = @place_detail.place
+                    @place.update_columns(type_of_place: @place_detail.type_of_place)
+                    @shared_place.place = @place
+                    @shared_place.user = current_user
+                    @shared_place.save
+                    @place_detail.update_columns(user_id: current_user.id)
+
+                    redirect_to place_path(@place)
+
+                  else
+                    redirect_to new_user_registration_app_path(@place_detail)
+                  end
+
+                elsif existing_place_club.present? && (@place_detail.type_of_place == existing_place_club.type_of_place)
+                  @place_detail.update_columns(place_id: existing_place_club.id,  comment: params[:place][:comment])
+                  average_price(existing_place_club)
+                  compute_hearts(existing_place_club)
+
+
+
+                  if user_signed_in?
+
+                    @place = @place_detail.place
+                    @place.update_columns(type_of_place: @place_detail.type_of_place)
+                    @shared_place.place = @place
+                    @shared_place.user = current_user
+                    @shared_place.save
+                    @place_detail.update_columns(user_id: current_user.id)
+
+                    redirect_to place_path(@place)
+
+                  else
+                    redirect_to new_user_registration_app_path(@place_detail)
+                  end
+
+                else
+                  @place.total_heart = 0
+                  @place.type_of_place = @place_detail.type_of_place
+                  if @place.save
+                    @place_detail.update_columns(place_id: @place.id, comment: params[:place][:comment])
+                    average_price(@place)
+                    compute_hearts(@place)
+
+                    if user_signed_in?
+
+                      @place = @place_detail.place
+                      @place.update_columns(type_of_place: @place_detail.type_of_place)
+                      @shared_place.place = @place
+                      @shared_place.user = current_user
+                      @shared_place.save
+                      @place_detail.update_columns(user_id: current_user.id)
+
+                      redirect_to place_path(@place)
+
+                    else
+                      redirect_to new_user_registration_app_path(@place_detail)
+                    end
+
+                  else
+                    render :new
+                  end
+                end
+
       end
+
     end
   end
 
