@@ -51,7 +51,7 @@
     <% end %>
 
     <p style="padding-left: 20px;"><b>Ce qui fait vibrer la communauté :</b></p>
-    <% @place.details.each do |detail| %>
+    <% @place.details.order('created_at DESC').each do |detail| %>
       <div class="comment-box">
         <p><%= detail&.comment %> - <b><%= detail&.user&.first_name %></b></p>
       </div>

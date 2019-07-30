@@ -1,6 +1,6 @@
 <%#= render 'shared/navbar_show' %>
 <div class="wrapper">
-  <div class="container">
+  <div class="container" style="padding-bottom: 70px;">
     <div class="row show">
       <h2>Mes adresses favorites</h2>
       <% if @saved_places.empty? %>
@@ -96,7 +96,8 @@
 
         <div class="saved_places">
           <div class="few-results">
-            <p>Vous avez partagé <%= current_user.places.count %> coups de coeur. Il vous reste <%= 5 - current_user.places.count %> partages.</p>
+            <p>Vous avez partagé <%= current_user.places.count %> coups de coeur.
+              Il vous reste <%=  pluralize(5 - current_user.places.count, 'partage') %> .</p>
           </div>
         </div>
 
