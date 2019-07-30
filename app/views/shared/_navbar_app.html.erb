@@ -1,11 +1,17 @@
 <div class="footer oli">
 
   <div>
-    <% if user_signed_in? %>
-      <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to ' Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, places_path %></div>
-    <% else %>
-      <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to ' Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, notlogin_path %></div>
-    <% end %>
+      <% if user_signed_in? %>
+        <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to ' Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, places_path %></div>
+      <% else %>
+        <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to ' Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, notlogin_path %></div>
+      <% end %>
+    <!--   <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
+      <% if user_signed_in? %>
+        <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, user_path(current_user) %></div>
+      <% else %>
+        <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, notlogin_path %></div>
+      <% end %>
   </div>
 
   <div>
@@ -25,7 +31,7 @@
   </div>
 
   <!-- <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
-  <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, "#" %></div>
+<!--   <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, "#" %></div> -->
 
 </div>
 
