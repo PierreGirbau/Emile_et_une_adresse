@@ -1,4 +1,5 @@
 <div class="footer oli">
+
   <div>
     <% if user_signed_in? %>
       <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to ' Explorer <i class="fa fas fa-map-marker-alt"></i>'.html_safe, places_path %></div>
@@ -25,6 +26,7 @@
 
   <!-- <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
   <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, "#" %></div>
+
 </div>
 
 

@@ -57,7 +57,11 @@
       </div>
     <% end %>
     <div class="other-infos">
-      <%= link_to "Ajouter dans mes favoris", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
+      <% if user_signed_in? %>
+        <%= link_to "Ajouter dans mes favoris", place_saved_places_path(@place), method: :post, class: "btn btn-emile", id: "save" %>
+      <% else %>
+        <%= link_to "Ajouter dans mes favoris", notlogin_path, class: "btn btn-emile", id: "save" %>
+      <% end %>
     </div>
       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
   </div>
