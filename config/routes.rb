@@ -42,6 +42,9 @@ Rails.application.routes.draw do
 
   get '/static' => 'pages#static'
   get '/notlogin' => 'pages#notlogin'
+  get '/alreadylogin' => 'pages#alreadylogin'
+  get '/alreadyshared' => 'pages#alreadyshared'
+  get '/toomanyshared' => 'pages#toomanyshared'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

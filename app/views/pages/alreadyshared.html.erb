@@ -1,0 +1,18 @@
+<div class="navbar-emile">
+</div>
+<div class="wrapper">
+  <div class="modal fade" id= "modal-id" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" id="modal-content">
+        <%= image_tag("Logo_seul_grand.png", width: '150') %>
+        <h1>Vous avez déjà partagé cet établissement !</h1>
+<!--         <p>Connectez-vous pour en partager d'autres.</p> -->
+        <%= link_to '<p style="padding: 0;">RETOUR</p>'.html_safe, new_user_session_path, id: 'btn-2', class: 'btn btn-emile flex margin-top-24px'%>
+
+
+        <!-- <%#= link_to t(".sign_in", default: "En savoir plus"), new_user_session_path, class: "btn btn-emile", style: "padding:5px;"%> -->
+<!--           <input type="button" class="btn btn-emile" id="modal-id-2" value="En savoir plus" onclick="window.location.href='http://www.tranquilleemile.com/'" /> -->
+      </div>
+    </div>
+  </div>
+</div>

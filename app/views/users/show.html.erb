@@ -61,7 +61,7 @@
                   </div>
                 </div>
               <% end %>
-              
+
             </div>
           <% else %>
             <div class="col-xs-12 col-sm-12 col-md-4">
@@ -85,14 +85,21 @@
                   </div>
                 </div>
               <% end %>
-              
+
             </div>
           <% end %>
         <% end %>
       <% end %>
       </div>
       <div class="row show">
-        <h2>Mes adresses partagées</h2>        
+        <h2>Mes adresses partagées</h2>
+
+        <div class="saved_places">
+          <div class="few-results">
+            <p>Vous avez partagé <%= current_user.places.count %> coups de coeur. Il vous reste <%= 5 - current_user.places.count %> partages.</p>
+          </div>
+        </div>
+
         <% if current_user.places.empty? %>
           <div class="few-results">
             <p>Tu n'as encore aucune adresse partagée</p>
