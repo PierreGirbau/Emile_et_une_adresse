@@ -1,0 +1,16 @@
+<%= form_with url: places_path, method: :get, local: true do |f| %>
+  <p style="color: white; text-align: center; margin-top: 30px;">Je recherche :</p>
+
+
+  <%= f.select :type_of_place, ['un bon verre', 'une bonne table', 'un bon artisan'], {}, { class: 'select-button-form' } %>
+
+  <div class="d-flex encapsulate-input" style="margin-top: 10px">
+    <%= f.text_field :query, class: 'input-button-form', id: 'places_params' %>
+    <span class="geolocate-button" id="geoloc"><i class="fa fa-compass"></i></span>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <%= f.submit "Explorer", class: "btn btn-emile", id: "go-emile" %>
+  </div>
+<% end %>
+

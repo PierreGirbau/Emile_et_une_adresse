@@ -15,6 +15,8 @@ import { radarSearch } from '../components/radar_search';
 import { counter } from '../components/counter';
 import { radioButtonsAddClass, radioButtonsAddClass2 } from '../components/radio_buttons_add_class';
 import { geoloc } from '../components/geoloc';
+import { geolocalisation } from '../components/geolocalisation';
+import { autocomp } from '../components/single_autocomplete';
 import { radioButtonsChecked, submitTag } from '../components/radio_buttons_checked';
 import 'bootstrap';
 
@@ -61,3 +63,11 @@ if ( document.getElementById('go-emile') ) {
   radioButtonsChecked();
   submitTag();
 };
+
+if ( document.querySelector('.geolocate-button') ) {
+  geolocalisation();
+}
+
+if ( document.getElementById('places_params') ) {
+  autocomp();
+}
