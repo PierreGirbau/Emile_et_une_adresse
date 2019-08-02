@@ -5,9 +5,9 @@ function autocomplete() {
       new google.maps.LatLng(48.8566667, 2.3509871));
     // console.log(parisPosition)
     let options = {
-      bounds: parisPosition,
-      types: ['establishment'],
-      componentRestrictions: {country: ['fr']}
+      // bounds: parisPosition,
+      types: ['establishment']
+      // componentRestrictions: {country: ['fr']}
       };
     if (placeAddress) {
       let autocomplete = new google.maps.places.Autocomplete(placeAddress, options);
