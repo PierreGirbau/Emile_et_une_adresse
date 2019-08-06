@@ -28,13 +28,13 @@
 
   <div>
     <% if user_signed_in? %>
-      <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> <br>Favoris".html_safe, user_path(current_user) %></div>
+      <div><%= link_to "<i class='fa fas fa-heart pinkk'></i><br>Favoris".html_safe, user_path(current_user) %></div>
     <% else %>
-      <div><%= link_to "<i class='fa fas fa-heart pinkk'></i> <br>Favoris".html_safe, notlogin_path %></div>
+      <div><%= link_to "<i class='fa fas fa-heart pinkk'></i><br>Favoris".html_safe, notlogin_path %></div>
     <% end %>
   </div>
 
-<!--   <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
+<!-- <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
 <!--   <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, "#" %></div> -->
 
 </div>
