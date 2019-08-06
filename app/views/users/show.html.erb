@@ -94,16 +94,14 @@
       <div class="row show">
         <h2>Mes adresses partagées</h2>
 
-        <div class="saved_places">
-          <div class="few-results">
-            <p>Vous avez partagé <%= current_user.places.count %> coups de coeur.
-              Il vous reste <%=  pluralize(5 - current_user.places.count, 'partage') %> .</p>
-          </div>
-        </div>
-
         <% if current_user.places.empty? %>
-          <div class="few-results">
-            <p>Tu n'as encore aucune adresse partagée</p>
+
+          <div class="saved_places">
+            <div class="few-results">
+              <p>Vous avez partagé <%= current_user.places.count %> coups de coeur.
+                Il vous reste <%=  pluralize(5 - current_user.places.count, 'partage') %> .</p>
+            </div>
+            <!-- <p>Tu n'as encore aucune adresse partagée</p> -->
           </div>
         <% else %>
           <% current_user.places.each do |shared_place| %>

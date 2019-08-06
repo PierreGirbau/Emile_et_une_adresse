@@ -101,6 +101,12 @@ h3 {
   text-align: center;
   color: $blue;
   border-radius: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   h1 {
     font-size: 20px;
     font-weight: bold;
