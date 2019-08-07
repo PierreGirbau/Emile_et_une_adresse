@@ -2,9 +2,17 @@
 
   <div>
       <% if user_signed_in? %>
-        <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to '<i class="fa fas fa-map-marker-alt"></i> <br>Explorer'.html_safe, places_path %></div>
+        <div>
+          <%= link_to places_path do %>
+            <%= image_tag("Logo_seul.png", width: '20') %><br>Explorer
+          <% end %>
+        </div>
       <% else %>
-        <div><%= image_tag("Logo_seul.png", width: '20') %><%= link_to '<i class="fa fas fa-map-marker-alt"></i> <br>Explorer'.html_safe, notlogin_path %></div>
+        <div>
+          <%= link_to notlogin_path do %>
+            <%= image_tag("Logo_seul.png", width: '20') %><br>Explorer
+          <% end %>
+        </div>
       <% end %>
     <!--   <div><%#= link_to "<i class='fa fas fa-heart pinkk'></i> Favoris".html_safe, destroy_user_session_path, method: :delete %></div> -->
 

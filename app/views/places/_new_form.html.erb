@@ -1,10 +1,10 @@
 <%= form_with url: places_path, method: :get, local: true do |f| %>
   <p style="color: white; text-align: center; margin-top: 30px;">Je recherche :</p>
 
-  <%= f.select :type_of_place, ['un bon verre', 'une bonne table', 'un bon artisan'], {}, { class: 'select-button-form' } %>
+  <%= f.select :type_of_place, ['un bon verre', 'une bonne table', 'un bon artisan'], { selected: params[:type_of_place] }, { class: 'select-button-form' } %>
 
   <div class="d-flex encapsulate-input" style="margin-top: 5px">
-    <%= f.text_field :query, class: 'input-button-form', id: 'places_params' %>
+    <%= f.text_field :query, value: params[:query], class: 'input-button-form', id: 'places_params' %>
     <span class="geolocate-button"><%= image_tag "compass.png", class: "compass-button" %></span>
   </div>
 
