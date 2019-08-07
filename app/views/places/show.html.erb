@@ -63,6 +63,7 @@
         <%= link_to "Ajouter dans mes favoris", notlogin_path, class: "btn btn-emile", id: "save" %>
       <% end %>
     </div>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
+      <%#= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://goo.gl/FPQceH|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&sensor=false&maptype=roadmap&markers=icon:https://res.cloudinary.com/dprhse19b/image/upload/v1565192841/android-icon-48x48_epu64b.png|#{@place.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", class: "map" %>
   </div>
   <%= render 'shared/navbar_app' %>

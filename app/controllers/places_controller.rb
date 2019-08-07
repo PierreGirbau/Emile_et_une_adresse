@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :upvote, :downvote, :score]
   before_action :find_place_detail, only: [:new]
-  skip_before_action :authenticate_user!, only: [:edit, :update, :show, :index, :new, :create, :average_price, :compute_hearts]
+  skip_before_action :authenticate_user!, only: [:edit, :update, :show, :new, :create, :average_price, :compute_hearts]
 
   def oli
 
