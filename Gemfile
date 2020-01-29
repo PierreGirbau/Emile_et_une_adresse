@@ -23,6 +23,7 @@ gem 'webpacker'
 gem 'jquery-rails'
 gem 'pg_search'
 gem 'rails_admin', '~> 1.3'
+gem 'rb-readline'
 
 group :development do
   gem 'rails_real_favicon'
@@ -32,8 +33,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-byebug'
-  gem 'pry-rails'
+  # gem 'pry-byebug'
+  # gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
